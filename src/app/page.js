@@ -1,6 +1,9 @@
+import {FloatingMenu} from "@/components/floatingMenu";
+
 export default function Home() {
   return (
-    <div>
+    <div className="bg-white dark:bg-black">
+      <FloatingMenu />
     </div>
   );
 }

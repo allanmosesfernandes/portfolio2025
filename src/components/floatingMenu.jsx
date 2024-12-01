@@ -11,27 +11,21 @@ import Link from "next/link";
 import {useEffect, useState} from "react";
 
 export const FloatingMenu = () => {
+
     const [isDark, setIsDark] = useState(false);
 
     useEffect(() => {
-        // Load saved theme from localStorage
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-            setIsDark(true);
+        if (isDark) {
+            document.querySelector('html')?.classList.remove('dark');
+        } else {
+            document.querySelector('html')?.classList.add('dark');
         }
-    }, []);
+    }, [isDark]);
 
     const toggleTheme = () => {
-        if (isDark) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-        } else {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-        }
-        setIsDark(!isDark);
+        setIsDark(isDark === true ? false : true);
     };
+
     return (
         <div className="fixed-floating-menu">
             <nav
@@ -52,10 +46,8 @@ export const FloatingMenu = () => {
                     <p>Linkedin</p>
                     <Image src={linkedin} alt={home} width={20} height={20}/>
                 </Link>
-                {/* Light mode toggle switch*/}
-                <Image src={moon} alt={sun} width={20} height={20}/>
-                <button onClick={toggleTheme} className="fixed-floating-menu">
-                    {isDark ? '🌞 Light Mode' : '🌜 Dark Mode'}
+                <button onClick={toggleTheme} className="text-white">
+                    {isDark ? <Image src={moon} alt="moon" width={20} height={20}/> : <Image src={sun} alt="Sun5" width={20} height={20}/>}
                 </button>
             </nav>
         </div>

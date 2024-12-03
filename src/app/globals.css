@@ -28,7 +28,7 @@ body {
 }
 
 .fixed-floating-menu:hover {
-  transform: translateX(-50%) scale(1.05);
+  transform: translateX(-50%) scaleX(1.05);
 }
 
 .fixed-floating-menu img:hover {

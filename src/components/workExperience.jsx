@@ -1,48 +1,37 @@
 import Image from "next/image"
+import Link from "next/link"
+import { workJSON } from "@/app/utils"
+import chevron from "/src/app/assets/chevron.svg"
 
 const WorkExperience = () => {
-    const workJSON = [
-        {
-            company: "Responsible Life",
-            logo: "/rlife.svg",
-            companyUrl: "https://responsiblelife.co.uk",
-            id: 'xxx01',
-            role: "Web developer",
-            startDate: "18/09/2023",
-            endDate: "Present",
-            description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  lorem ipsum lorem ipsum"
-        },
-        {
-            company: "Nottingham Trent Students' Union",
-            logo: "/ntsu-logo.png",
-            companyUrl: "https://responsiblelife.co.uk",
-            id: 'xxx02',
-            role: "Web developer",
-            startDate: "18/09/2022",
-            endDate: "18/09/2023",
-            description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  lorem ipsum lorem ipsum"
-        },
-        {
-            company: "THIS IS! Digital Media Group",
-            logo: "/this-is-dmg.svg",
-            companyUrl: "https://responsiblelife.co.uk",
-            id: 'xxx03',
-            role: "Frontend Developer",
-            startDate: "18/09/2023",
-            endDate: "Present",
-            description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  lorem ipsum lorem ipsum"
-        },
 
-    ]
     return (
         <div>
             {
                 workJSON.map((workPlace) => {
                     return (
-                        <div className="mt-4 mb-6 flex gap-4" key={workPlace.id}>
-                            <Image src={workPlace.logo} alt={workPlace.company} width={100} height={100} title={workPlace.company} className="inline object-cover"/>
+                        <div className="mt-4 mb-6 flex gap-4 cursor-pointer" key={workPlace.id}>
+                            <Image src={workPlace.logo} alt={workPlace.company} width={80} height={80} title={workPlace.company} className="inline object-contain w-100"/>
                             <div>
-                                <h4 className="text-black dark:text-white font-bold text-md">{workPlace.company}</h4>
+                                <Link href={workPlace.companyUrl} target="_blank">
+                                    <div className="flex items-center gap-1">
+                                        <h4 className="text-black dark:text-white font-bold text-md">{workPlace.company}</h4>
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="24"
+                                                height="24"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                className="lucide lucide-chevron-right size-4 transform transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100 stroke-black dark:stroke-white"
+                                            >
+                                                <path d="m9 18 6-6-6-6"></path>
+                                            </svg>
+                                    </div>
+                                </Link>
                                 <p className="text-black dark:text-white text-sm">{workPlace.role}</p>
                             </div>
                             <p className="ml-auto text-black dark:text-white text-md">{workPlace.startDate} - {workPlace.endDate}</p>

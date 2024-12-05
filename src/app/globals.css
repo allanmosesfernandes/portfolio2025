@@ -46,3 +46,18 @@ body {
   padding: 10px;
   border-radius: 10px;
 }
+
+.hover-links {
+  border-bottom: 3px dashed #F9A600;
+  position: relative;
+  background-position-y: 100%;
+}
+
+.hover-links:hover {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0nc3F1aWdnbGUtbGluaycgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluaycgeG1sbnM6ZXY9J2h0dHA6Ly93d3cudzMub3JnLzIwMDEveG1sLWV2ZW50cycgdmlld0JveD0nMCAwIDIwIDQnPjxzdHlsZSB0eXBlPSd0ZXh0L2Nzcyc+LnNxdWlnZ2xle2FuaW1hdGlvbjpzaGlmdCAuNHMgbGluZWFyIGluZmluaXRlO31Aa2V5ZnJhbWVzIHNoaWZ0IHtmcm9tIHt0cmFuc2Zvcm06dHJhbnNsYXRlWCgwKTt9dG8ge3RyYW5zZm9ybTp0cmFuc2xhdGVYKC0yMHB4KTt9fTwvc3R5bGU+PHBhdGggZmlsbD0nbm9uZScgc3Ryb2tlPScjRjlBNjAwJyBzdHJva2Utd2lkdGg9JzInIGNsYXNzPSdzcXVpZ2dsZScgZD0nTTAsMy41IGMgNSwwLDUsLTMsMTAsLTMgcyA1LDMsMTAsMyBjIDUsMCw1LC0zLDEwLC0zIHMgNSwzLDEwLDMnLz48L3N2Zz4=);
+    background-size: auto 6px;
+    background-repeat: repeat-x;
+    text-decoration: none;
+    border-bottom: none;
+    transition: 0.2s ease-in-out;
+}

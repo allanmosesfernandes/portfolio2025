@@ -1,21 +1,31 @@
+"use client"
 import Image from "next/image"
 import Link from "next/link"
 import { workJSON } from "@/app/utils"
 import chevron from "/src/app/assets/chevron.svg"
+import { useState } from "react"
 
 const WorkExperience = () => {
-
+    const [openBlockIds, setOpenBlockIds] = useState([]);
+    const toggleDescription = (id) => {
+        setOpenBlockIds((prevIds) =>
+            prevIds.includes(id)
+                ? prevIds.filter((prevId) => prevId !== id)
+                : [...prevIds, id]
+        );
+    };
     return (
         <div>
             {
                 workJSON.map((workPlace) => {
-                    return (
-                        <div className="mt-4 mb-6 flex gap-4 cursor-pointer" key={workPlace.id}>
-                            <Image src={workPlace.logo} alt={workPlace.company} width={80} height={80} title={workPlace.company} className="inline object-contain w-100"/>
-                            <div>
-                                <Link href={workPlace.companyUrl} target="_blank">
-                                    <div className="flex items-center gap-1">
-                                        <h4 className="text-black dark:text-white font-bold text-md">{workPlace.company}</h4>
+                        const isOpen = openBlockIds.includes(workPlace.id);
+                        return (
+                            <div className="mt-4 mb-6 flex-col gap-4 cursor-pointer group" key={workPlace.id} onClick={() => toggleDescription(workPlace.id)}>
+                                <div className="flex">
+                                    <Image src={workPlace.logo} alt={workPlace.company} width={80} height={80} title={workPlace.company} className="w-[80px] h-[50px] inline object-scale-down mr-4"/>
+                                    <div>
+                                        <div className="flex items-center gap-1">
+                                            <h4 className="text-black dark:text-white font-bold text-md">{workPlace.company}</h4>
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="24"
@@ -26,17 +36,24 @@ const WorkExperience = () => {
                                                 strokeWidth="2"
                                                 strokeLinecap="round"
                                                 strokeLinejoin="round"
-                                                className="lucide lucide-chevron-right size-4 transform transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100 stroke-black dark:stroke-white"
+                                                className="lucide lucide-chevron-right size-4 transform transition-all duration-300 ease-out opacity-0 group-hover:opacity-100 group-hover:translate-x-1 stroke-black dark:stroke-white"
                                             >
                                                 <path d="m9 18 6-6-6-6"></path>
                                             </svg>
+                                        </div>
+                                        <p className="text-black dark:text-white text-sm">{workPlace.role}</p>
                                     </div>
-                                </Link>
-                                <p className="text-black dark:text-white text-sm">{workPlace.role}</p>
+                                    <div className='ml-auto'>
+                                        <p className="ml-auto text-black dark:text-white text-md">{workPlace.startDate} - {workPlace.endDate}</p>
+                                        <p className="text-black dark:text-white text-md hidden">{workPlace.description}</p>
+                                    </div>
+                                </div>
+                                <div className={`transition-all ml-[100px] duration-500 overflow-hidden ${isOpen ? "max-h-40" : "max-h-0"}`}>
+                                    <p className="text-black dark:text-white text-md mt-2">
+                                        {workPlace.description}
+                                    </p>
+                                </div>
                             </div>
-                            <p className="ml-auto text-black dark:text-white text-md">{workPlace.startDate} - {workPlace.endDate}</p>
-                            <p className="text-black dark:text-white text-md hidden">{workPlace.description}</p>
-                        </div>
                     )
                 })
             }

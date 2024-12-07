@@ -19,7 +19,7 @@ const workJSON = [
         startDate: 'Sep 2022',
         endDate: 'Aug 2023',
         description:
-            'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  lorem ipsum lorem ipsum',
+            'Developed and deployed websites for multiple student union projects, seamlessly aligning design and functionality requirements to address the diverse needs of stakeholders and members.',
     },
     {
         company: 'THIS IS! Digital Media Group',
@@ -30,7 +30,7 @@ const workJSON = [
         startDate: 'May 2021',
         endDate: 'Feb 2022',
         description:
-            'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  lorem ipsum lorem ipsum',
+            'Designed and developed interactive web applications for DMG, a German startup, ensuring compliance with strict GDPR regulations and prioritizing accessibility to align with EU standards and requirements.',
     },
     {
         company: 'The Starter Labs',
@@ -41,7 +41,7 @@ const workJSON = [
         startDate: 'Sep 2020',
         endDate: 'May 2021',
         description:
-            'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  lorem ipsum lorem ipsum',
+            'Established and led the in-house web department at Starter Labs, driving the setup of efficient project pipelines and ensuring seamless execution of initiatives.',
     },
     {
         company: 'Unifynd Technologies',
@@ -52,7 +52,7 @@ const workJSON = [
         startDate: 'Nov 2018',
         endDate: 'Aug 2020',
         description:
-            'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  lorem ipsum lorem ipsum',
+            "Developed visual interfaces for the rewards program of Phoenix Market City, one of India's leading retail merchants, including admin dashboards and web components.",
     },
 ];
 
@@ -75,4 +75,7 @@ const educationJSON = [
     },
 ];
 
-export { workJSON, educationJSON };
+const skills = ['React', 'Next.js', 'Tailwind CSS', 'Gatsby','Docker', 'Twig','My SQL','AWS','Playwright', 'Sass', 'JavaScript', 'jQuery', 'Firebase','Node.js']
+
+
+export { workJSON, educationJSON, skills };

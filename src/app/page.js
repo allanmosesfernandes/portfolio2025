@@ -1,3 +1,4 @@
+'use client';
 import { FloatingMenu } from '@/components/floatingMenu';
 import wavingHand from '@/app/assets/waving-hand.png';
 import headshot from "@/app/assets/profile.png";
@@ -6,6 +7,9 @@ import Image from 'next/image';
 import WorkExperience from '@/components/workExperience';
 import Link from 'next/link';
 import Education from '@/components/Education';
+import Arrow from '@/app/assets/arrow.svg';
+import { ReactTyped } from 'react-typed';
+import Skills from '@/components/Skills';
 
 export default function Home() {
     return (
@@ -25,9 +29,16 @@ export default function Home() {
                             />
                         </span>
                     </h2>
+                    <Image
+                        src={Arrow}
+                        alt="arrow"
+                        width={50}
+                        height={50}
+                        title="Avatar"
+                        className="my-2 inline"
+                    />
                     <p className="text-black dark:text-white md:text-xl">
-                        a mediocre front-end developer, I like b̶r̶e̶a̶k̶i̶n̶g̶&nbsp; building cool things
-                        that live on the internet.
+                        a <ReactTyped strings={['frontend developer', 'CSS fanboy', 'espresso fanatic ☕', 'perpetual learner']} typeSpeed={40} loop backSpeed={50} backDelay={100} startDelay={100}/>, <br />I like b̶r̶e̶a̶k̶i̶n̶g̶&nbsp; building cool things that live on the internet 🌐
                     </p>
                 </div>
                 <Image
@@ -36,7 +47,7 @@ export default function Home() {
                     width={150}
                     height={150}
                     title="Avatar"
-                    className="ml-4 inline"
+                    className="ml-4 inline object-contain"
                 />
             </div>
             <h3 className="text-black dark:text-white font-bold text-2xl">About</h3>
@@ -62,6 +73,7 @@ export default function Home() {
             </p>
             <WorkExperience />
             <Education />
+            <Skills />
             <FloatingMenu />
         </div>
     );

@@ -46,9 +46,12 @@ export const FloatingMenu = () => {
                     <p>Linkedin</p>
                     <Image src={linkedin} alt={home} width={20} height={20}/>
                 </Link>
-                <button onClick={toggleTheme} className="text-white">
-                    {isDark ? <Image src={moon} alt="moon" width={20} height={20}/> : <Image src={sun} alt="Sun5" width={20} height={20}/>}
-                </button>
+                <Link href="#">
+                    <p>Darkmode</p>
+                    <button onClick={toggleTheme} className="text-white">
+                        {isDark ? <Image src={moon} alt="moon" width={20} height={20}/> : <Image src={sun} alt="Sun5" width={20} height={20}/>}
+                    </button>
+                </Link>
             </nav>
         </div>
     )

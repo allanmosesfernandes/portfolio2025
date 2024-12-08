@@ -14,7 +14,7 @@ import Skills from '@/components/Skills';
 export default function Home() {
     return (
         <div className="max-w-2xl mt-16 mx-auto px-5 bg-white dark:bg-black space-y-4 font-sans">
-            <div class="introduction flex">
+            <div className="introduction flex">
                 <div>
                     <h2 className="text-black dark:text-white font-bold sm:text-5xl text-3xl flex items-center">
                         Hi, I'm Allan

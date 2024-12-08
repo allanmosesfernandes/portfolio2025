@@ -16,9 +16,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
       <body
-        className={`bg-white dark:bg-black antialiased ${fira.variable}`}
+        className={`bg-white dark:bg-black antialiased`}
       >
-        {children}
+        <div className="max-w-2xl mt-16 mx-auto px-5 bg-white dark:bg-black space-y-4 font-sans">
+          {children}
+        </div>
       </body>
     </html>
   );

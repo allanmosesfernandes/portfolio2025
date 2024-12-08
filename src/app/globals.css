@@ -17,6 +17,7 @@
 body {
   background: var(--background);
   -webkit-font-smoothing: antialiased;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .fixed-floating-menu {
@@ -48,7 +49,7 @@ body {
 }
 
 .hover-links {
-  border-bottom: 3px dashed #F9A600;
+  border-bottom: 3px dashed #FF5A26;
   position: relative;
   background-position-y: 100%;
 }
@@ -60,4 +61,11 @@ body {
     text-decoration: none;
     border-bottom: none;
     transition: 0.2s ease-in-out;
+}
+
+.blog-li {
+  border: 2px solid #FF5A26;
+  padding: 5px 10px 10px;
+  box-shadow: #FF5A26 2px 2px 0px;
+  margin-bottom: 2rem;
 }

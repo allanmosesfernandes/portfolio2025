@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { getSortedPostsData } from '../lib/posts';
 
 const Blog = () => {
@@ -12,20 +13,22 @@ const Blog = () => {
                 textual form.
             </p>
             <ul className="mt-8">
-                {allPostsData.map(({ id, title, date, tags }) => (
-                    <li key={id} className="blog-li">
-                        <h3>{title}</h3>
-                        <p>{date}</p>
-                        {tags &&
-                            tags.map((tag, index) => (
-                                <span
-                                    key={index}
-                                    className="dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-lg px-2 py-1"
-                                >
-                                    {tag}
-                                </span>
-                            ))}
-                    </li>
+                {allPostsData.map(({ id, title, date, tags, slug }) => (
+                    <Link href={`/blog/${slug}`} key={id}>
+                        <li key={id} className="blog-li">
+                            <h3>{title}</h3>
+                            <p className="my-2">{date}</p>
+                            {tags &&
+                                tags.map((tag, index) => (
+                                    <span
+                                        key={index}
+                                        className="dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-lg px-2 py-1 mr-2"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                        </li>
+                    </Link>
                 ))}
             </ul>
         </div>

@@ -11,6 +11,7 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        pantone: "var(--pantone)",
       },
       fontFamily: {
         sans: ['var(--font-fira)']

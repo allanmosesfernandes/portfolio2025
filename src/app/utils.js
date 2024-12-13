@@ -77,5 +77,24 @@ const educationJSON = [
 
 const skills = ['React', 'Next.js', 'Tailwind CSS', 'Gatsby','Docker', 'Twig','My SQL','AWS','Playwright', 'Sass', 'JavaScript', 'jQuery', 'Firebase','Node.js']
 
-
-export { workJSON, educationJSON, skills };
+const projects = [
+    {
+        image: '/projects/rldn.png',
+        title: 'Royal London, Equity Release',
+        date: 'August 2024 - October 2024',
+        summary:
+            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products and regularly update the website to keep up with the latest marketing campaigns.',
+        tools: ['Javascript', 'Twig', 'PHP', 'Sass', 'Docker'],
+        website: 'https://equityrelease.royallondon.com/',
+    },
+    {
+        image: '/projects/daily-stoic.png',
+        title: 'Daily Stoic Reminders',
+        date: 'Dec 2023 - February 2024',
+        summary:
+            'Conceptualized, designed and developed a web app for daily stoic reminders. The app generates daily stoic reminders to users to read a stoic quote and reflect on it. Featured on product hunt and received 50+ upvotes.',
+        tools: ['React', 'Styled Components', 'Netlify'],
+        website: 'https://dailystoicreminders.uk/',
+    },
+];
+export { workJSON, educationJSON, skills, projects };

@@ -10,6 +10,7 @@ import Education from '@/components/Education';
 import Arrow from '@/app/assets/arrow.svg';
 import { ReactTyped } from 'react-typed';
 import Skills from '@/components/Skills';
+import Projects from '@/components/Projects';
 
 export default function Home() {
     return (
@@ -74,6 +75,7 @@ export default function Home() {
             <WorkExperience />
             <Education />
             <Skills />
+            <Projects />
             <FloatingMenu />
         </div>
     );

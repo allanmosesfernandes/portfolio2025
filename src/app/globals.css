@@ -22,7 +22,7 @@ body {
 
 .fixed-floating-menu {
   position: fixed;
-  bottom: 30px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   transition: transform 0.2s ease-in-out;

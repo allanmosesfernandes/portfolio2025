@@ -1,7 +1,7 @@
 'use client';
 import { FloatingMenu } from '@/components/floatingMenu';
 import wavingHand from '@/app/assets/waving-hand.png';
-import headshot from "@/app/assets/profile.png";
+import headshot from "@/app/assets/nerd.png";
 import headshot2 from "@/app/assets/profile-2.jpg";
 import Image from 'next/image';
 import WorkExperience from '@/components/workExperience';
@@ -48,7 +48,7 @@ export default function Home() {
                     width={150}
                     height={150}
                     title="Avatar"
-                    className="ml-4 inline object-contain"
+                    className="ml-4 inline object-contain avatar"
                 />
             </div>
             <h3 className="text-black dark:text-white font-bold text-2xl">About</h3>

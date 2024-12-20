@@ -1,11 +1,11 @@
 ---
 title: 'Two Forms of Pre-rendering lodu'
-date: '2020-01-01'
+date: '2024-12-20T14:20:59.072Z'
 tags:
   - test
   - frontend
   - pre-rendering
-summary: ''
+summary: 'Importantly, Next.js lets you **choose** which pre-rendering form to use for each page. You can create a "hybrid" Next.js app by using Static Generation...'
 slug: 'your-post-slug'
 ---
 

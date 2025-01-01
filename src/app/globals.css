@@ -21,6 +21,11 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
+.blog-article img{
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+}
 .fixed-floating-menu {
   position: fixed;
   bottom: 10px;

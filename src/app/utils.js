@@ -75,7 +75,22 @@ const educationJSON = [
     },
 ];
 
-const skills = ['React', 'Next.js', 'Tailwind CSS', 'Gatsby','Docker', 'Twig','My SQL','AWS','Playwright', 'Sass', 'JavaScript', 'jQuery', 'Firebase','Node.js']
+const skills = [
+    'React',
+    'Next.js',
+    'Tailwind CSS',
+    'Gatsby',
+    'Docker',
+    'Twig',
+    'My SQL',
+    'AWS',
+    'Playwright',
+    'Sass',
+    'JavaScript',
+    'jQuery',
+    'Firebase',
+    'Node.js',
+];
 
 const projects = [
     {
@@ -93,26 +108,26 @@ const projects = [
         date: 'Dec 2023 - February 2024',
         summary:
             'Conceptualized, designed and developed a web app for daily stoic reminders. The app generates daily stoic reminders to users to read a stoic quote and reflect on it.',
-        tools: ['React', 'Firebase','Styled Components', 'Netlify'],
+        tools: ['React', 'Firebase', 'Styled Components', 'Netlify'],
         website: 'https://dailystoicreminders.uk/',
     },
     {
-        image: '/projects/rldn.png',
-        title: 'Royal London, Equity Release',
-        date: 'August 2024 - October 2024',
+        image: '/projects/what-is-wrong-jaron.png',
+        title: 'What is wrong with Jaron',
+        date: 'August 2021 - October 2021',
         summary:
-            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products and regularly update the website to keep up with the latest marketing campaigns.',
-        tools: ['Javascript', 'Twig', 'PHP', 'Sass', 'Docker'],
-        website: 'https://equityrelease.royallondon.com/',
+            "Developed the frontend for What's Wrong with Jaron?, an online course designed for schools to help identify and respond to concerning student behavior. The project aims to prevent sexual abuse in educational settings.",
+        tools: ['Wordpress', 'Javascript', 'PHP'],
+        website: 'https://www.was-ist-los-mit-jaron.de/',
     },
     {
-        image: '/projects/daily-stoic.png',
-        title: 'Daily Stoic Reminders',
-        date: 'Dec 2023 - February 2024',
+        image: '/projects/common-thread.png',
+        title: 'The Common Thread',
+        date: 'August 2023 - September 2023',
         summary:
-            'Conceptualized, designed and developed a web app for daily stoic reminders. The app generates daily stoic reminders to users to read a stoic quote and reflect on it. Featured on product hunt and received 50+ upvotes.',
-        tools: ['React', 'Styled Components', 'Netlify'],
-        website: 'https://dailystoicreminders.uk/',
+            'Website design and development for Ankan Chittalipi, a fashion merchandiser and trend forecaster using Wordpress as a headless CMS and developing the frontend in react.',
+        tools: ['React', 'Wordpress'],
+        website: 'https://ankanchittalipi.com/',
     },
 ];
 
@@ -122,5 +137,4 @@ const formatDate = (isoString) => {
     return date.toLocaleDateString(undefined, options);
 };
 
-export { educationJSON, formatDate, projects, skills, workJSON};
-
+export { educationJSON, formatDate, projects, skills, workJSON };

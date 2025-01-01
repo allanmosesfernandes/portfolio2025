@@ -76,7 +76,6 @@ export default function Home() {
             <Education />
             <Skills />
             <Projects />
-            <FloatingMenu />
         </div>
     );
 }

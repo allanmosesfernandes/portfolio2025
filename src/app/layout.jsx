@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Fira_Sans } from 'next/font/google';
-
+import { FloatingMenu } from "@/components/floatingMenu";
 const fira = Fira_Sans({
   subsets: ['latin'],
   weight: ['400', '700'],
@@ -14,14 +14,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`bg-white dark:bg-black antialiased`}
-      >
-        <div className="max-w-2xl mt-16 mx-auto px-5 bg-white dark:bg-black space-y-4 font-sans">
-          {children}
-        </div>
-      </body>
-    </html>
+      <html lang="en" className="dark">
+          <body className={`bg-white dark:bg-black antialiased`}>
+              <div className="max-w-2xl mt-16 mx-auto px-5 bg-white dark:bg-black space-y-4 font-sans">
+                  {children}
+                  <FloatingMenu />
+              </div>
+          </body>
+      </html>
   );
 }

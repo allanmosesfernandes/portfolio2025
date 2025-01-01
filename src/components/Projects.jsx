@@ -15,7 +15,7 @@ const Projects = () => {
                 I've worked on a range of projects, from simple websites to complex web
                 applications. Here are a few of my finest.
             </p>
-            <div className="grid grid-cols-2 gap-6 mb-4">
+            <div className="grid md:grid-cols-2 gap-6 mb-4">
                 {projects.map((project, index) => {
                     return (
                         <div

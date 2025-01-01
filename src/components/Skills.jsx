@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { skills } from '@/app/utils';
 
 const Skills = () => {
@@ -8,22 +8,24 @@ const Skills = () => {
             <div className="flex gap-4 w-full flex-wrap">
                 <p className="text-pretty text-black dark:text-white md:text-lg my-4">
                     Programming languages, frameworks, tools and technologies I've had hands-down
-                    experience with and while I won't claim mastery in all, I've fearlessly
-                    delved into their realm, expanding my skills.
+                    experience with and while I won't claim mastery in all, I've fearlessly delved
+                    into their realm, expanding my skills.
                 </p>
-                {skills.map((skill, index) => {
-                    return (
-                        <p
-                            key={index}
-                            className="dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-lg p-2 h-fit"
-                        >
-                            {skill}
-                        </p>
-                    );
-                })}
+                <div className="flex gap-2 flex-wrap justify-center md:justify-start">
+                    {skills.map((skill, index) => {
+                        return (
+                            <p
+                                key={index}
+                                className="dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-lg p-2 h-fit"
+                            >
+                                {skill}
+                            </p>
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );
-}
+};
 
-export default Skills
+export default Skills;

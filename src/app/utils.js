@@ -96,11 +96,20 @@ const projects = [
     {
         image: '/projects/1.png',
         title: 'Royal London, Equity Release',
-        date: 'August 2024 - October 2024',
+        date: 'August 2024 - September 2024',
         summary:
             'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
         tools: ['Javascript', 'Twig', 'PHP', 'Sass', 'Docker'],
         website: 'https://equityrelease.royallondon.com/',
+    },
+    {
+        image: '/projects/landing0.png',
+        title: 'Royal London, Landing pages',
+        date: 'September 2024',
+        summary:
+            'Collaborated with the design team to create high-converting landing pages for Royal London products.Crafted responsive and visually engaging pages tailored to drive lead generation as part of targeted ad campaigns.',
+        tools: ['Javascript', 'Twig', 'PHP', 'Sass', 'Docker'],
+        website: 'https://eradvice.royallondon.com/',
     },
     {
         image: '/projects/2.png',
@@ -125,7 +134,7 @@ const projects = [
         title: 'The Common Thread',
         date: 'August 2023 - September 2023',
         summary:
-            'Website design and development for Ankan Chittalipi, a fashion merchandiser and trend forecaster using Wordpress as a headless CMS and developing the frontend in react.',
+            'Website design and development for Ankan Chittali, a fashion merchandiser and trend forecaster using Wordpress as a headless CMS and developing the frontend in react.',
         tools: ['React', 'Wordpress'],
         website: 'https://ankanchittalipi.com/',
     },

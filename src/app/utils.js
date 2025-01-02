@@ -157,6 +157,54 @@ const allProjects = [
         image: '/projects/1.png',
         link: 'https://equityrelease.royallondon.com/',
     },
+    {
+        timeline: 'September - October 2024',
+        title: 'Royal London, Equity Release',
+        description:
+            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
+        image: '/projects/1.png',
+        link: 'https://equityrelease.royallondon.com/',
+    },
+    {
+        timeline: 'September - October 2024',
+        title: 'Royal London, Equity Release',
+        description:
+            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
+        image: '/projects/1.png',
+        link: 'https://equityrelease.royallondon.com/',
+    },
+    {
+        timeline: 'September - October 2024',
+        title: 'Royal London, Equity Release',
+        description:
+            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
+        image: '/projects/1.png',
+        link: 'https://equityrelease.royallondon.com/',
+    },
+    {
+        timeline: 'September - October 2024',
+        title: 'Royal London, Equity Release',
+        description:
+            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
+        image: '/projects/1.png',
+        link: 'https://equityrelease.royallondon.com/',
+    },
+    {
+        timeline: 'September - October 2024',
+        title: 'Royal London, Equity Release',
+        description:
+            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
+        image: '/projects/1.png',
+        link: 'https://equityrelease.royallondon.com/',
+    },
+    {
+        timeline: 'September - October 2024',
+        title: 'Royal London, Equity Release',
+        description:
+            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
+        image: '/projects/1.png',
+        link: 'https://equityrelease.royallondon.com/',
+    },
 ];
 
 const formatDate = (isoString) => {
@@ -164,5 +212,6 @@ const formatDate = (isoString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString(undefined, options);
 };
+
 
 export { allProjects, educationJSON, formatDate, projects, skills, workJSON };

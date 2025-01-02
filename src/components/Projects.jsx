@@ -37,7 +37,7 @@ const Projects = () => {
                                 <p className="text-sm my-2 flex min-h-[120px] items-center">
                                     {project.summary}
                                 </p>
-                                <div className="flex gap-2 my-4 flex-wrap ]">
+                                <div className="flex gap-2 my-4 flex-wrap">
                                     {project.tools.map((tool, index) => {
                                         return (
                                             <p
@@ -52,7 +52,7 @@ const Projects = () => {
                                 <Link
                                     href={project.website}
                                     target="_blank"
-                                    className="mt-auto text-white dark:text-white hover:underline gap-2 text-sm"
+                                    className="mt-auto text-white dark:text-white gap-2 text-sm"
                                 >
                                     <p
                                         key={index}

@@ -111,15 +111,15 @@ const projects = [
         tools: ['Javascript', 'Twig', 'PHP', 'Sass', 'Docker'],
         website: 'https://eradvice.royallondon.com/',
     },
-    {
-        image: '/projects/2.png',
-        title: 'Daily Stoic Reminders',
-        date: 'Dec 2023 - February 2024',
-        summary:
-            'Conceptualized, designed and developed a web app for daily stoic reminders. The app generates daily stoic reminders to users to read a stoic quote and reflect on it.',
-        tools: ['React', 'Firebase', 'Styled Components', 'Netlify'],
-        website: 'https://dailystoicreminders.uk/',
-    },
+    // {
+    //     image: '/projects/2.png',
+    //     title: 'Daily Stoic Reminders',
+    //     date: 'Dec 2023 - February 2024',
+    //     summary:
+    //         'Conceptualized, designed and developed a web app for daily stoic reminders. The app generates daily stoic reminders to users to read a stoic quote and reflect on it.',
+    //     tools: ['React', 'Firebase', 'Styled Components', 'Netlify'],
+    //     website: 'https://dailystoicreminders.uk/',
+    // },
     {
         image: '/projects/what-is-wrong-jaron.png',
         title: 'What is wrong with Jaron',
@@ -140,10 +140,29 @@ const projects = [
     },
 ];
 
+const allProjects = [
+    {
+        timeline: 'October 2024',
+        title: 'Royal London, Equity Release',
+        description:
+            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
+        image: '/projects/1.png',
+        link: 'https://equityrelease.royallondon.com/',
+    },
+    {
+        timeline: 'September - October 2024',
+        title: 'Royal London, Equity Release',
+        description:
+            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
+        image: '/projects/1.png',
+        link: 'https://equityrelease.royallondon.com/',
+    },
+];
+
 const formatDate = (isoString) => {
     const date = new Date(isoString);
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString(undefined, options);
 };
 
-export { educationJSON, formatDate, projects, skills, workJSON };
+export { allProjects, educationJSON, formatDate, projects, skills, workJSON };

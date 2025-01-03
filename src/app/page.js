@@ -39,7 +39,7 @@ export default function Home() {
                         className="my-2 inline"
                     />
                     <p className="text-black dark:text-white md:text-xl">
-                        a <ReactTyped strings={['frontend developer', 'CSS fanboy', 'espresso fanatic ☕', 'perpetual learner']} typeSpeed={40} loop backSpeed={50} backDelay={100} startDelay={100}/>, <br />I like b̶r̶e̶a̶k̶i̶n̶g̶&nbsp; building cool things that live on the internet 🌐
+                        a <ReactTyped strings={['frontend developer', 'CSS fanboy', 'espresso fanatic ☕', 'perpetual learner']} typeSpeed={80} loop backSpeed={80} backDelay={100} startDelay={100}/>, <br />I like b̶r̶e̶a̶k̶i̶n̶g̶&nbsp; building cool things that live on the internet 🌐
                     </p>
                 </div>
                 <Image

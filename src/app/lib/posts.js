@@ -60,3 +60,23 @@ export function getAllPostSlugs() {
         return matterResult.data.slug;
     });
 }
+
+/**
+ * Retrieves all unique tags from the blog posts.
+ * @returns {string[]} Array of unique tags.
+ */
+export function getAllTags() {
+    const fileNames = fs.readdirSync(postsDirectory);
+    const allTags = fileNames.reduce((acc, fileName) => {
+        const fullPath = path.join(postsDirectory, fileName);
+        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        const matterResult = matter(fileContents);
+        if (matterResult.data.tags && Array.isArray(matterResult.data.tags)) {
+            acc.push(...matterResult.data.tags);
+        }
+        return acc;
+    }, []);
+
+    // Remove duplicate tags
+    return Array.from(new Set(allTags));
+}

@@ -71,7 +71,7 @@ const Introduction = () => {
             </p>
             <p className="text-pretty text-black dark:text-white md:text-lg whitespace-pre-wrap">
                 I also play{' '}
-                <Link
+                <a
                     href="https://www.instagram.com/p/B4nEUCgpYrl/"
                     target="_blank"
                     aria-label="Allan fernandes tekkers"
@@ -79,9 +79,9 @@ const Introduction = () => {
                     className=" hover-links"
                 >
                     football,
-                </Link>
+                </a>
                 {'  '}
-                <Link
+                <a
                     href="https://www.goodreads.com/review/list/185760981-allan-fernandes?shelf=read"
                     target="_blank"
                     aria-label="Allan fernandes good reads account"
@@ -89,9 +89,19 @@ const Introduction = () => {
                     className=" hover-links"
                 >
                     read books
-                </Link>
+                </a>
                 ,{'  '}
-                and go on runs to to get my ass of the computer.
+                and{'  '}
+                <a
+                    href="https://www.robinhoodhalfmarathon.co.uk/pages/results?srsltid=AfmBOor6Qign_-E37nNrLrYDLUXG3iKxzRz_VWD3s0W1P_RYV9gXrQ1e"
+                    target="_blank"
+                    aria-label="Running"
+                    title="Running"
+                    className=" hover-links"
+                >
+                    go on runs
+                </a>{'  '}
+                to get my ass of the computer.
             </p>
         </div>
     );

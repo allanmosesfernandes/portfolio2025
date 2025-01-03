@@ -25,7 +25,7 @@ const WorkExperience = () => {
                         key={workPlace.id}
                         onClick={() => toggleDescription(workPlace.id)}
                     >
-                        <div className="flex">
+                        <div className="flex sm:flex-row flex-col">
                             <Image
                                 src={workPlace.logo}
                                 alt={workPlace.company}
@@ -49,16 +49,16 @@ const WorkExperience = () => {
                                         strokeWidth="2"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
-                                        className="lucide lucide-chevron-right size-4 transform transition-all duration-300 ease-out opacity-0 group-hover:opacity-100 group-hover:translate-x-1 stroke-black dark:stroke-white"
+                                        className={`lucide lucide-chevron-right size-4 transform transition-all duration-300 ease-out sm:opacity-0 group-hover:opacity-100 group-hover:translate-x-1 stroke-black dark:stroke-white ${isOpen ? 'rotate-90' : 'rotate-0'}`}
                                     >
                                         <path d="m9 18 6-6-6-6"></path>
                                     </svg>
                                 </div>
-                                <p className="text-black dark:text-white text-sm">
+                                <p className="text-black dark:text-white text-sm sm:my-0 my-2">
                                     {workPlace.role}
                                 </p>
                             </div>
-                            <div className="ml-auto">
+                            <div className="sm:ml-auto">
                                 <p className="ml-auto text-black dark:text-white text-md">
                                     {workPlace.startDate} - {workPlace.endDate}
                                 </p>
@@ -68,7 +68,7 @@ const WorkExperience = () => {
                             </div>
                         </div>
                         <div
-                            className={`transition-all ml-[100px] duration-500 overflow-hidden ${isOpen ? 'max-h-40' : 'max-h-0'}`}
+                            className={`transition-all sm:ml-[100px] duration-500 overflow-hidden ${isOpen ? 'max-h-40' : 'max-h-0'}`}
                         >
                             <p className="text-black dark:text-white text-md mt-2">
                                 {workPlace.description}

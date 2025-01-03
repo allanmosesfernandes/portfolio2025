@@ -8,7 +8,7 @@ const workJSON = [
         startDate: 'Sep 2023',
         endDate: 'Present',
         description:
-            'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  lorem ipsum lorem ipsum',
+            'Collaborated within an agile team to develop customized financial systems and products for Responsible Life and Royal London in the equity release sector, contributing to a 47% increase in processing efficiency.',
     },
     {
         company: "Nottingham Trent Students' Union",

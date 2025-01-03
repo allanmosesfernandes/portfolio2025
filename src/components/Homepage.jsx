@@ -10,7 +10,7 @@ import Contact from './Contact';
 
 const Homepage = ({ posts }) => {
     return (
-        <div className="max-w-2xl mt-16 mx-auto px-5 bg-white dark:bg-black space-y-4 font-sans">
+        <>
             <Introduction />
             <WorkExperience />
             <Education />
@@ -18,7 +18,7 @@ const Homepage = ({ posts }) => {
             <Projects />
             <BlogsArticles posts={posts} />
             <Contact />
-        </div>
+        </>
     );
 };
 

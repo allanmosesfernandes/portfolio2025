@@ -1,6 +1,3 @@
-import React from 'react';
-import Link from 'next/link';
-
 const Contact = () => {
     return (
         <div className="mb-6">
@@ -20,7 +17,7 @@ const Contact = () => {
                 hello@allanfernandes.dev
             </a>
             <p className='text-black dark:text-white text-center text-lg mt-10 mb-20'>
-                created with ❤️ <code>+</code> ☕ by Allan Fernandes
+                created with ❤️ <code>&&</code> ☕ by Allan Fernandes.
             </p>
         </div>
     );

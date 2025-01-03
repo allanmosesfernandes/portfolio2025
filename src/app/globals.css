@@ -21,6 +21,17 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
+.blog-article strong {
+  color: var(--pantone);
+}
+
+.blog-article ol {
+  list-style-type: decimal;
+}
+
+.blog-article a {
+  text-decoration: underline;
+}
 .blog-article img{
   max-width: 100%;
   height: auto;

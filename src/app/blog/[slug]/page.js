@@ -2,8 +2,41 @@ import { getPostData } from '@/app/lib/posts';
 import { formatDate } from '@/app/utils';
 import Link from 'next/link';
 
+// This function runs on the server and generates metadata for each page
+export async function generateMetadata({ params }) {
+    const postData = await getPostData(params.slug);
+
+    return {
+        title: postData.title,
+        description: postData.summary,
+        openGraph: {
+            title: postData.title,
+            description: postData.summary,
+            url: `https://portfolio2025-ejk2jl5xc-allanmosesfernandes-projects.vercel.app/blog/${postData.slug}`,
+            type: 'article',
+            images: [
+                {
+                    url: `https://portfolio2025-ejk2jl5xc-allanmosesfernandes-projects.vercel.app/${postData.image}`,
+                    alt: postData.title,
+                },
+            ],
+            article: {
+                publishedTime: postData.date,
+                tags: postData.tags,
+            },
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: postData.title,
+            description: postData.summary,
+            images: [`https://portfolio2025-ejk2jl5xc-allanmosesfernandes-projects.vercel.app/${postData.image}`],
+        },
+    };
+}
+
 export default async function PostPage({ params }) {
     const postData = await getPostData(params.slug);
+
     return (
         <div className="whitespace-pre-line	blog-article">
             <Link href="/blog" className="absolute top-0 left-0 mt-4 ml-4">

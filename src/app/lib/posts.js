@@ -23,7 +23,6 @@ export function getSortedPostsData() {
     return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-
 export async function getPostData(slug) {
     const fileNames = fs.readdirSync(postsDirectory);
     const matchedFile = fileNames.find((fileName) => {

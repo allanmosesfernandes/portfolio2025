@@ -6,6 +6,7 @@ tags:
     - tools
 summary: 'Tech purchases or just purchases in general I made in 2024 that have made my life easier.'
 slug: 'amazing-tech-purchases-2024'
+image: '/blog-images/blog-1-tech-purchases.png'
 
 ---
 

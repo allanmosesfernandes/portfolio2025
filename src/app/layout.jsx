@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
       <html lang="en" className="dark">
           <body className={`bg-white dark:bg-black antialiased`}>
-              <div className="max-w-2xl mt-16 mx-auto px-5 bg-white dark:bg-black font-sans">
+              <div className="max-w-2xl mt-16 mx-auto sm:px-5 bg-white dark:bg-black font-sans">
                   {children}
                   <FloatingMenu />
               </div>

@@ -27,20 +27,15 @@ const BlogClient = ({ allPostsData, allTags }) => {
     // Compute filtered posts based on selected tags
     const filteredPosts = useMemo(() => {
         if (selectedTags.length === 0) return allPostsData;
-        // To show posts that contain **any** of the selected tags, use 'some'
         return allPostsData.filter((post) => selectedTags.some((tag) => post.tags.includes(tag)));
-        // To show posts that contain **all** of the selected tags, use 'every'
-        // return allPostsData.filter((post) =>
-        //     selectedTags.every((tag) => post.tags.includes(tag))
-        // );
     }, [selectedTags, allPostsData]);
 
     return (
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto sm:px-4 px-0">
             <h2 className="font-bold text-pantone sm:text-5xl text-3xl flex items-center justify-center">
                 Blog
             </h2>
-            <p className="mt-8 justify-center text-center">
+            <p className="sm:mt-8 mt-4 justify-center text-center">
                 Incessant yapping about frontend, tech, hacks and life's nuances manifested in its
                 textual form.
             </p>
@@ -56,8 +51,8 @@ const BlogClient = ({ allPostsData, allTags }) => {
                                 key={tag}
                                 onClick={() => handleTagClick(tag)}
                                 aria-pressed={isSelected}
-                                className={`flex items-center bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition ${
-                                    isSelected ? 'border-2 border-pantone' : ''
+                                className={`flex items-center bg-transparent text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full transition border-2 border-white ${
+                                    isSelected ? 'border-red' : ''
                                 }`}
                             >
                                 <span>{tag}</span>
@@ -93,14 +88,14 @@ const BlogClient = ({ allPostsData, allTags }) => {
                     </div>
                     <button
                         onClick={() => setSelectedTags([])}
-                        className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+                        className="mt-4 bg-red-400 text-white px-4 py-2 rounded transition"
                     >
-                        Clear All Filters
+                        Clear all filters
                     </button>
                 </div>
             )}
 
-            <h3 className="text-2xl font-semibold mt-8">Articles</h3>
+            <h3 className="text-2xl font-semibold sm:mt-8 mt-4">Articles</h3>
             {filteredPosts.length === 0 ? (
                 <p className="mt-4 text-center text-gray-500">
                     No articles found for the selected tags.
@@ -110,14 +105,14 @@ const BlogClient = ({ allPostsData, allTags }) => {
                     {filteredPosts.map(({ id, title, date, tags, slug, summary }) => (
                         <li
                             key={id}
-                            className="blog-li shadow-md p-4 shadow-pantone hover:shadow-indigo-500/40 mb-6 rounded"
+                            className="blog-li shadow-md p-4 shadow-pantone mb-6 rounded"
                         >
                             <div className="flex justify-between">
                                 <h3 className="font-bold text-xl">{title}</h3>
                                 <p className="text-pantone">{formatDate(date)}</p>
                             </div>
                             <p className="my-6">{summary}</p>
-                            <div className="flex gap-2 items-center justify-between mt-4">
+                            <div className="flex sm:flex-row flex-col gap-2 sm:items-center justify-between mt-4">
                                 <div className="flex gap-2 items-center">
                                     <Link href={`/blog/${slug}`}>
                                         <span className="text-pantone font-bold text-md flex items-center">

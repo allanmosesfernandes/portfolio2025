@@ -11,7 +11,7 @@ const Skills = () => {
                     experience with and while I won't claim mastery in all, I've fearlessly delved
                     into their realm, expanding my skills.
                 </p>
-                <div className="flex gap-2 flex-wrap justify-center md:justify-start">
+                <div className="flex gap-2 flex-wrap justify-center">
                     {skills.map((skill, index) => {
                         return (
                             <p

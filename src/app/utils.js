@@ -104,7 +104,7 @@ const projects = [
     },
     {
         image: '/projects/landing0.png',
-        title: 'Royal London, Landing pages',
+        title: 'Royal London, landing pages',
         date: 'September 2024',
         summary:
             'Collaborated with the design team to create high-converting landing pages for Royal London products.Crafted responsive and visually engaging pages tailored to drive lead generation as part of targeted ad campaigns.',
@@ -142,6 +142,29 @@ const projects = [
 
 const allProjects = [
     {
+        timeline: 'December 2024',
+        title: 'Broker Portal',
+        description: 'Bespoke broker portal that allows',
+        image: '/projects/1.png',
+        link: '',
+    },
+    {
+        timeline: 'September 2023',
+        title: 'FactFind',
+        description:
+            'A web-application built using React that allows our financial advisers to perform fact finds with customers and produce suitability reports.',
+        image: '/projects/1.png',
+        link: '',
+    },
+    {
+        timeline: 'October 2023',
+        title: 'Product Search',
+        description:
+            'A React application used to provide financial advisors with the latest information about equity release products that are currently available on the market.',
+        image: '/projects/1.png',
+        link: '',
+    },
+    {
         timeline: 'October 2024',
         title: 'Royal London, Equity Release',
         description:
@@ -150,60 +173,82 @@ const allProjects = [
         link: 'https://equityrelease.royallondon.com/',
     },
     {
-        timeline: 'September - October 2024',
-        title: 'Royal London, Equity Release',
+        timeline: 'September 2024',
+        title: 'Royal London, landing pages',
         description:
-            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
-        image: '/projects/1.png',
+            'Collaborated with the design team to create high-converting landing pages for Royal London products.Crafted responsive and visually engaging pages tailored to drive lead generation as part of targeted ad campaigns.',
+        image: '/projects/landing0.png',
+        link: 'https://eradvice.royallondon.com/',
+    },
+    {
+        timeline: 'February 2024',
+        title: 'Equity Release Calculator',
+        description:
+            'Creating custom equity release calculators linked with our custom CRM software and data validation APIs to provide instant quotes to users and advisers.',
+        image: '/projects/rlife.png',
+        link: 'https://www.responsiblelife.co.uk/equity-release-calculator',
+    },
+    {
+        timeline: 'February 2024',
+        title: 'Daily Stoic Reminders',
+        description:
+            'Conceptualized, designed and developed a web app for daily stoic reminders. The app generates daily stoic reminders to users to read a stoic quote and reflect on it.',
+        image: '/projects/2.png',
+        link: 'https://dailystoicreminders.uk/',
+    },
+    {
+        timeline: 'September 2023',
+        title: 'The Common Thread',
+        description:
+            'Website design and development for Ankan Chittali, a fashion merchandiser and trend forecaster using Wordpress as a headless CMS and developing the frontend in react.',
+        image: '/projects/common-thread.png',
+        link: 'https://ankanchittalipi.com/',
+    },
+    {
+        timeline: 'October 2021',
+        title: 'What is wrong with Jaron',
+        description:
+            "Developed the frontend for What's Wrong with Jaron?, an online course designed for schools to help identify and respond to concerning student behavior. The project aims to prevent sexual abuse in educational settings.",
+        image: '/projects/what-is-wrong-jaron.png',
+        link: 'https://www.was-ist-los-mit-jaron.de/',
+    },
+    {
+        timeline: 'January 2023',
+        title: 'Portfolio v2',
+        description:
+            'Upgrading my personal website to a new version with a fresh design and improved performance. The website is built using React and Tailwind CSS.',
+        image: '/blog-images/nerd.png',
+        link: 'https://allanfernandes.dev/',
+    },
+    {
+        timeline: 'July 2024',
+        title: 'Apex learning academy',
+        description:
+            'Website design and development for Apex Learning Academy, a tutoring service provider. The website is built using React and styled components.',
+        image: '/projects/apex.png',
         link: 'https://equityrelease.royallondon.com/',
     },
     {
-        timeline: 'September - October 2024',
-        title: 'Royal London, Equity Release',
+        timeline: 'August 2021',
+        title: 'The Starter Labs',
         description:
-            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
-        image: '/projects/1.png',
-        link: 'https://equityrelease.royallondon.com/',
+            'Concept landing page for the starter labs, a startup incubator. The website is built using vanilla JS and CSS.',
+        image: '/tsl.png',
+        link: 'https://thestarterlabs.netlify.app/',
     },
     {
-        timeline: 'September - October 2024',
-        title: 'Royal London, Equity Release',
-        description:
-            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
-        image: '/projects/1.png',
-        link: 'https://equityrelease.royallondon.com/',
+        timeline: 'March 2021',
+        title: 'Portfolio v1',
+        description: 'Portfolio website for v1',
+        image: '/blog-images/nerd.png',
+        link: 'https://quizzical-tereshkova-4ea12e.netlify.app/',
     },
     {
-        timeline: 'September - October 2024',
-        title: 'Royal London, Equity Release',
-        description:
-            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
-        image: '/projects/1.png',
-        link: 'https://equityrelease.royallondon.com/',
-    },
-    {
-        timeline: 'September - October 2024',
-        title: 'Royal London, Equity Release',
-        description:
-            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
-        image: '/projects/1.png',
-        link: 'https://equityrelease.royallondon.com/',
-    },
-    {
-        timeline: 'September - October 2024',
-        title: 'Royal London, Equity Release',
-        description:
-            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
-        image: '/projects/1.png',
-        link: 'https://equityrelease.royallondon.com/',
-    },
-    {
-        timeline: 'September - October 2024',
-        title: 'Royal London, Equity Release',
-        description:
-            'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
-        image: '/projects/1.png',
-        link: 'https://equityrelease.royallondon.com/',
+        timeline: 'September 2020',
+        title: 'Unifynd Hackathon',
+        description: 'Landing and registration page for the Unifynd hackathon',
+        image: '/Unifynd-Logo-Yellow.png',
+        link: 'https://hackathon.unifynd.com/',
     },
 ];
 
@@ -212,6 +257,5 @@ const formatDate = (isoString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString(undefined, options);
 };
-
 
 export { allProjects, educationJSON, formatDate, projects, skills, workJSON };

@@ -10,14 +10,14 @@ export default function Projects() {
                 Check out all of my projects
             </h2>
             <p className="text-black dark:text-white text-center">
-                Side projects, main projects, and everything in between. <br /> Here are a few not all
-                of my projects.
+                Side projects, main projects, and everything in between. <br /> Here are a few not
+                all of my projects.
             </p>
-            <ul className="border-l border-dashed border-gray-800 dark:border-gray-800">
+            <ul className="md:ml-0 ml-8 border-l border-dashed border-gray-800 dark:border-gray-800">
                 {allProjects.map((project, index) => {
                     return (
                         <li key={index} className="flex gap-6 mt-6 mb-8">
-                            <div className="flex flex-col gap-2 pl-10 relative border-b border-black dark:border-gray-800 pb-6">
+                            <div className="flex flex-col gap-2 pl-10 relative border-b border-black dark:border-gray-800 pb-6 w-full">
                                 <Image
                                     src={project.image}
                                     alt={project.title}
@@ -32,36 +32,38 @@ export default function Projects() {
                                 <p className="text-black dark:text-white text-sm">
                                     {project.description}
                                 </p>
-                                <Link
-                                    href={project.link}
-                                    target="_blank"
-                                    className="mt-auto text-white dark:text-white gap-2 text-sm"
-                                >
-                                    <p
-                                        key={index}
-                                        className="text-xs dark:text-white bg-black text-white font-medium text-md w-fit rounded-lg p-2 h-fit shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 d-flex mt-2"
+                                {project.link !== '' && (
+                                    <Link
+                                        href={project.link}
+                                        target="_blank"
+                                        className="mt-auto text-white dark:text-white gap-2 text-sm"
                                     >
-                                        <span className="flex gap-2 items-center">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                strokeWidth="2"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                className="lucide lucide-globe size-3"
-                                            >
-                                                <circle cx="12" cy="12" r="10"></circle>
-                                                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-                                                <path d="M2 12h20"></path>
-                                            </svg>
-                                            Website
-                                        </span>
-                                    </p>
-                                </Link>
+                                        <p
+                                            key={index}
+                                            className="text-xs dark:text-white bg-black text-white font-medium text-md w-fit rounded-lg p-2 h-fit shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 d-flex mt-2"
+                                        >
+                                            <span className="flex gap-2 items-center">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="24"
+                                                    height="24"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    className="lucide lucide-globe size-3"
+                                                >
+                                                    <circle cx="12" cy="12" r="10"></circle>
+                                                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                                                    <path d="M2 12h20"></path>
+                                                </svg>
+                                                Website
+                                            </span>
+                                        </p>
+                                    </Link>
+                                )}
                             </div>
                         </li>
                     );

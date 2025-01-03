@@ -6,6 +6,7 @@ import WorkExperience from './workExperience';
 import Skills from './Skills';
 import Projects from './Projects';
 import BlogsArticles from './Blogs';
+import Contact from './Contact';
 
 const Homepage = ({ posts }) => {
     return (
@@ -16,6 +17,7 @@ const Homepage = ({ posts }) => {
             <Skills />
             <Projects />
             <BlogsArticles posts={posts} />
+            <Contact />
         </div>
     );
 };

@@ -3,7 +3,7 @@ title: 'Best of Tech 2024'
 date: '2025-01-03T08:57:28.969Z'
 tags:
     - life
-    - hacks
+    - tools
 summary: 'Tech purchases or just purchases in general I made in 2024 that have made my life easier.'
 slug: 'amazing-tech-purchases-2024'
 

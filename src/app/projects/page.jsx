@@ -6,14 +6,23 @@ import Link from 'next/link';
 export default function Projects() {
     return (
         <>
-            <h2 className="text-black dark:text-white font-bold text-3xl flex items-center text-center d-flex justify-center mb-4">
+            <h2 className="text-black</div> dark:text-white font-bold text-3xl flex items-center text-center d-flex justify-center mb-4">
                 Check out all of my projects
             </h2>
-            <p className="text-black dark:text-white text-center">
-                Side projects, main projects, and everything in between. <br /> Here are a few not
-                all of my projects.
+            <p className="text-black dark:text-white text-center items-center relative">
+                Work projects, personal projects, and everything in between – all curated with the
+                help of intense shots of espresso{' '}
+                <span>
+                    <Image
+                        width={30}
+                        height={30}
+                        src="/projects/espressos.png"
+                        alt="Coffee"
+                        className='inline'
+                    ></Image>
+                </span>
             </p>
-            <ul className="md:ml-0 ml-8 border-l border-dashed border-gray-800 dark:border-gray-800">
+            <ul className="md:ml-0 ml-8 border-l border-dashed border-gray-800 dark:border-gray-800 -z-1">
                 {allProjects.map((project, index) => {
                     return (
                         <li key={index} className="flex gap-6 mt-6 mb-8">
@@ -23,7 +32,7 @@ export default function Projects() {
                                     alt={project.title}
                                     width={50}
                                     height={50}
-                                    className="rounded-full object-cover absolute -left-[1.5rem]"
+                                    className="dark:bg-black bg-white rounded-full object-cover absolute -left-[1.5rem] z-10"
                                 />
                                 <p className="text-gray-500 text-xs">{project.timeline}</p>
                                 <h2 className="text-black dark:text-white font-bold">

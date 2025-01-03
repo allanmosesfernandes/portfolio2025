@@ -61,7 +61,7 @@ const Introduction = () => {
                     className="ml-4 inline object-contain avatar"
                 />
             </div>
-            <h3 className="text-black dark:text-white font-bold text-2xl">About</h3>
+            <h3 className="text-black dark:text-white font-bold text-2xl mt-6">About</h3>
             <p className="text-pretty text-black dark:text-white md:text-lg">
                 I've been building websites for nearly four years often using vanilla javascript,
                 React, (S)CSS and other web technologies. With a master’s degree in Computer

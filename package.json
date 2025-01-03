@@ -7,7 +7,9 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "generateiso": "node -e \"console.log(new Date().toISOString())\""
+        "generateiso": "node -e \"console.log(new Date().toISOString())\"",
+        "vercel-build": "npm install --force && next build"
+
     },
     "dependencies": {
         "@next/font": "^14.2.15",

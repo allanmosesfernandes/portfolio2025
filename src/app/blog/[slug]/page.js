@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
             type: 'article',
             images: [
                 {
-                    url: `https://portfolio2025-ejk2jl5xc-allanmosesfernandes-projects.vercel.app/${postData.image}`,
+                    url: `https://portfolio2025-ejk2jl5xc-allanmosesfernandes-projects.vercel.app${postData.image}`,
                     alt: postData.title,
                 },
             ],
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
             card: 'summary_large_image',
             title: postData.title,
             description: postData.summary,
-            images: [`https://portfolio2025-ejk2jl5xc-allanmosesfernandes-projects.vercel.app/${postData.image}`],
+            images: [`https://portfolio2025-ejk2jl5xc-allanmosesfernandes-projects.vercel.app${postData.image}`],
         },
     };
 }

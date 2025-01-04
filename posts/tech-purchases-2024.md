@@ -28,3 +28,6 @@ But honestly, it’s not all bad – I think I’ve slightly expanded my attenti
 
 ---
 TLDR: Buy some quality stuff, don't cheap out on essentials that you use on the daily and maybe **[Jeff Bezos](https://mkorostoff.github.io/1-pixel-wealth/)** isn't that bad after all (Okay, no one needs to have <em>that<em>much money!)
+<br />
+<br />
+<br />

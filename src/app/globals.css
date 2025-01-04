@@ -21,6 +21,10 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
+.blog-article {
+  margin-bottom: 4rem;
+}
+
 .blog-article strong {
   color: var(--pantone);
 }

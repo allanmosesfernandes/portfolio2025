@@ -69,21 +69,26 @@ body {
 
 .fixed-floating-menu img:hover {
   transform: scale(1.2);
-  border-radius: 50%;
 }
 
-.fixed-floating-menu a p {
-  display: none
+.fixed-floating-menu a p,
+.fixed-floating-menu button p{
+  display: none;
+  min-width: max-content;
 }
 
-.fixed-floating-menu a:hover p {
+.fixed-floating-menu a:hover p,
+.fixed-floating-menu button:hover p{
   display: block;
   transform: translateY(-62px);
   position: absolute;
   font-size: 12px;
+  background-color: white;
+  border: 1px solid #FF5A26;
   box-shadow: 0 -20px 80px -20px #ffffff5c inset;
   padding: 10px;
   border-radius: 10px;
+  color: #000000;
 }
 
 .hover-links {

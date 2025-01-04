@@ -12,11 +12,11 @@ export async function generateMetadata({ params }) {
         openGraph: {
             title: postData.title,
             description: postData.summary,
-            url: `https://portfolio2025-ejk2jl5xc-allanmosesfernandes-projects.vercel.app/blog/${postData.slug}`,
+            url: `https://www.allanfernandes.dev/blog/${postData.slug}`,
             type: 'article',
             images: [
                 {
-                    url: `https://portfolio2025-ejk2jl5xc-allanmosesfernandes-projects.vercel.app${postData.image}`,
+                    url: `https://www.allanfernandes.dev${postData.image}`,
                     alt: postData.title,
                 },
             ],
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
             card: 'summary_large_image',
             title: postData.title,
             description: postData.summary,
-            images: [`https://portfolio2025-ejk2jl5xc-allanmosesfernandes-projects.vercel.app${postData.image}`],
+            images: [`https://www.allanfernandes.dev${postData.image}`],
         },
     };
 }

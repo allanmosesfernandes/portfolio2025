@@ -218,7 +218,7 @@ const allProjects = [
         description:
             'Upgrading my personal website to a new version with a fresh design and improved performance. The website is built using React and Tailwind CSS.',
         image: '/blog-images/nerd.png',
-        link: 'https://allanfernandes.dev/',
+        link: 'https://allanportfoliov2.netlify.app/',
     },
     {
         timeline: 'July 2024',

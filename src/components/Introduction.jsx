@@ -101,7 +101,7 @@ const Introduction = () => {
                 >
                     go on runs
                 </a>{'  '}
-                to get my ass of the computer.
+                to get my ass off the computer.
             </p>
         </div>
     );

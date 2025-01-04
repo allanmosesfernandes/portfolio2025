@@ -39,7 +39,7 @@ const Education = () => {
                                             strokeWidth="2"
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
-                                            className="lucide lucide-chevron-right size-4 transform transition-all duration-300 ease-out opacity-0 group-hover:opacity-100 group-hover:translate-x-1 stroke-black dark:stroke-white"
+                                            className="lucide lucide-chevron-right size-4 transform transition-all duration-300 ease-out sm:opacity-0 group-hover:opacity-100 group-hover:translate-x-1 stroke-black dark:stroke-white"
                                         >
                                             <path d="m9 18 6-6-6-6"></path>
                                         </svg>
@@ -47,9 +47,12 @@ const Education = () => {
                                     <p className="text-black dark:text-white text-sm">
                                         {education.course}
                                     </p>
+                                    <p className="ml-auto text-black dark:text-white text-sm sm:hidden block">
+                                    {education.year}
+                                    </p>
                                 </Link>
                             </div>
-                            <div className="ml-auto">
+                            <div className="ml-auto sm:block hidden">
                                 <p className="ml-auto text-black dark:text-white text-md">
                                     {education.year}
                                 </p>

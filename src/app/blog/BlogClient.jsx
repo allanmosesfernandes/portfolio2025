@@ -107,11 +107,11 @@ const BlogClient = ({ allPostsData, allTags }) => {
                             key={id}
                             className="blog-li shadow-md p-4 shadow-pantone mb-6 rounded"
                         >
-                            <div className="flex justify-between">
+                            <div className="flex sm:flex-row flex-col justify-between">
                                 <h3 className="font-bold text-xl">{title}</h3>
-                                <p className="text-pantone">{formatDate(date)}</p>
+                                <p className="text-pantone sm:mt-0 mt-2">{formatDate(date)}</p>
                             </div>
-                            <p className="my-6">{summary}</p>
+                            <p className="sm:my-6 my-2">{summary}</p>
                             <div className="flex sm:flex-row flex-col gap-2 sm:items-center justify-between mt-4">
                                 <div className="flex gap-2 items-center">
                                     <Link href={`/blog/${slug}`}>

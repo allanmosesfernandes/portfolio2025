@@ -67,6 +67,8 @@ export default async function PostPage({ params }) {
                         <p className="text-gray-500">{postData.readingTime} min read</p>
                         <SocialShareComponent
                             shareURL={`https://www.allanfernandes.dev/blog/${postData.slug}`}
+                            title={postData.title}
+                            summary={postData.summary}
                         />
                     </div>
                 </div>

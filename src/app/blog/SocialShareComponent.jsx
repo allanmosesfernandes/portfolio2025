@@ -10,7 +10,7 @@ import { ImFacebook } from 'react-icons/im';
 import { FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
-const SocialShareComponent = ({ shareURL }) => {
+const SocialShareComponent = ({ shareURL, title, summary }) => {
     const [isOpen, setIsOpen] = useState(false);
     const modalRef = useRef(null);
     useEffect(() => {
@@ -33,8 +33,8 @@ const SocialShareComponent = ({ shareURL }) => {
         if (navigator.share && isMobile) {
             try {
                 await navigator.share({
-                    title: 'Check out this link!',
-                    text: 'Here is a cool link I found:',
+                    title: title,
+                    text: summary,
                     url: shareURL,
                 });
             } catch (error) {

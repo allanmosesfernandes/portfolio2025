@@ -6,7 +6,7 @@ tags:
     - side-projects
 summary: 'Why you should have some sort of side-project on-going and how it can sometimes feel an escape from the ordinary'
 slug: 'start-your-side-project'
-image: '/blog-images/blog-1-tech-purchases.png'
+image: '/blog-images/blog-2-side-projects-cover.png'
 
 ---
 

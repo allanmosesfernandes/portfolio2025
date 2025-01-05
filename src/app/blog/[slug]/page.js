@@ -7,10 +7,10 @@ export async function generateMetadata({ params }) {
     const postData = await getPostData(params.slug);
 
     return {
-        title: postData.title,
+        title: `Blog - ${postData.title}`,
         description: postData.summary,
         openGraph: {
-            title: postData.title,
+            title: `Blog - ${postData.title}`,
             description: postData.summary,
             url: `https://www.allanfernandes.dev/blog/${postData.slug}`,
             type: 'article',
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
         },
         twitter: {
             card: 'summary_large_image',
-            title: postData.title,
+            title: `Blog - ${postData.title}`,
             description: postData.summary,
             images: [`https://www.allanfernandes.dev${postData.image}`],
         },

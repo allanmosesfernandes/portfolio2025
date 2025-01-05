@@ -113,3 +113,20 @@ body {
 .blog-li {
   margin-bottom: 2rem;
 }
+
+.share-links-list li:hover{
+  transform: translateX(10px);
+  transition: all 0.2s ease-in-out;
+}
+
+.share-links-list li {
+  cursor: pointer;
+  display: flex;
+  transition: transform 0.2s ease-in-out;
+}
+
+.share-links-list li button{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

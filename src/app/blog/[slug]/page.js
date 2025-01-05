@@ -14,7 +14,11 @@ export async function generateMetadata({ params }) {
             description: postData.summary,
             url: `https://www.allanfernandes.dev/blog/${postData.slug}`,
             type: 'article',
-            images:`https://www.allanfernandes.dev${postData.image}`,},
+            images: [
+                {
+                    url: `https://www.allanfernandes.dev${postData.image}`,
+                    alt: postData.title,
+                },
             ],
             article: {
                 publishedTime: postData.date,

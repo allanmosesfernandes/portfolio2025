@@ -1,20 +1,21 @@
 ---
-title: 'The Best Things I Bought in 2024'
-date: '2025-01-03T08:57:28.969Z'
+title: 'Why you should start a side-project'
+date: '2025-01-04T15:09:38.350Z'
 tags:
     - life
-    - tools
-summary: 'Tech and general purchases I made in 2024 that significantly improved my life - invest in quality, and dont skimp on the good stuff, find out how rich Bezos really is.'
-slug: 'amazing-tech-purchases-2024'
+    - frontend
+    - side-projects
+summary: 'Why you should have some sort of side-project on-going and how it can sometimes feel an escape from the ordinary'
+slug: 'start-your-side-project'
 image: '/blog-images/blog-1-tech-purchases.png'
 
 ---
 
-I have no shame in admitting that I'm a victim of capitalism. I'm constantly torn between *"I should save money"* versus *"YOLO ing"* my way through life but these seven things I've bought? No regrets. As the price significantly outweighs the benefits or just the overall ease and convenience they bring to my life<br/><br/>
+Back in 2022 I happened to stumble on a PDF of the book **[The Daily Stoic](https://g.co/kgs/rLQM73M)** by Ryan Holiday. The book was structured such that it gave you a new meditation for each new day. I had this PDF on my desktop but sometimes I would lose the page I was on or just forget to read the meditation<br/><br/>
 
 ![image](/blog-images/blog-1-tech-purchases.png)
 
-Of course, **[money can't buy you happiness](https://www.youtube.com/watch?v=qMxX-QOV9tI&ab_channel=JessieJVEVO)**, but if something can ever so slightly improve your life I think it's worth the **investment**. In no particular order, here are my best buys that I can't recommend enough.
+At that time I was just diving into React, and I found myself stuck in tutorial hell building something that I didn't really enjoy building, so I had an idea, and decided to embark on this little side-project. I decided I'd build an application that just gave me the quote for the day and embed all the stoic bi
 1. **[YouTube Premium](https://www.youtube.com/premium)**: It had to be at the forefront of the list. I've lost count of how many years I've had YouTube Premium, and for good reason.
 I owe my career, educational degree, replacing my squeaky door hinge, IKEA installations of products I was too daft to figure using just the manual, cooking and an endless list of things that I rely on YouTube for, YouTube Premium is worth every penny in my opinion. From what I have heard,those without Premium deal with multiple unskippable ads – could never be me.
 1. **[A password manager](https://www.doherty.co.uk/blog/the-benefits-of-a-password-manager/)**: I recently started using 1Password, and I cannot fathom the fact that I used to manage passwords manually – trying to remember unique patterns and constantly resetting them.

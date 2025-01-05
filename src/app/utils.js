@@ -141,13 +141,13 @@ const projects = [
 ];
 
 const allProjects = [
-    {
-        timeline: 'December 2024',
-        title: 'Broker Portal',
-        description: 'Bespoke broker portal that allows',
-        image: '/projects/1.png',
-        link: '',
-    },
+    // {
+    //     timeline: 'December 2024',
+    //     title: 'Broker Portal',
+    //     description: 'Bespoke broker portal that allows',
+    //     image: '/projects/1.png',
+    //     link: '',
+    // },
     {
         timeline: 'September 2023',
         title: 'FactFind',

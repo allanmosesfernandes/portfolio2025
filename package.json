@@ -19,6 +19,7 @@
         "postcss": "^8.4.49",
         "react": "19.0.0-rc-66855b96-20241106",
         "react-dom": "19.0.0-rc-66855b96-20241106",
+        "react-share": "^5.1.2",
         "react-typed": "^2.0.12",
         "remark": "^15.0.1",
         "remark-html": "^16.0.1",

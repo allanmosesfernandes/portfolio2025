@@ -1,6 +1,7 @@
 import { getPostData } from '@/app/lib/posts';
 import { formatDate } from '@/app/utils';
 import Link from 'next/link';
+import SocialShareComponent from '@/app/blog/SocialShareComponent';
 
 // This function runs on the server and generates metadata for each page
 export async function generateMetadata({ params }) {
@@ -60,10 +61,13 @@ export default async function PostPage({ params }) {
                 <h2 className=" font-bold text-pantone sm:text-3xl text-3xl flex items-center justify-center">
                     {postData.title}
                 </h2>
-                <div className="flex justify-between items-center">
-                    <p className="flex my-4">{formatDate(postData.date)}</p>
-                    <div>
+                <div className="flex justify-between items-center border-y-2 border-gray-800 py-2 my-4">
+                    <p className="flex">{formatDate(postData.date)}</p>
+                    <div className='flex gap-4 items-center'>
                         <p className="text-gray-500">{postData.readingTime} min read</p>
+                        <SocialShareComponent
+                            shareURL={`https://www.allanfernandes.dev/blog/${postData.slug}`}
+                        />
                     </div>
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />

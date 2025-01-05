@@ -42,4 +42,4 @@ I've been a victim of this myself thinking - I'm slogging my ass at work already
 But there's an inexplicable joy in having the ability to create something from the ground-up - moulding it to your vision and something that **YOU** have complete control over. Not your manager, the stakeholders, company targets, NADA, it's all YOU! You are the artist and I think that's really beautiful in a special way!
 
 ---
-**TLDR:** Build something cool.Make time to build things you'll use and put it out there. If someone else find's it useful, great. If not, it was built just for you in the first place and that's what matters most!
+**TLDR:** Build something cool. Make time to build things you'll use and put it out there. If someone else find's it useful, great. If not, it was built just for you in the first place and that's what matters most!

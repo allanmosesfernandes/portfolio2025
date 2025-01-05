@@ -7,11 +7,6 @@ const fira = Fira_Sans({
   variable: '--font-fira'
 });
 
-export const metadata = {
-  title: "Home - Allan Fernandes",
-  description: "Allan Fernandes is a frontend developer based in Nottingham, UK. He is a Computer Science post graduate from NTU. He is currently working as a web developer at Responsible Life.",
-  image: "/og-image.png",
-};
 
 export default function RootLayout({ children }) {
   return (

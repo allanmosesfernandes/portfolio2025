@@ -205,10 +205,17 @@ const allProjects = [
         link: 'https://ankanchittalipi.com/',
     },
     {
+        timeline: 'May 2023',
+        title: 'Abstrakt Design challenge',
+        description: 'Mock design implementation for the Abstrakt design challenge.',
+        image: '/projects/badger.png',
+        link: 'https://abstrakttest.netlify.app/',
+    },
+    {
         timeline: 'October 2021',
         title: 'What is wrong with Jaron',
         description:
-            "Developed the frontend for What's Wrong with Jaron?, an online course designed for schools to help identify and respond to concerning student behavior. The project aims to prevent sexual abuse in educational settings.",
+            "Developed the frontend for What's Wrong with Jaron? an online course designed for schools to help identify and respond to concerning student behavior. The project aims to prevent sexual abuse in educational settings.",
         image: '/projects/what-is-wrong-jaron.png',
         link: 'https://www.was-ist-los-mit-jaron.de/',
     },
@@ -216,7 +223,7 @@ const allProjects = [
         timeline: 'January 2023',
         title: 'Portfolio v2',
         description:
-            'Upgrading my personal website to a new version with a fresh design and improved performance. The website is built using React and Tailwind CSS.',
+            'Upgrading my personal website to a new version with a fresh design and improved performance. The website was built using Gatsby JS specifically for SEO.',
         image: '/blog-images/nerd.png',
         link: 'https://allanportfoliov2.netlify.app/',
     },
@@ -239,7 +246,7 @@ const allProjects = [
     {
         timeline: 'March 2021',
         title: 'Portfolio v1',
-        description: 'Portfolio website for v1',
+        description: "Portfolio website for v1 of my personal website. The website was using a fun library called Fullpage.js. and was built using plain vanilla JS",
         image: '/blog-images/nerd.png',
         link: 'https://quizzical-tereshkova-4ea12e.netlify.app/',
     },

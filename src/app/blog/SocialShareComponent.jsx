@@ -27,9 +27,7 @@ const SocialShareComponent = ({ shareURL }) => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [isOpen]);
-    const [copyText, setCopyText] = useState('Copy Link');
 
-    const copyLink = () => {};
     const handleShareClick = async () => {
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (navigator.share && isMobile) {

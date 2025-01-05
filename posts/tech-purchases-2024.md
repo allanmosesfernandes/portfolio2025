@@ -4,13 +4,13 @@ date: '2025-01-03T08:57:28.969Z'
 tags:
     - life
     - tools
-summary: 'Tech and general purchases I made in 2024 that significantly improved my life - invest in quality, and dont skimp on the good stuff, find out how rich Bezos really is.'
+summary: "Tech and general purchases I made in 2024 that significantly improved my life - invest in quality, and don't skimp on the good stuff, find out how rich Bezos really is."
 slug: 'amazing-tech-purchases-2024'
 image: '/blog-images/blog-1-tech-purchases.png'
 
 ---
 
-I have no shame in admitting that I'm a victim of capitalism. I'm constantly torn between *"I should save money"* versus *"YOLO ing"* my way through life but these seven things I've bought? No regrets. As the price significantly outweighs the benefits or just the overall ease and convenience they bring to my life<br/><br/>
+I have no shame in admitting I'm a victim of capitalism. I'm constantly torn between *"I should save money"* versus *"YOLO ing"* my way through life but these seven things I've bought? No regrets. As the price significantly outweighs the benefits or just the overall ease and convenience they bring to my life<br/><br/>
 
 ![image](/blog-images/blog-1-tech-purchases.png)
 

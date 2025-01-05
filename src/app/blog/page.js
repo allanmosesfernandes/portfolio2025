@@ -4,7 +4,6 @@ import React from 'react';
 import { getSortedPostsData, getAllTags } from '../lib/posts';
 import BlogClient from './BlogClient';
 
-
 export const metadata = {
     title: 'Blog - Allan Fernandes',
     description: 'A collection of blog posts on various topics.',

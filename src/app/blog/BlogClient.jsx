@@ -102,11 +102,8 @@ const BlogClient = ({ allPostsData, allTags }) => {
                 </p>
             ) : (
                 <ul className="mt-4">
-                    {filteredPosts.map(({ id, title, date, tags, slug, summary }) => (
-                        <li
-                            key={id}
-                            className="blog-li shadow-md p-4 shadow-pantone mb-6 rounded"
-                        >
+                    {filteredPosts.map(({ id, title, date, tags, slug, summary, readingTime }) => (
+                        <li key={id} className="blog-li shadow-md p-4 shadow-pantone mb-6 rounded">
                             <div className="flex sm:flex-row flex-col justify-between">
                                 <h3 className="font-bold text-xl">{title}</h3>
                                 <p className="text-pantone sm:mt-0 mt-2">{formatDate(date)}</p>
@@ -133,6 +130,8 @@ const BlogClient = ({ allPostsData, allTags }) => {
                                             </svg>
                                         </span>
                                     </Link>
+                                    <span className="text-gray-500">&bull;</span>
+                                    <p className="text-gray-500">{readingTime} min read</p>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
                                     {tags &&

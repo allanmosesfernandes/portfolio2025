@@ -20,12 +20,16 @@ const BlogsArticles = ({ posts }) => {
                             <p className="dark:text-white text-black">{post.summary}</p>
                         </div>
                         <div className="flex gap-2 my-4 flex-wrap justify-between items-center">
-                            <Link
-                                href={`/blog/${post.slug}`}
-                                className="text-sm text-pantone hover:underline hover:text-pantone"
-                            >
-                                Read more
-                            </Link>
+                            <div className="flex gap-2 items-center">
+                                <Link
+                                    href={`/blog/${post.slug}`}
+                                    className="text-sm text-pantone hover:underline hover:text-pantone"
+                                >
+                                    Read more
+                                </Link>
+                                <span className="text-gray-500">&bull;</span>
+                                <p className="text-gray-500">{post.readingTime} min read</p>
+                            </div>
                             <div className="flex gap-2">
                                 {post.tags.map((tag, index) => {
                                     return (

@@ -7,7 +7,7 @@ tags:
 summary: 'Why you should have some sort of side-project on-going and how it can sometimes feel an escape from the ordinary'
 slug: 'start-your-side-project'
 image: '/blog-images/blog-2-side-projects-cover.png'
-
+readingTime: '3'
 ---
 
 Back in 2022, I stumbled upon a PDF of the **[The Daily Stoic](https://g.co/kgs/rLQM73M)** by Ryan Holiday. The book is structured to provide a new **[Stoic meditation](https://dailystoic.com/what-is-stoicism-a-definition-3-stoic-exercises-to-get-you-started/)** for each new day. I kept this PDF on my desktop, but sometimes I would lose track of the page I was on or simply forget to read the day's meditation<br/><br/>

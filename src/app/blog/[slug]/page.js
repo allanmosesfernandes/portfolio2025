@@ -36,7 +36,6 @@ export async function generateMetadata({ params }) {
 
 export default async function PostPage({ params }) {
     const postData = await getPostData(params.slug);
-
     return (
         <div className="whitespace-pre-line	blog-article">
             <Link href="/blog" className="absolute top-0 left-0 mt-4 ml-4">
@@ -61,7 +60,12 @@ export default async function PostPage({ params }) {
                 <h2 className=" font-bold text-pantone sm:text-3xl text-3xl flex items-center justify-center">
                     {postData.title}
                 </h2>
-                <p className="flex my-4">{formatDate(postData.date)}</p>
+                <div className="flex justify-between items-center">
+                    <p className="flex my-4">{formatDate(postData.date)}</p>
+                    <div>
+                        <p className="text-gray-500">{postData.readingTime} min read</p>
+                    </div>
+                </div>
                 <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
             </article>
         </div>

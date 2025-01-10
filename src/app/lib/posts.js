@@ -50,16 +50,6 @@ export async function getPostData(slug) {
     };
 }
 
-export function getAllPostSlugs() {
-    const fileNames = fs.readdirSync(postsDirectory);
-    return fileNames.map((fileName) => {
-        const fullPath = path.join(postsDirectory, fileName);
-        const fileContents = fs.readFileSync(fullPath, 'utf8');
-        const matterResult = matter(fileContents);
-        return matterResult.data.slug;
-    });
-}
-
 /**
  * Retrieves all unique tags from the blog posts.
  * @returns {string[]} Array of unique tags.

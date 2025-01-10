@@ -51,7 +51,7 @@ const BlogClient = ({ allPostsData, allTags }) => {
                                 key={tag}
                                 onClick={() => handleTagClick(tag)}
                                 aria-pressed={isSelected}
-                                className={`flex items-center bg-transparent text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full transition border-2 border-white ${
+                                className={`flex items-center bg-gray-200 dark:bg-transparent text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full transition border-2 border-white ${
                                     isSelected ? 'border-red' : ''
                                 }`}
                             >
@@ -138,7 +138,7 @@ const BlogClient = ({ allPostsData, allTags }) => {
                                         tags.map((tag, index) => (
                                             <span
                                                 key={index}
-                                                className="dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-lg px-2 py-1 mr-2"
+                                                className="dark:bg-white dark:text-black bg-gray-200 text-black font-medium text-md rounded-lg px-2 py-1 mr-2"
                                             >
                                                 {tag}
                                             </span>

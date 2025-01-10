@@ -29,4 +29,4 @@ Of course, **[money can't buy you happiness](https://www.youtube.com/watch?v=qMx
 
 ---
 
-TLDR: Buy some quality stuff, don't cheap out on essentials that you use on the daily and maybe **[Jeff Bezos](https://mkorostoff.github.io/1-pixel-wealth/)** isn't that bad after all (Okay, no one needs to have <em>that<em>much money!)
+TLDR: Buy some quality stuff, don't cheap out on essentials that you use on the daily and maybe **[Jeff Bezos isn't that bad](https://mkorostoff.github.io/1-pixel-wealth/)** after all (Okay, no one needs to have <em>that<em>much money!)

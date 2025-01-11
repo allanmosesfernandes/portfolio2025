@@ -3,7 +3,7 @@ import { skills } from '@/app/utils';
 
 const Skills = () => {
     return (
-        <div>
+        <div className='mt-20'>
             <h3 className="text-black dark:text-white font-bold text-2xl mt-6">Skills</h3>
             <div className="flex gap-4 w-full flex-wrap">
                 <p className="text-pretty text-black dark:text-white md:text-lg my-4">

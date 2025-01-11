@@ -6,9 +6,7 @@ const ScrollIndicator = () => {
     const onScroll = useCallback(() => {
         const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
         const maxHeight = scrollHeight - clientHeight;
-        console.log(maxHeight);
         const scrolledPercent = (scrollTop / maxHeight) * 100;
-        console.log(scrolledPercent);
         setScroll(scrolledPercent);
     }, []);
 

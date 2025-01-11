@@ -16,7 +16,7 @@ const WorkExperience = () => {
     };
     return (
         <div>
-            <h3 className="text-black dark:text-white font-bold text-2xl mt-6">Work Experience</h3>
+            <h3 className="text-black dark:text-white font-bold text-2xl mt-12">Work Experience</h3>
             {workJSON.map((workPlace) => {
                 const isOpen = openBlockIds.includes(workPlace.id);
                 return (

@@ -5,7 +5,7 @@ import Link from 'next/link';
 const BlogsArticles = ({ posts }) => {
     const limitedPosts = posts.slice(0, 3);
     return (
-        <div>
+        <div className='mt-20'>
             <p className="text-black dark:text-white font-bold flex items-center text-center d-flex justify-center mb-6 text-4xl">
                 Blog
             </p>

@@ -3,6 +3,8 @@ import { formatDate } from '@/app/utils';
 import Link from 'next/link';
 import ScrollIndicator from './ScrollIndicator';
 import SocialShareComponent from '../SocialShareComponent';
+import hljs from 'highlight.js';
+
 // This function runs on the server and generates metadata for each page
 export async function generateMetadata({ params }) {
     const postData = await getPostData(params.slug);
@@ -40,7 +42,7 @@ export default async function PostPage({ params }) {
     return (
         <>
             <ScrollIndicator />
-            <div className="whitespace-pre-line	blog-article">
+            <div className="whitespace-pre-line blog-article">
                 <Link href="/blog" className="absolute top-0 left-0 mt-4 ml-4">
                     {' '}
                     <svg

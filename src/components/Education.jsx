@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const Education = () => {
     return (
-        <div>
+        <div className='mt-12'>
             <h3 className="text-black dark:text-white font-bold text-2xl pt-6">Education</h3>
             {educationJSON.map((education) => {
                 return (

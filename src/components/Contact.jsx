@@ -17,7 +17,7 @@ const Contact = () => {
                 hello@allanfernandes.dev
             </a>
             <p className='text-black dark:text-white text-center text-lg mt-10 mb-20'>
-                created with ❤️ <code>&&</code> ☕ by Allan Fernandes.
+                created with ❤️ & ☕ by Allan Fernandes.
             </p>
         </div>
     );

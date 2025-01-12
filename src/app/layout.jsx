@@ -2,6 +2,7 @@ import './globals.css';
 import { Fira_Sans } from 'next/font/google';
 import { FloatingMenu } from '@/components/floatingMenu';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const fira = Fira_Sans({
     subsets: ['latin'],

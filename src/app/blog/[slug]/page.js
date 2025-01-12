@@ -3,7 +3,6 @@ import { formatDate } from '@/app/utils';
 import Link from 'next/link';
 import ScrollIndicator from './ScrollIndicator';
 import SocialShareComponent from '../SocialShareComponent';
-import hljs from 'highlight.js';
 
 // This function runs on the server and generates metadata for each page
 export async function generateMetadata({ params }) {

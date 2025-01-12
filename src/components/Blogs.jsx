@@ -5,7 +5,7 @@ import Link from 'next/link';
 const BlogsArticles = ({ posts }) => {
     const limitedPosts = posts.slice(0, 3);
     return (
-        <div className='mt-20'>
+        <div className="mt-20">
             <p className="text-black dark:text-white font-bold flex items-center text-center d-flex justify-center mb-6 text-4xl">
                 Blog
             </p>
@@ -26,9 +26,12 @@ const BlogsArticles = ({ posts }) => {
                                     className="text-sm text-pantone hover:underline hover:text-pantone"
                                 >
                                     Read more
+                                    <span class="sr-only">about {post.title}</span>
                                 </Link>
                                 <span className="text-gray-500">&bull;</span>
-                                <p className="text-gray-500">{post.readingTime} min read</p>
+                                <p className="dark:text-slate-50 text-gray-500">
+                                    {post.readingTime} min read
+                                </p>
                             </div>
                             <div className="flex gap-2">
                                 {post.tags.map((tag, index) => {

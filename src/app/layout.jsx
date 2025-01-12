@@ -26,6 +26,7 @@ export default function RootLayout({ children }) {
                     <FloatingMenu />
                 </div>
                 <Analytics />
+                <SpeedInsights />
             </body>
         </html>
     );

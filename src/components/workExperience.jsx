@@ -1,18 +1,22 @@
-"use client"
-import Image from "next/image"
-import Link from "next/link"
-import { workJSON } from "@/app/utils"
-import chevron from "/src/app/assets/chevron.svg"
-import { useState } from "react"
+'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { workJSON } from '@/app/utils';
+import chevron from '/src/app/assets/chevron.svg';
+import { useState } from 'react';
 
 const WorkExperience = () => {
     const [openBlockIds, setOpenBlockIds] = useState([]);
     const toggleDescription = (id) => {
         setOpenBlockIds((prevIds) =>
-            prevIds.includes(id)
-                ? prevIds.filter((prevId) => prevId !== id)
-                : [...prevIds, id]
+            prevIds.includes(id) ? prevIds.filter((prevId) => prevId !== id) : [...prevIds, id]
         );
+    };
+    const handleKeyDown = (event, id) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            toggleDescription(id);
+        }
     };
     return (
         <div>
@@ -24,6 +28,11 @@ const WorkExperience = () => {
                         className="mt-4 mb-6 flex-col gap-4 cursor-pointer group"
                         key={workPlace.id}
                         onClick={() => toggleDescription(workPlace.id)}
+                        tabIndex={0}
+                        onKeyDown={(event) => handleKeyDown(event, workPlace.id)}
+                        role="button"
+                        aria-expanded={isOpen}
+                        aria-controls={`description-${workPlace.id}`}
                     >
                         <div className="flex sm:flex-row flex-col">
                             <Image
@@ -79,6 +88,6 @@ const WorkExperience = () => {
             })}
         </div>
     );
-}
+};
 
-export default WorkExperience
+export default WorkExperience;

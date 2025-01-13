@@ -26,7 +26,7 @@ const BlogsArticles = ({ posts }) => {
                                     className="text-sm text-pantone hover:underline hover:text-pantone"
                                 >
                                     Read more
-                                    <span class="sr-only">about {post.title}</span>
+                                    <span className="sr-only">about {post.title}</span>
                                 </Link>
                                 <span className="text-gray-500">&bull;</span>
                                 <p className="dark:text-slate-50 text-gray-500">

@@ -7,7 +7,7 @@ export default function Projects() {
     return (
         <>
             <h2 className="text-black</div> dark:text-white font-bold text-3xl flex items-center text-center d-flex justify-center mb-4">
-                Check out all of my projects
+                Check out some of my projects
             </h2>
             <p className="text-black dark:text-white text-center items-center relative">
                 Work projects, personal projects, and everything in between – all curated with the

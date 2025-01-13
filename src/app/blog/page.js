@@ -6,7 +6,7 @@ import BlogClient from './BlogClient';
 
 export const metadata = {
     title: 'Blog - Allan Fernandes',
-    description: 'A collection of blog posts on various topics.',
+    description: 'A collection of blog posts on various topics written by Allan Fernandes.',
     image: '/og-image.png',
     url: 'https://www.allanfernandes.dev/blog',
 };

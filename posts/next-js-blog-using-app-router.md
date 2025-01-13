@@ -142,7 +142,7 @@ Very briefly:
 
 ---
 
-5. **.Rendering blogs from markdown**
+5. **Rendering blogs from markdown**
    In order to help us render all the blog posts we’ll create a helper file which will contain all the functions we need to return everything related to our blog posts.
    Create a lib directory with the file `utilities.js`
 
@@ -330,7 +330,7 @@ export default BlogClient
 
 Your blog page should look something like this
 ![image](/blog-images/blog-3/blog-page.png)
-Clicking on `Read more` should redirect you to the dynamic slug, but our individual blog article is still static,so it won't render the content just yet!
+Clicking on `Read more` should redirect you to the dynamic slug, but our individual blog article is still static, so it won't render the content just yet!
 
 8. **Render your blog article.**
 

@@ -130,8 +130,10 @@ const BlogClient = ({ allPostsData, allTags }) => {
                                             </svg>
                                         </span>
                                     </Link>
-                                    <span className="text-gray-500">&bull;</span>
-                                    <p className="text-gray-500">{readingTime} min read</p>
+                                    <span className="dark:text-slate-50 text-gray-500">&bull;</span>
+                                    <p className="dark:text-slate-50 text-gray-500">
+                                        {readingTime} min read
+                                    </p>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
                                     {tags &&

@@ -13,7 +13,7 @@ const Contact = () => {
             <a
                 href="mailto:hello@allanfernandes.dev"
                 title=""
-                className="font-medium text-black dark:text-gray-300 text-3xl sm:text-5xl text-center border-y-2 border-gray-400 py-6 my-6 flex flex-wrap justify-center"
+                className="font-medium text-pantone text-3xl sm:text-5xl text-center border-y-2 border-gray-400 py-6 my-6 flex flex-wrap justify-center"
             >
                 hello@allanfernandes.dev
             </a>

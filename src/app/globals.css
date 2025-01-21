@@ -5,7 +5,7 @@
 :root {
     --background: #ffffff;
     --foreground: #171717;
-    --pantone: #ff5a26;
+    --pantone: #646cff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -59,7 +59,8 @@ body {
 
 .avatar {
     transform: rotate(358deg);
-    background: #ff5a26;
+    background: radial-gradient(141.42% 141.42% at 100% 0%, #fff6, #fff0), radial-gradient(140.35% 140.35% at 100% 94.74%, #bd34fe, #bd34fe00), radial-gradient(89.94% 89.94% at 18.42% 15.79%, #41d1ff, #41d1ff00);
+    box-shadow: 0 1px #ffffffbf inset;
     border-radius: 50%;
     height: 180px !important;
     width: 180px !important;
@@ -98,7 +99,7 @@ body {
     position: absolute;
     font-size: 12px;
     background-color: white;
-    border: 1px solid #ff5a26;
+    border: 1px solid var(--pantone);
     box-shadow: 0 -20px 80px -20px #ffffff5c inset;
     padding: 10px;
     border-radius: 10px;
@@ -106,7 +107,7 @@ body {
 }
 
 .hover-links {
-    border-bottom: 3px dashed #ff5a26;
+    border-bottom: 3px dashed #646cff;
     position: relative;
     background-position-y: 100%;
 }

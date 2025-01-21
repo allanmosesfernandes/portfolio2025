@@ -6,7 +6,7 @@ const BlogsArticles = ({ posts }) => {
     const limitedPosts = posts.slice(0, 3);
     return (
         <div className="mt-20">
-            <p className="text-black dark:text-white font-bold flex items-center text-center d-flex justify-center mb-6 text-4xl">
+            <p className="text-pantone font-bold flex items-center text-center d-flex justify-center mb-6 text-4xl">
                 Blog
             </p>
             {limitedPosts.map((post, index) => {
@@ -38,7 +38,7 @@ const BlogsArticles = ({ posts }) => {
                                     return (
                                         <p
                                             key={index}
-                                            className="text-xs dark:text-white bg-black text-white font-medium text-md rounded-lg p-2 h-fit shadow dark:bg-gray-800 dark:border-gray-700"
+                                            className="text-xs dark:text-white bg-black text-white font-medium text-md rounded-2xl py-2 px-4 h-fit shadow dark:bg-gray-800 dark:border-gray-700"
                                         >
                                             {tag}
                                         </p>

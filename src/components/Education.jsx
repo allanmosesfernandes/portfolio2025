@@ -6,14 +6,11 @@ import Image from 'next/image';
 
 const Education = () => {
     return (
-        <div className='mt-12'>
-            <h3 className="text-black dark:text-white font-bold text-2xl pt-6">Education</h3>
+        <div className="mt-12">
+            <h3 className="text-pantone font-bold text-2xl pt-6">Education</h3>
             {educationJSON.map((education) => {
                 return (
-                    <div
-                        className="mt-4 mb-6 flex-col gap-4 group"
-                        key={education.id}
-                    >
+                    <div className="mt-4 mb-6 flex-col gap-4 group" key={education.id}>
                         <div className="flex">
                             <Image
                                 src={education.logo}
@@ -24,7 +21,7 @@ const Education = () => {
                                 className="w-[80px] h-[50px] inline object-scale-down mr-4"
                             />
                             <div>
-                                <Link href={education.url} target='_blank'>
+                                <Link href={education.url} target="_blank">
                                     <div className="flex items-center gap-1">
                                         <h4 className="text-black dark:text-white font-bold text-md">
                                             {education.university}
@@ -48,7 +45,7 @@ const Education = () => {
                                         {education.course}
                                     </p>
                                     <p className="ml-auto text-black dark:text-white text-sm sm:hidden block">
-                                    {education.year}
+                                        {education.year}
                                     </p>
                                 </Link>
                             </div>

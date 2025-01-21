@@ -8,7 +8,7 @@ const Projects = () => {
             <p className="dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-lg p-2 h-fit w-fit d-flex mx-auto mt-20 mb-6">
                 My Projects
             </p>
-            <h2 className="text-black dark:text-white font-bold text-3xl flex items-center text-center d-flex justify-center">
+            <h2 className="text-pantone font-bold text-3xl flex items-center text-center d-flex justify-center">
                 Check out my latest work
             </h2>
             <p className="text-pretty text-black dark:text-white md:text-lg my-4 text-center">
@@ -20,14 +20,14 @@ const Projects = () => {
                     return (
                         <div
                             key={index}
-                            className="items-center gap-4 rounded-xl bg-card dark:bg-card-dark dark:bg-white dark:text-black shadow-lg h-[100%] flex flex-col"
+                            className="items-center gap-4 rounded-xl rounded-t-md bg-card dark:bg-card-dark dark:bg-white dark:text-black shadow-lg h-[100%] flex flex-col"
                         >
                             <Image
                                 src={project.image}
                                 alt={project.title}
                                 width={500}
                                 height={50}
-                                className="object-cover h-[200px]"
+                                className="object-cover h-[200px] rounded-t-md	"
                             />
                             <div className="p-4 flex flex-col h-[100%]">
                                 <h3 className="font-semibold tracking-tight mt-1 text-base">
@@ -42,7 +42,7 @@ const Projects = () => {
                                         return (
                                             <p
                                                 key={index}
-                                                className="text-xs dark:text-white bg-black text-white font-medium text-md rounded-lg p-2 h-fit shadow dark:bg-gray-800 dark:border-gray-700"
+                                                className="text-xs dark:text-white bg-black text-white font-medium text-md rounded-2xl py-2 px-4 h-fit shadow dark:bg-gray-800 dark:border-gray-700"
                                             >
                                                 {tool}
                                             </p>
@@ -56,7 +56,7 @@ const Projects = () => {
                                 >
                                     <p
                                         key={index}
-                                        className="text-xs dark:text-white bg-black text-white font-medium text-md w-fit rounded-lg p-2 h-fit shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 d-flex"
+                                        className="text-xs dark:text-white bg-black text-white font-medium text-md w-fit rounded-2xl p-2 h-fit shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 d-flex"
                                     >
                                         <span className="flex gap-2 items-center">
                                             <svg

@@ -24,7 +24,7 @@ const workJSON = [
     {
         company: 'THIS IS! Digital Media Group',
         logo: '/this-is-dmg.svg',
-        companyUrl: '#',
+        companyUrl: 'https://www.thisisdmg.com/en/',
         id: 'xxx03',
         role: 'Frontend Developer',
         startDate: 'May 2021',
@@ -139,7 +139,6 @@ const projects = [
         website: 'https://ankanchittalipi.com/',
     },
 ];
-
 const allProjects = [
     // {
     //     timeline: 'December 2024',

@@ -120,7 +120,7 @@ const BlogClient = ({ allPostsData, allTags }) => {
                                                 height="24"
                                                 viewBox="0 0 24 24"
                                                 fill="none"
-                                                stroke="#FF5A26"
+                                                stroke="#646cff"
                                                 strokeWidth="2"
                                                 strokeLinecap="round"
                                                 strokeLinejoin="round"
@@ -140,7 +140,7 @@ const BlogClient = ({ allPostsData, allTags }) => {
                                         tags.map((tag, index) => (
                                             <span
                                                 key={index}
-                                                className="dark:bg-white dark:text-black bg-gray-200 text-black font-medium text-md rounded-lg px-2 py-1 mr-2"
+                                                className="dark:bg-white dark:text-black bg-gray-200 text-black font-medium text-sm rounded-2xl px-4 py-2 mr-2"
                                             >
                                                 {tag}
                                             </span>

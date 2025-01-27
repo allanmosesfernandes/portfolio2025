@@ -66,6 +66,14 @@ const educationJSON = [
         url: 'https://www.ntu.ac.uk/course/science-and-technology/pg/msc-computer-science',
     },
     {
+        university: 'Nottingham Trent University',
+        logo: '/ntu.png',
+        course: 'Diploma in professional practice',
+        year: '2023',
+        id: 'xxx04',
+        url: 'https://www.ntu.ac.uk/course/science-and-technology/pg/msc-computer-science',
+    },
+    {
         university: "St. Xavier's College",
         logo: '/xaviers.png',
         course: 'BSc Information Technology',
@@ -135,10 +143,11 @@ const projects = [
         date: 'August 2023 - September 2023',
         summary:
             'Website design and development for Ankan Chittali, a fashion merchandiser and trend forecaster using Wordpress as a headless CMS and developing the frontend in react.',
-        tools: ['React', 'Wordpress'],
+        tools: ['React', 'Styled components','Gatsby', 'Wordpress', 'Netlify'],
         website: 'https://ankanchittalipi.com/',
     },
 ];
+
 const allProjects = [
     // {
     //     timeline: 'December 2024',
@@ -199,7 +208,7 @@ const allProjects = [
         timeline: 'September 2023',
         title: 'The Common Thread',
         description:
-            'Website design and development for Ankan Chittali, a fashion merchandiser and trend forecaster using Wordpress as a headless CMS and developing the frontend in react.',
+            'Website design and development for Ankan Chittalpi, a fashion merchandiser and trend forecaster using Wordpress as a headless CMS and developing the frontend in react.',
         image: '/projects/common-thread.png',
         link: 'https://ankanchittalipi.com/',
     },

@@ -1,5 +1,5 @@
 ---
-title: 'The Best Things I Bought in 2024'
+title: 'The best things I bought in 2024'
 date: '2025-01-03T08:57:28.969Z'
 tags:
     - life

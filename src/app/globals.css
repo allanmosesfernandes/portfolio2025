@@ -99,7 +99,7 @@ body {
     position: absolute;
     font-size: 12px;
     background-color: white;
-    border: 1px solid var(--pantone);
+    border: 1px solid var(--);
     box-shadow: 0 -20px 80px -20px #ffffff5c inset;
     padding: 10px;
     border-radius: 10px;

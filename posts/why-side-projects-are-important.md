@@ -1,5 +1,5 @@
 ---
-title: 'Why You Should Start a Side Project'
+title: 'Why you should start a side project'
 date: '2025-01-04T15:09:38.350Z'
 tags:
     - life

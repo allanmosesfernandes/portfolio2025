@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Arrow from '@/app/assets/arrow.svg';
 import { ReactTyped } from 'react-typed';
+import Globe from '@/app/assets/globe.png';
 
 const Introduction = () => {
     return (
@@ -49,7 +50,17 @@ const Introduction = () => {
                             startDelay={100}
                         />
                         , <br />I like b̶r̶e̶a̶k̶i̶n̶g̶&nbsp; building cool things that live on the internet
-                        🌐
+                        <span>
+                            <Image
+                                src={Globe}
+                                alt="Globe Emoji"
+                                width={25}
+                                height={25}
+                                title="Waving hand"
+                                className="mx-2 inline"
+                            />
+                        </span>
+                        while also genuinely caring about accessibility and user experience.
                     </p>
                 </div>
                 <Image

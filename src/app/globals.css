@@ -152,7 +152,7 @@ body {
 }
 
 .scroll_indicator {
-    background: linear-gradient(to right, #ff5a26, #ff5a26, #ff5a26);
+    background: linear-gradient(to right, #646cff, #646cff, #646cff);
     height: 0.5rem;
 }
 

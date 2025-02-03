@@ -87,6 +87,7 @@ const skills = [
     'React',
     'Next.js',
     'Typescript',
+    'Redux',
     'Tanstack Query',
     'Tailwind CSS',
     'Gatsby',

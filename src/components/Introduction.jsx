@@ -103,16 +103,8 @@ const Introduction = () => {
                 </a>
                 ,{'  '}
                 and{'  '}
-                <a
-                    href="https://www.robinhoodhalfmarathon.co.uk/pages/results?srsltid=AfmBOor6Qign_-E37nNrLrYDLUXG3iKxzRz_VWD3s0W1P_RYV9gXrQ1e"
-                    target="_blank"
-                    aria-label="Running"
-                    title="Running"
-                    className=" hover-links"
-                >
                     go on runs
-                </a>
-                {'  '}
+=                {'  '}
                 to get my ass off the computer.
             </p>
         </div>

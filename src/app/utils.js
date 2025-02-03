@@ -86,6 +86,8 @@ const educationJSON = [
 const skills = [
     'React',
     'Next.js',
+    'Typescript',
+    'Tanstack Query',
     'Tailwind CSS',
     'Gatsby',
     'Docker',

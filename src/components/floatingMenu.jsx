@@ -5,6 +5,7 @@ import github from '/src/app/assets/github.svg';
 import linkedin from '/src/app/assets/linkedin.svg';
 import sun from '/src/app/assets/sun.svg';
 import moon from '/src/app/assets/moon.svg';
+import pdf from '/src/app/assets/pdf.svg';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -34,25 +35,28 @@ export const FloatingMenu = () => {
                     <p>Home</p>
                     <Image src={home} alt={home} width={20} height={20} title="Home" />
                 </Link>
-                <Link href="/blog" title='Blog'>
+                <Link href="/blog" title="Blog">
                     <p>Blog</p>
-                    <Image src={blog} alt={blog} width={20} height={20} />
+                    <Image src={blog} alt={'blog'} width={20} height={20} />
                 </Link>
                 <Link href="https://github.com/allanmosesfernandes" target="_blank">
                     <p>Github</p>
-                    <Image src={github} alt={github} width={20} height={20} />
+                    <Image src={github} alt={'github icon'} width={20} height={20} />
                 </Link>
                 <Link href="https://www.linkedin.com/in/allanmosesfernandes/" target="_blank">
                     <p>Linkedin</p>
-                    <Image src={linkedin} alt={home} width={20} height={20} />
+                    <Image src={linkedin} alt={'Linkedin Icon'} width={20} height={20} />
                 </Link>
+                <a href="/resume_allan_2025.pdf" target="_blank">
+                    <p>Resume</p>
+                    <Image src={pdf} alt={'PDF icon'} width={20} height={20} />
+                </a>
                 <button onClick={toggleTheme} className="text-white flex">
-                    <p>{isDark ? "Dark mode" : "Light Mode"}</p>
-                    {isDark ? (
-                        <Image src={moon} alt="moon" width={20} height={20} />
-                    ) : (
-                        <Image src={sun} alt="Sun5" width={20} height={20} />
-                    )}
+                    <p>{isDark ? 'Dark mode' : 'Light Mode'}</p>
+                    {isDark
+                        ? <Image src={moon} alt="moon" width={20} height={20} />
+                        : <Image src={sun} alt="Sun5" width={20} height={20} />
+                    }
                 </button>
             </nav>
         </div>

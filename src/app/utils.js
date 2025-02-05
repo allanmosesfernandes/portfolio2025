@@ -84,23 +84,24 @@ const educationJSON = [
 ];
 
 const skills = [
-    'React',
-    'Next.js',
-    'Typescript',
-    'Redux',
-    'Tanstack Query',
-    'Tailwind CSS',
-    'Gatsby',
-    'Docker',
-    'Twig',
-    'My SQL',
     'AWS',
-    'Playwright',
-    'Sass',
+    'Docker',
+    'Firebase',
+    'Gatsby',
     'JavaScript',
     'jQuery',
-    'Firebase',
+    'My SQL',
+    'Next.js',
     'Node.js',
+    'Playwright',
+    'React',
+    'Redux',
+    'Sass',
+    'Sentry',
+    'Tailwind CSS',
+    'Tanstack Query',
+    'Twig',
+    'Typescript',
 ];
 
 const projects = [

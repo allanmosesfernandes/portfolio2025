@@ -103,9 +103,7 @@ const Introduction = () => {
                 </a>
                 ,{'  '}
                 and{'  '}
-                    go on runs
-=                {'  '}
-                to get my ass off the computer.
+                go on runs to get my ass off the computer.
             </p>
         </div>
     );

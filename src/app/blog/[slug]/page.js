@@ -76,6 +76,9 @@ export default async function PostPage({ params }) {
                         </div>
                     </div>
                     <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+                    <Link href="/blog" className="underline flex justify-center">
+                        ← Back to all posts
+                    </Link>
                 </article>
             </div>
         </>

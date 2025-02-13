@@ -88,7 +88,7 @@ const BlogClient = ({ allPostsData, allTags }) => {
                     </div>
                     <button
                         onClick={() => setSelectedTags([])}
-                        className="mt-4 bg-red-400 text-white px-4 py-2 rounded transition"
+                        className="mt-4 bg-red-400 text-sm text-white px-4 py-2 rounded-full transition"
                     >
                         Clear all filters
                     </button>

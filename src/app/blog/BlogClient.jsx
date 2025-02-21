@@ -5,6 +5,8 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { formatDate } from '../utils';
+import { backgroundColors } from '@/utils/utils';
+
 /**
  * Client Component: Handles interactivity and state.
  * @param {Object} props
@@ -51,7 +53,7 @@ const BlogClient = ({ allPostsData, allTags }) => {
                                 key={tag}
                                 onClick={() => handleTagClick(tag)}
                                 aria-pressed={isSelected}
-                                className={`flex items-center bg-gray-200 dark:bg-transparent text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full transition border-2 border-white ${
+                                className={`uppercase flex items-center text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full transition border border-black dark:border-white ${
                                     isSelected ? 'border-red' : ''
                                 }`}
                             >
@@ -102,53 +104,35 @@ const BlogClient = ({ allPostsData, allTags }) => {
                 </p>
             ) : (
                 <ul className="mt-4">
-                    {filteredPosts.map(({ id, title, date, tags, slug, summary, readingTime }) => (
-                        <li key={id} className="blog-li shadow-md p-4 shadow-pantone mb-6 rounded">
-                            <div className="flex sm:flex-row flex-col justify-between">
-                                <h3 className="font-bold text-xl">{title}</h3>
-                                <p className="text-pantone sm:mt-0 mt-2">{formatDate(date)}</p>
-                            </div>
-                            <p className="sm:my-6 my-2">{summary}</p>
-                            <div className="flex sm:flex-row flex-col gap-2 sm:items-center justify-between mt-4">
-                                <div className="flex gap-2 items-center">
-                                    <Link href={`/blog/${slug}`}>
-                                        <span className="text-pantone font-bold text-md flex items-center">
-                                            Read more
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="#646cff"
-                                                strokeWidth="2"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                className="lucide lucide-chevron-right size-4 transform transition-all duration-300 ease-out ml-1"
-                                            >
-                                                <path d="m9 18 6-6-6-6"></path>
-                                            </svg>
-                                        </span>
-                                    </Link>
-                                    <span className="dark:text-slate-50 text-gray-500">&bull;</span>
-                                    <p className="dark:text-slate-50 text-gray-500">
-                                        {readingTime} min read
-                                    </p>
+                    {filteredPosts.map(
+                        ({ id, title, date, tags, slug, summary, readingTime }, index) => (
+                            <Link href={`/blog/${slug}`} key={id}>
+                                <div
+                                    style={{ backgroundColor: backgroundColors[index] }}
+                                    className="blog-li p-4 mb-6 rounded text-black"
+                                >
+                                    <div className="flex flex-col gap-2">
+                                        <h3 className="font-bold text-xl">{title}</h3>
+                                        <p className="text-black ">{formatDate(date)}</p>
+                                    </div>
+                                    <p className="my-4">{summary}</p>
+                                    <div className="flex sm:flex-row flex-col gap-2 sm:items-center justify-between mt-4">
+                                        <div className="flex flex-wrap gap-2">
+                                            {tags &&
+                                                tags.map((tag, index) => (
+                                                    <span
+                                                        key={index}
+                                                        className="uppercase text-xs text-black font-medium text-md rounded-2xl py-2 px-4 h-fit shadow  border border-black cursor-pointer"
+                                                    >
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="flex flex-wrap gap-2">
-                                    {tags &&
-                                        tags.map((tag, index) => (
-                                            <span
-                                                key={index}
-                                                className="dark:bg-white dark:text-black bg-gray-200 text-black font-medium text-sm rounded-2xl px-4 py-2 mr-2"
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
-                                </div>
-                            </div>
-                        </li>
-                    ))}
+                            </Link>
+                        )
+                    )}
                 </ul>
             )}
         </div>

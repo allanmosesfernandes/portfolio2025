@@ -1,7 +1,8 @@
 import React from 'react';
 import { formatDate } from '@/app/utils';
 import Link from 'next/link';
-const backgroundColors = ['#F3EF97', '#FAF3E5', '#69B88E'];
+import { backgroundColors } from '@/utils/utils';
+
 const BlogsArticles = ({ posts }) => {
     const limitedPosts = posts.slice(0, 3);
     return (
@@ -18,12 +19,11 @@ const BlogsArticles = ({ posts }) => {
                             className="mb-8 p-4 article-block cursor-pointer"
                         >
                             <div className="space-y-4">
-                                <Link
+                                <p
                                     className="text-black text-3xl font-bold article-link inline-block relative"
-                                    href={`/blog/${post.slug}`}
                                 >
                                     {post.title}
-                                </Link>
+                                </p>
                                 <p className="font-thin text-sm mt-2">{formatDate(post.date)}</p>
                                 <p className="text-black">{post.summary}</p>
                             </div>

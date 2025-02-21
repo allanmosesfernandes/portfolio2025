@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatDate } from '@/app/utils';
 import Link from 'next/link';
-
+const backgroundColors = ['#F3EF97', '#FAF3E5', '#69B88E'];
 const BlogsArticles = ({ posts }) => {
     const limitedPosts = posts.slice(0, 3);
     return (
@@ -11,42 +11,38 @@ const BlogsArticles = ({ posts }) => {
             </p>
             {limitedPosts.map((post, index) => {
                 return (
-                    <div key={index} className="mb-6 border-b-2 border-gray-800 border-dashed">
-                        <div className="space-y-2">
-                            <p className="text-pantone text-sm">{formatDate(post.date)}</p>
-                            <p className="dark:text-white text-black text-3xl font-bold">
-                                {post.title}
-                            </p>
-                            <p className="dark:text-white text-black">{post.summary}</p>
-                        </div>
-                        <div className="flex gap-2 my-4 flex-wrap justify-between items-center">
-                            <div className="flex gap-2 items-center">
+                    <Link href={`/blog/${post.slug}`} key={index}>
+                        <div
+                            key={index}
+                            style={{ backgroundColor: backgroundColors[index] }}
+                            className="mb-8 p-4 article-block cursor-pointer"
+                        >
+                            <div className="space-y-4">
                                 <Link
+                                    className="text-black text-3xl font-bold article-link inline-block relative"
                                     href={`/blog/${post.slug}`}
-                                    className="text-sm text-pantone hover:underline hover:text-pantone"
                                 >
-                                    Read more
-                                    <span className="sr-only">about {post.title}</span>
+                                    {post.title}
                                 </Link>
-                                <span className="text-gray-500">&bull;</span>
-                                <p className="dark:text-slate-50 text-gray-500">
-                                    {post.readingTime} min read
-                                </p>
+                                <p className="font-thin text-sm mt-2">{formatDate(post.date)}</p>
+                                <p className="text-black">{post.summary}</p>
                             </div>
-                            <div className="flex gap-2">
-                                {post.tags.map((tag, index) => {
-                                    return (
-                                        <p
-                                            key={index}
-                                            className="text-xs dark:text-white bg-black text-white font-medium text-md rounded-2xl py-2 px-4 h-fit shadow dark:bg-gray-800 dark:border-gray-700"
-                                        >
-                                            {tag}
-                                        </p>
-                                    );
-                                })}{' '}
+                            <div className="flex gap-2 my-4 flex-wrap justify-between items-center">
+                                <div className="flex gap-2">
+                                    {post.tags.map((tag, index) => {
+                                        return (
+                                            <p
+                                                key={index}
+                                                className="uppercase text-xs text-black font-medium text-md rounded-2xl py-2 px-4 h-fit shadow  border border-black cursor-pointer"
+                                            >
+                                                {tag}
+                                            </p>
+                                        );
+                                    })}{' '}
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 );
             })}
             <Link

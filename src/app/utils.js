@@ -69,7 +69,7 @@ const educationJSON = [
         university: 'Nottingham Trent University',
         logo: '/ntu.png',
         course: 'Diploma in professional practice',
-        year: '2023',
+        year: '2022 - 2023',
         id: 'xxx04',
         url: 'https://www.ntu.ac.uk/course/science-and-technology/pg/msc-computer-science',
     },

@@ -85,8 +85,9 @@ const Projects = () => {
                 })}
             </div>
             <Link
+                role="button"
                 href="/projects"
-                className="flex justify-center dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-lg p-2 h-fit w-fit d-flex mx-auto mt-6 mb-10"
+                className="relative hover:rounded-none transition-all transition-discrete flex justify-center dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-lg p-2 h-fit w-fit d-flex mx-auto mt-6 mb-10"
             >
                 View all projects
             </Link>

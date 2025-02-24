@@ -16,7 +16,7 @@ const Skills = () => {
                         return (
                             <p
                                 key={index}
-                                className="bg-transparent dark:text-white dark:border-white border-[0.5px] font-medium text-md rounded-lg py-2 px-4 h-fit"
+                                className="bg-transparent dark:text-white dark:border-white border-black border-[0.5px] font-medium text-md rounded-lg py-2 px-4 h-fit"
                             >
                                 {skill}
                             </p>

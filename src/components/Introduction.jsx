@@ -76,9 +76,9 @@ const Introduction = () => {
             <p className="text-pretty text-black dark:text-white md:text-lg">
                 I've been building websites for nearly four years often using vanilla javascript,
                 React, (S)CSS and other web technologies. With a master’s degree in Computer
-                Science, I am currently working as a web developer at Responsible Life, where I work as
-                part of a dynamic team focused on crafting innovative web applications to transform
-                the equity release space.
+                Science, I am currently working as a web developer at Responsible Life, where I work
+                as part of a dynamic team focused on crafting innovative web applications to
+                transform the equity release space.
             </p>
             <p className="text-pretty text-black dark:text-white md:text-lg whitespace-pre-wrap">
                 I also play{' '}

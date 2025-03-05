@@ -78,12 +78,14 @@ const Introduction = () => {
                 javascript, tailwind and other web technologies. With a master’s degree in Computer
                 Science, I am currently working as a web developer at Responsible Life, where I work
                 as part of a dynamic team focused on crafting bespoke web applications to transform
-                the equity release space. In addition to my frontend expertise I also dabble with
-                backend technologies building APIs using serverless Lambdas navigating the AWS
-                ecosystem.
+                the equity release space. <br />
+                In addition to my frontend expertise I also dabble with backend technologies
+                building APIs using serverless Lambdas navigating the AWS ecosystem.
+                <br />
+                <br />
             </p>
             <p className="text-pretty text-black dark:text-white md:text-lg whitespace-pre-wrap">
-                I also play{' '}
+                When I'm not breaking things on the internet I'm busy playing{' '}
                 <Link
                     href="tekkers"
                     aria-label="Allan fernandes tekkers"
@@ -100,7 +102,7 @@ const Introduction = () => {
                     title="Reading list"
                     className=" hover-links"
                 >
-                    read books
+                    reading books
                 </a>
                 ,{'  '}
                 and{'  '}

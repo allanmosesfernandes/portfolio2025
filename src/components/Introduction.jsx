@@ -75,22 +75,24 @@ const Introduction = () => {
             <h3 className="text-pantone font-bold text-2xl mt-6">About</h3>
             <p className="text-pretty text-black dark:text-white md:text-lg">
                 I've been building websites for more than five years often using React, plain old
-                javascript, tailwind and other web technologies. With a master’s degree in
-                Computer Science, I am currently working as a web developer at Responsible Life,
-                where I work as part of a dynamic team focused on crafting bespoke web
-                applications to transform the equity release space. In addition to my frontend expertise I also dabble with backend technologies building APIs using serverless Lambdas navigating the AWS ecosystem.
+                javascript, tailwind and other web technologies. With a master’s degree in Computer
+                Science, I am currently working as a web developer at Responsible Life, where I work
+                as part of a dynamic team focused on crafting bespoke web applications to transform
+                the equity release space. In addition to my frontend expertise I also dabble with
+                backend technologies building APIs using serverless Lambdas navigating the AWS
+                ecosystem.
             </p>
             <p className="text-pretty text-black dark:text-white md:text-lg whitespace-pre-wrap">
                 I also play{' '}
-                <a
-                    href="https://www.instagram.com/p/B4nEUCgpYrl/"
+                <Link
+                    href="tekkers"
                     target="_blank"
                     aria-label="Allan fernandes tekkers"
-                    title="Tekkers"
+                    title="Goalzo mate"
                     className=" hover-links"
                 >
                     football,
-                </a>
+                </Link>
                 {'  '}
                 <a
                     href="https://www.goodreads.com/review/list/185760981-allan-fernandes?shelf=read"

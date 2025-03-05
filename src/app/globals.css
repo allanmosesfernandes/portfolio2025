@@ -272,3 +272,9 @@ pre {
         background-position: 0% 50%
     }
 }
+
+.video-frame {
+    border: 10px solid #fafafa;
+    outline: 3px solid #333;
+    box-shadow: 15px 15px #f50057;
+}

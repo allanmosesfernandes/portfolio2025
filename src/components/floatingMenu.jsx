@@ -28,8 +28,9 @@ export const FloatingMenu = () => {
 
     return (
         <div className="fixed-floating-menu">
+            <button className="button-bg"></button>
             <nav
-                className={`bg-[#343434] dark:bg-gray-950 w-max p-4 gap-6 rounded-full border z-50 pointer-events-auto relative mx-auto flex min-h-full h-full items-center [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]`}
+                className={`bg-gray-950 w-max p-4 gap-6 rounded-full border z-50 pointer-events-auto relative mx-auto flex min-h-full h-full items-center [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]`}
             >
                 <Link href="/" title="Home" data-toggle="tooltip" data-placement="top">
                     <p>Home</p>
@@ -53,10 +54,11 @@ export const FloatingMenu = () => {
                 </a>
                 <button onClick={toggleTheme} className="text-white flex">
                     <p>{isDark ? 'Dark mode' : 'Light Mode'}</p>
-                    {isDark
-                        ? <Image src={moon} alt="moon" width={20} height={20} />
-                        : <Image src={sun} alt="Sun5" width={20} height={20} />
-                    }
+                    {isDark ? (
+                        <Image src={moon} alt="moon" width={20} height={20} />
+                    ) : (
+                        <Image src={sun} alt="Sun5" width={20} height={20} />
+                    )}
                 </button>
             </nav>
         </div>

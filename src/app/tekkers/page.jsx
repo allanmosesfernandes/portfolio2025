@@ -11,7 +11,7 @@ const page = () => {
             </p>
             {/* Video */}
             <div className="video-frame">
-                <video src="/video/golazo.mp4" controls />
+                <video src="/video/golazo.mp4" controls muted playsInline />
             </div>
             <Image src="/giphy.gif" width={300} alt="Gif" height={300} className="mx-auto my-8" />
             <div className="my-10"></div>

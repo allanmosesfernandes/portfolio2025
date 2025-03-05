@@ -86,7 +86,6 @@ const Introduction = () => {
                 I also play{' '}
                 <Link
                     href="tekkers"
-                    target="_blank"
                     aria-label="Allan fernandes tekkers"
                     title="Goalzo mate"
                     className=" hover-links"

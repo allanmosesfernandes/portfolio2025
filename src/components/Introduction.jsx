@@ -74,11 +74,11 @@ const Introduction = () => {
             </div>
             <h3 className="text-pantone font-bold text-2xl mt-6">About</h3>
             <p className="text-pretty text-black dark:text-white md:text-lg">
-                I've been building websites for nearly four years often using vanilla javascript,
-                React, (S)CSS and other web technologies. With a master’s degree in Computer
-                Science, I am currently working as a web developer at Responsible Life, where I work
-                as part of a dynamic team focused on crafting innovative web applications to
-                transform the equity release space.
+                I've been building websites for more than five years often using React, plain old
+                javascript, tailwind and other web technologies. With a master’s degree in
+                Computer Science, I am currently working as a web developer at Responsible Life,
+                where I work as part of a dynamic team focused on crafting bespoke web
+                applications to transform the equity release space. In addition to my frontend expertise I also dabble with backend technologies building APIs using serverless Lambdas navigating the AWS ecosystem.
             </p>
             <p className="text-pretty text-black dark:text-white md:text-lg whitespace-pre-wrap">
                 I also play{' '}

@@ -12,10 +12,10 @@ const Homepage = ({ posts }) => {
     return (
         <>
             <Introduction />
-            <WorkExperience />
-            <Education />
             <Skills />
             <Projects />
+            <WorkExperience />
+            <Education />
             <BlogsArticles posts={posts} />
             <Contact />
         </>

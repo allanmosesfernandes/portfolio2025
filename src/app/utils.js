@@ -107,31 +107,40 @@ const skills = [
 const projects = [
     {
         image: '/projects/1.png',
+        title: 'Royal London, Broker Portal',
+        date: 'August 2024 - January 2025',
+        summary:
+            'Developed a custom portal for equity release advisors, streamlining the entire case management journey. The portal enables advisors to create cases, generate quotes, produce Key Facts Illustrations (KFIs), submit applications, and securely upload required documentation.',
+        tools: ['React', 'Playwright', 'SCSS', 'AWS'],
+        website: 'https://equityrelease.royallondon.com/',
+    },
+    {
+        image: '/projects/1.png',
         title: 'Royal London, Equity Release',
         date: 'August 2024 - September 2024',
         summary:
             'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
-        tools: ['Javascript', 'Twig', 'PHP', 'Sass', 'Docker'],
+        tools: ['Javascript', 'Twig', 'PHP', 'SCSS', 'Docker'],
         website: 'https://equityrelease.royallondon.com/',
     },
-    {
-        image: '/projects/landing0.png',
-        title: 'Royal London, landing pages',
-        date: 'September 2024',
-        summary:
-            'Collaborated with the design team to create high-converting landing pages for Royal London products.Crafted responsive and visually engaging pages tailored to drive lead generation as part of targeted ad campaigns.',
-        tools: ['Javascript', 'Twig', 'PHP', 'Sass', 'Docker'],
-        website: 'https://eradvice.royallondon.com/',
-    },
     // {
-    //     image: '/projects/2.png',
-    //     title: 'Daily Stoic Reminders',
-    //     date: 'Dec 2023 - February 2024',
+    //     image: '/projects/landing0.png',
+    //     title: 'Royal London, landing pages',
+    //     date: 'September 2024',
     //     summary:
-    //         'Conceptualized, designed and developed a web app for daily stoic reminders. The app generates daily stoic reminders to users to read a stoic quote and reflect on it.',
-    //     tools: ['React', 'Firebase', 'Styled Components', 'Netlify'],
-    //     website: 'https://dailystoicreminders.uk/',
+    //         'Collaborated with the design team to create high-converting landing pages for Royal London products.Crafted responsive and visually engaging pages tailored to drive lead generation as part of targeted ad campaigns.',
+    //     tools: ['Javascript', 'Twig', 'PHP', 'SCSS', 'Docker'],
+    //     website: 'https://eradvice.royallondon.com/',
     // },
+    {
+        image: '/projects/2.png',
+        title: 'Daily Stoic Reminders',
+        date: 'Dec 2023 - February 2024',
+        summary:
+            'Conceptualized, designed and developed a web app for daily stoic reminders. The app generates daily stoic reminders to users to read a stoic quote and reflect on it.',
+        tools: ['React', 'Firebase', 'Styled Components', 'Netlify'],
+        website: 'https://dailystoicreminders.uk/',
+    },
     {
         image: '/projects/what-is-wrong-jaron.png',
         title: 'What is wrong with Jaron',
@@ -141,25 +150,25 @@ const projects = [
         tools: ['Wordpress', 'Javascript', 'PHP'],
         website: 'https://www.was-ist-los-mit-jaron.de/',
     },
-    {
-        image: '/projects/common-thread.png',
-        title: 'The Common Thread',
-        date: 'August 2023 - September 2023',
-        summary:
-            'Website design and development for Ankan Chittali, a fashion merchandiser and trend forecaster using Wordpress as a headless CMS and developing the frontend in react.',
-        tools: ['React', 'Styled components','Gatsby', 'Wordpress', 'Netlify'],
-        website: 'https://ankanchittalipi.com/',
-    },
+    // {
+    //     image: '/projects/common-thread.png',
+    //     title: 'The Common Thread',
+    //     date: 'August 2023 - September 2023',
+    //     summary:
+    //         'Website design and development for Ankan Chittali, a fashion merchandiser and trend forecaster using Wordpress as a headless CMS and developing the frontend in react.',
+    //     tools: ['React', 'Styled components','Gatsby', 'Wordpress', 'Netlify'],
+    //     website: 'https://ankanchittalipi.com/',
+    // },
 ];
 
 const allProjects = [
-    // {
-    //     timeline: 'December 2024',
-    //     title: 'Broker Portal',
-    //     description: 'Bespoke broker portal that allows',
-    //     image: '/projects/1.png',
-    //     link: '',
-    // },
+    {
+        timeline: 'August 2024',
+        title: 'Broker Portal',
+        description: 'Developed a bespoke portal for equity release advisors. The portal enables advisors to create cases, generate quotes, produce Key Facts Illustrations (KFIs), and securely upload required documentation.',
+        image: '/projects/1.png',
+        link: '',
+    },
     {
         timeline: 'September 2023',
         title: 'FactFind',
@@ -258,7 +267,8 @@ const allProjects = [
     {
         timeline: 'March 2021',
         title: 'Portfolio v1',
-        description: "Portfolio website for v1 of my personal website. The website was using a fun library called Fullpage.js. and was built using plain vanilla JS",
+        description:
+            'Portfolio website for v1 of my personal website. The website was using a fun library called Fullpage.js. and was built using plain vanilla JS',
         image: '/blog-images/nerd.png',
         link: 'https://quizzical-tereshkova-4ea12e.netlify.app/',
     },

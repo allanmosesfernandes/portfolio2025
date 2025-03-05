@@ -34,7 +34,7 @@ const Projects = () => {
                                     {project.title}
                                 </h3>
                                 <p className="text-sm">{project.date}</p>
-                                <p className="text-sm my-2 flex min-h-[120px] items-center">
+                                <p className="text-sm my-2 flex min-h-[140px] items-center">
                                     {project.summary}
                                 </p>
                                 <div className="flex gap-2 my-4 flex-wrap">

@@ -48,7 +48,7 @@ export const FloatingMenu = () => {
                     <p>Linkedin</p>
                     <Image src={linkedin} alt={'Linkedin Icon'} width={20} height={20} />
                 </Link>
-                <a href="/resume_allan_2025.pdf" target="_blank">
+                <a href="/Resume_Allan_Fernandes_.pdf" target="_blank">
                     <p>Resume</p>
                     <Image src={pdf} alt={'PDF icon'} width={20} height={20} />
                 </a>

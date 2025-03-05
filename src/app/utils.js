@@ -102,6 +102,7 @@ const skills = [
     'Tanstack Query',
     'Twig',
     'Typescript',
+    'Vercel',
 ];
 
 const projects = [

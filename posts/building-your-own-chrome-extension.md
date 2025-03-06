@@ -6,7 +6,7 @@ tags:
     - side projects
 summary: 'Build your own year progress extension in just three files.'
 slug: 'build-your-own-chrome-extension'
-image: '/blog-images/blog-3-next-js.png'
+image: '/blog-images/chrome-extension.png'
 readingTime: '10'
 ---
 

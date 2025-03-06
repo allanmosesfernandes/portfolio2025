@@ -109,10 +109,12 @@ const BlogClient = ({ allPostsData, allTags }) => {
                             <Link href={`/blog/${slug}`} key={id}>
                                 <div
                                     style={{ backgroundColor: backgroundColors[index] }}
-                                    className="blog-li p-4 mb-6 rounded text-black"
+                                    className="blog-li p-4 mb-6 rounded text-black article-block"
                                 >
                                     <div className="flex flex-col gap-2">
-                                        <h3 className="font-bold text-xl">{title}</h3>
+                                        <h3 className="text-black text-3xl font-bold article-link inline-block relative w-fit">
+                                            {title}
+                                        </h3>
                                         <p className="text-black ">{formatDate(date)}</p>
                                     </div>
                                     <p className="my-4">{summary}</p>

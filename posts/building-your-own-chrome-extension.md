@@ -10,7 +10,7 @@ image: '/blog-images/chrome-extension.png'
 readingTime: '10'
 ---
 
-I wanted a simple way to track the year's progress, so I decided to build a Chrome extension (lol).
+I wanted a simple way to track the year's progress, so I decided to build a Chrome extension for it.
 I’ve also for some reason figured it would be super challenging to build my own chrome extension (spoiler alert: it's not) so I decided to do something about it and got to work:<br/><br/>
 
 ![image](/blog-images/chrome-extension.png)

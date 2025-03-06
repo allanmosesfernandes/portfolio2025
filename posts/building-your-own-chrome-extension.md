@@ -1,5 +1,5 @@
 ---
-title: 'Building your own chrome extension'
+title: 'Build your own chrome extension'
 date: '2025-03-03T15:44:11.388Z'
 tags:
     - frontend
@@ -7,16 +7,18 @@ tags:
 summary: 'Build your own year progress extension in just three files.'
 slug: 'build-your-own-chrome-extension'
 image: '/blog-images/blog-3-next-js.png'
-readingTime: '12'
+readingTime: '10'
 ---
 
 The other day I came across a tweet on X which showcased the progress of the current year and I decided to build a chrome extension out of it because free will and that.
 I’ve also for some reason figured it would be super challenging to build my own chrome extension (spoiler alert: it's not) so I decided to do something about it and got to work:<br/><br/>
 
-![image](/blog-images/blog-3-next-js.png)
+![image](/blog-images/chrome-extension.png)
 
 ### What we'll be building:
-![image](/blog-images/chrome-extension/final-build-.png)
+
+
+![image](/blog-images/chrome-extension/final.png)
 
 
 Create a New Folder and name it whatever you like, for the purpose of this demo I’m going to call my folder `Year Timer`.
@@ -336,4 +338,14 @@ Your extension should now appear within the All extensions section
 Lastly we want our extension to be pinned so it’s always at the forefront and easily accessible. To do so Click on the Extension icon and ensure you’ve Clicked on the Pin beside the name of our extension.
 ![image](/blog-images/chrome-extension/load-extension.png)
 ****
-Check out the full project on **[Github](https://github.com/allanmosesfernandes/NextJSAppRouterBlog)** and let me know how you’ve extended it to fit your needs.
+You can download the extension for free from the [Chrome Store](https://chromewebstore.google.com/detail/jdbccgeplefjfpgfaadkmahbpbihlapd?utm_source=item-share-cb)
+
+(You could also be ultra generous and give the bad boy 5 stars?)
+
+### PS:
+The design for this extension was developed by my [very talented designer brother](https://linktr.ee/rollen43) who took my not so slick design and converted it into the slick little extension that it is now.
+
+![image](/blog-images/chrome-extension/design.png)
+
+### Helpful Links
+- [Google's guide on building chrome extensions](https://developer.chrome.com/docs/extensions/get-started)

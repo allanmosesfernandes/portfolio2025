@@ -1,10 +1,10 @@
 ---
-title: 'Build your own chrome extension with just three files'
+title: 'Build your own chrome extension'
 date: '2025-03-03T15:44:11.388Z'
 tags:
     - frontend
     - side projects
-summary: 'Build your very own timer extension and use it within chrome using just 3 files.'
+summary: 'Build your own year progress extension in just three files.'
 slug: 'build-your-own-chrome-extension'
 image: '/blog-images/chrome-extension.png'
 readingTime: '10'

@@ -1,16 +1,16 @@
 ---
-title: 'Build your own chrome extension'
+title: 'Build your own chrome extension with just three files'
 date: '2025-03-03T15:44:11.388Z'
 tags:
     - frontend
     - side projects
-summary: 'Build your own year progress extension in just three files.'
+summary: 'Build your very own timer extension and use it within chrome using just 3 files.'
 slug: 'build-your-own-chrome-extension'
 image: '/blog-images/chrome-extension.png'
 readingTime: '10'
 ---
 
-The other day I came across a tweet on X which showcased the progress of the current year and I decided to build a chrome extension out of it because free will and that.
+I wanted a simple way to track the year's progress, so I decided to build a Chrome extension (lol).
 I’ve also for some reason figured it would be super challenging to build my own chrome extension (spoiler alert: it's not) so I decided to do something about it and got to work:<br/><br/>
 
 ![image](/blog-images/chrome-extension.png)

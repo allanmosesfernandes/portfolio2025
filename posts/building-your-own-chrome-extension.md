@@ -335,8 +335,10 @@ Your extension should now appear within the All extensions section
 
 ![image](/blog-images/chrome-extension/load-extension.png)
 
+### Pinning your extension
+
 Lastly we want our extension to be pinned so it’s always at the forefront and easily accessible. To do so Click on the Extension icon and ensure you’ve Clicked on the Pin beside the name of our extension.
-![image](/blog-images/chrome-extension/load-extension.png)
+![image](/blog-images/chrome-extension/enable-pinned-extension.png)
 ****
 You can download the extension for free from the [Chrome Store](https://chromewebstore.google.com/detail/jdbccgeplefjfpgfaadkmahbpbihlapd?utm_source=item-share-cb)
 

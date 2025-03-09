@@ -23,6 +23,10 @@ body {
 
 .blog-article {
     margin-bottom: 4rem;
+
+    ul>li {
+        list-style-type: disc !important;
+    }
 }
 
 .blog-article strong {

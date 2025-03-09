@@ -10,7 +10,8 @@ image: '/blog-images/blog-5-markdown-resume.png
 readingTime: '10'
 ---
 
-It's that phase of my life again where I'm on the hunt for a new job, so I needed to create a resume to apply for jobs and I traditionally always just used Google Docs. However this process felt really slow and cumbersome since I had to modify my resume to fit every unique job description. I found myself aggressively backspacing every line because my template just felt inflexible.<br/><br/>
+It's that phase of my life again where I'm on the hunt for a new job, so I needed to create a resume to apply for jobs and I traditionally always just used Google Docs. However this process felt really slow and cumbersome since I had to modify my resume to fit every unique job description. I found myself aggressively backspacing every line because my template just felt inflexible.<br/>
+<br/>
 
 So instead of giving in to the tyrannical word processor I decided to build a tool that would
 ![image](/blog-images/blog-5-markdown-resume.png)

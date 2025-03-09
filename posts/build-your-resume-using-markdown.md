@@ -32,7 +32,7 @@ I already use Markdown for all my [blog posts](/blog/next-js-blog-using-app-rout
 
 ### Project setup
 ---
-All you need is these two packages `npm i node-pandoc puppeteer`
+All you need are these two packages:  `npm i node-pandoc puppeteer`
 We need `node-pandoc` to interface with Pandoc (a universal document converter) and `puppeteer` to automate the conversion of HTML to PDF.
 
 *Note: Make sure you have `pandoc` installed on your machine, as `node-pandoc` depends on the local `pandoc` installation.

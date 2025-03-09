@@ -6,7 +6,7 @@ tags:
     - side projects
 summary: 'Ditch clunky wordprocessors to build your own resume generator using markdown'
 slug: 'build-your-resume-using-markdown'
-image: '/blog-images/blog-5-markdown-resume.png
+image: '/blog-images/blog-5-markdown-resume.png'
 readingTime: '10'
 ---
 

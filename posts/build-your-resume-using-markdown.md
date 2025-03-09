@@ -6,14 +6,14 @@ tags:
     - side projects
 summary: 'Ditch clunky wordprocessors to build your own resume generator using markdown'
 slug: 'build-your-resume-using-markdown'
-image: '/blog-images/chrome-extension.png'
+image: '/blog-images/blog-5-markdown-resume.png
 readingTime: '10'
 ---
-![image](/blog-images/blog-5-markdown-resume.png)
 
 It's that phase of my life again where I'm on the hunt for a new job, so I needed to create a resume to apply for jobs and I traditionally always just used Google Docs. However this process felt really slow and cumbersome since I had to modify my resume to fit every unique job description. I found myself aggressively backspacing every line because my template just felt inflexible.<br/><br/>
 
 So instead of giving in to the tyrannical word processor I decided to build a tool that would
+![image](/blog-images/blog-5-markdown-resume.png)
 
 - Allow me to just use code to build my resume.
 - Not stress over formatting.
@@ -34,6 +34,7 @@ I already use Markdown for all my [blog posts](/blog/next-js-blog-using-app-rout
 ---
 All you need is these two packages `npm i node-pandoc puppeteer`
 We need `node-pandoc` to interface with Pandoc (a universal document converter) and `puppeteer` to automate the conversion of HTML to PDF.
+
 *Note: Make sure you have `pandoc` installed on your machine, as `node-pandoc` depends on the local `pandoc` installation.
 [Installing pandoc](https://pandoc.org/installing.html) should set you up with the pandoc installation.
 

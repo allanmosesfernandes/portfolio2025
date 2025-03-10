@@ -1,7 +1,7 @@
 const workJSON = [
     {
         company: 'Responsible Life',
-        logo: '/rlife.svg',
+        logo: '/rlife.png',
         companyUrl: 'https://responsiblelife.co.uk',
         id: 'xxx01',
         role: 'Web developer',

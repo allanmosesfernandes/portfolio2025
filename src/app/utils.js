@@ -113,7 +113,7 @@ const projects = [
         summary:
             'Developed a custom portal for equity release advisors, streamlining the entire case management journey. The portal enables advisors to create cases, generate quotes, produce Key Facts Illustrations (KFIs), submit applications, and securely upload required documentation.',
         tools: ['React', 'Playwright', 'SCSS', 'AWS'],
-        website: 'https://equityrelease.royallondon.com/',
+        website: 'https://www.youtube.com/watch?v=YpkjyMbBHTg',
     },
     {
         image: '/projects/1.png',
@@ -166,9 +166,10 @@ const allProjects = [
     {
         timeline: 'August 2024',
         title: 'Broker Portal',
-        description: 'Developed a bespoke portal for equity release advisors. The portal enables advisors to create cases, generate quotes, produce Key Facts Illustrations (KFIs), and securely upload required documentation.',
+        description:
+            'Developed a bespoke portal for equity release advisors. The portal enables advisors to create cases, generate quotes, produce Key Facts Illustrations (KFIs), and securely upload required documentation.',
         image: '/projects/1.png',
-        link: '',
+        link: 'https://www.youtube.com/watch?v=YpkjyMbBHTg',
     },
     {
         timeline: 'September 2023',

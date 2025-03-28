@@ -24,29 +24,37 @@ export function getSortedPostsData() {
 }
 
 export async function getPostData(slug) {
-    const fileNames = fs.readdirSync(postsDirectory);
-    const matchedFile = fileNames.find((fileName) => {
+    // Use the promises-based API
+    const fileNames = await fs.promises.readdir(postsDirectory);
+
+    // Read all files and find the one with matching slug
+    let matchedFile = null;
+    let matchedData = null;
+
+    for (const fileName of fileNames) {
         const fullPath = path.join(postsDirectory, fileName);
-        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        const fileContents = await fs.promises.readFile(fullPath, 'utf8');
         const matterResult = matter(fileContents);
-        return matterResult.data.slug === slug;
-    });
+
+        if (matterResult.data.slug === slug) {
+            matchedFile = fileName;
+            matchedData = matterResult;
+            break; // Exit the loop once we find the match
+        }
+    }
 
     if (!matchedFile) {
         throw new Error(`Post with slug '${slug}' not found`);
     }
 
-    const fullPath = path.join(postsDirectory, matchedFile);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const matterResult = matter(fileContents);
-
-    const processedContent = await remark().use(html).process(matterResult.content);
+    // We already have the content from the search, no need to read the file again
+    const processedContent = await remark().use(html).process(matchedData.content);
     const contentHtml = processedContent.toString();
 
     return {
         slug,
         contentHtml,
-        ...matterResult.data,
+        ...matchedData.data,
     };
 }
 

@@ -7,7 +7,7 @@ import Image from 'next/image';
 const Education = () => {
     return (
         <div className="mt-12">
-            <h3 className="text-pantone font-bold text-2xl pt-6">Education</h3>
+            <h3 className="text-pantone font-bold text-2xl pt-6">Education & Certifications</h3>
             {educationJSON.map((education) => {
                 return (
                     <div className="mt-4 mb-6 flex-col gap-4 group" key={education.id}>

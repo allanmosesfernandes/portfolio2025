@@ -58,25 +58,25 @@ const workJSON = [
 
 const educationJSON = [
     {
-        university: 'Nottingham Trent University',
+        university: 'Certified Scrum Master',
+        logo: '/sa-csm-300.webp',
+        course: 'Scrum Alliance',
+        year: '2025 - 2027',
+        id: 'xxx06',
+        url: 'https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster',
+    },
+    {
+        university: 'MSc Computer Science',
         logo: '/ntu.png',
-        course: 'MSc Computer Science',
+        course: 'Nottingham Trent University',
         year: '2021 - 2023',
         id: 'xxx06',
         url: 'https://www.ntu.ac.uk/course/science-and-technology/pg/msc-computer-science',
     },
     {
-        university: 'Nottingham Trent University',
-        logo: '/ntu.png',
-        course: 'Diploma in professional practice',
-        year: '2022 - 2023',
-        id: 'xxx04',
-        url: 'https://www.ntu.ac.uk/course/science-and-technology/pg/msc-computer-science',
-    },
-    {
-        university: "St. Xavier's College",
+        university: 'BSc Information Technology',
         logo: '/xaviers.png',
-        course: 'BSc Information Technology',
+        course: "St. Xavier's College",
         year: '2016 - 2019',
         id: 'xxx07',
         url: 'https://itdept.xaviers.edu/courses/undergraduate',

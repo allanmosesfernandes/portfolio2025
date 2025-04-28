@@ -6,7 +6,7 @@ tags:
     - side projects
 summary: 'Ditch clunky wordprocessors to build your own resume generator using markdown'
 slug: 'build-your-resume-using-markdown'
-image: '/blog-images/blog-5-markdown-resume.png'
+image: '/blog-images/markdown-blog-remastered.png'
 readingTime: '10'
 ---
 
@@ -14,7 +14,7 @@ It's that phase of my life again where I'm on the hunt for a new job, so I neede
 <br/>
 
 So instead of giving in to the tyrannical word processor I decided to build a tool that would
-![image](/blog-images/blog-5-markdown-resume.png)
+![image](/blog-images/markdown-blog-remastered.png)
 
 - Allow me to just use code to build my resume.
 - Not stress over formatting.

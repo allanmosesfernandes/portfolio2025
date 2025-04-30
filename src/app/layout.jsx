@@ -3,6 +3,7 @@ import { Fira_Sans } from 'next/font/google';
 import { FloatingMenu } from '@/components/floatingMenu';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import Script from 'next/script';
 
 const fira = Fira_Sans({
     subsets: ['latin'],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
                 </div>
                 <Analytics />
                 <SpeedInsights />
+                <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
             </body>
         </html>
     );

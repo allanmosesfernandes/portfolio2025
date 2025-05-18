@@ -74,13 +74,11 @@ const Introduction = () => {
             </div>
             <h3 className="text-pantone font-bold text-2xl mt-6">About</h3>
             <p className="text-pretty text-black dark:text-white md:text-lg">
-                I've been building websites for more than five years often using React, plain old
-                javascript, tailwind and other web technologies. With a master’s degree in Computer
+                I've been building websites for around five years now often using React, plain old
+                javascript, and often being a victim to the shiny object syndrome.<br /> With a master’s degree in Computer
                 Science, I am currently working as a web developer at Responsible Life, where I work
-                as part of a dynamic team focused on crafting bespoke web applications to transform
-                the equity release space. <br />
-                In addition to my frontend expertise I also dabble with backend technologies
-                building APIs using serverless Lambdas navigating the AWS ecosystem.
+                as part of a dynamic team focused on building bespoke web applications to transform
+                the equity release space. <br /><br />When I'm not building on the frontend I find myself writing serverless APIs and racking up infinite debt by leaving stuff running on AWS or wiping my tears while going through the documentation.
                 <br />
                 <br />
             </p>
@@ -95,6 +93,7 @@ const Introduction = () => {
                     football,
                 </Link>
                 {'  '}
+                going on runs to get my ass off the computer, and {' '}
                 <a
                     href="https://www.goodreads.com/review/list/185760981-allan-fernandes?shelf=read"
                     target="_blank"
@@ -104,9 +103,6 @@ const Introduction = () => {
                 >
                     reading books
                 </a>
-                ,{'  '}
-                and{'  '}
-                go on runs to get my ass off the computer.
             </p>
         </div>
     );

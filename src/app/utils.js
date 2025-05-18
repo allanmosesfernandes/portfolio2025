@@ -70,7 +70,7 @@ const educationJSON = [
         logo: '/ntu.png',
         course: 'Nottingham Trent University',
         year: '2021 - 2023',
-        id: 'xxx06',
+        id: 'xxx08',
         url: 'https://www.ntu.ac.uk/course/science-and-technology/pg/msc-computer-science',
     },
     {

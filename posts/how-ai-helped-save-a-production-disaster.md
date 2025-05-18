@@ -33,12 +33,12 @@ One look at the codebase made us realise we only had 4 firms on that dropdown.
 No problem, just add the rest of the firms right? Right…?
 The only problem was the exact number of firms was more than 4500+ and with their accompanying firm numbers so thats 9000 entries we had to get in.
 
-Now the correct way to resolve this would be to create an API endpoint to list the various firms and their firm numbers and it could be dynamic.
+Now the correct way to resolve this would be to create an API endpoint to list the various firms and their firm numbers so that it could be dynamic.
 
 But we didn’t have that kind of time, the requests were coming in thick and fast. (and remember we had too many pints 🍻 the previous night?_ yea that wasn’t helping our cause either)
 
 Our senior backend engineer quickly pulled up a CSV that contained everything we needed: each firm’s name and number.
-The problem was simple, take these columns from the CSV, and convert them into an array of objects for our dropdown. And do it fast ⚡.
+The problem was simple, take these columns from the CSV, and convert them into an array of objects for our dropdown. And do it fast ⚡
 
 ### Enter the hero of our times: GPT
 I fed my problem to our hero:
@@ -88,7 +88,7 @@ This might be the most underwhelming article you’ll ever read on the things AI
 
 I personally find myself going away from AI models for my coding workflow, because it feels like outsourcing the very joy of solving problems. Don't get me wrong I still use AI to help me when I'm stuck or do a review to ensure I'm not shipping idiot code.
 
-I don’t want AI to do the thinking for me, I code because I enjoy and love solving problems. but I don't want AI to come up with a solution before I have even got a chance to think about the problem myself.
+I don’t want AI to do the thinking for me, I code because I enjoy and love solving problems. But I don't want AI to come up with a solution before I have even got a chance to think about the problem myself.
 
 But was I glad I had access to GPT when I had to transform 4500+ rows using a script and not laboriously editing each one by hand like I was shackled in a data-entry dungeon? Absolutely f***** yes!
 

@@ -86,7 +86,7 @@ Suddenly the whole backdrop office got less complaints and AI helped save our sk
 
 This might be the most underwhelming article you’ll ever read on the things AI can help you achieve, but in that moment I was so glad to have access to a tool that made these things easier and not swift through 5 different takes on stackoverflow.
 
-I personally find myself going away from AI models for my coding workflow, because it feels like outsourcing the very joy of solving problems. Don't get me wrong I still use AI to help me when I'm stuck or do a review to ensure I'm not shipping idiot code.
+I personally find myself going away from AI models for my coding workflow, because it felt like outsourcing the very joy of solving problems. Don't get me wrong I still use AI to help me when I'm stuck or do a review to ensure I'm not shipping idiot code.
 
 I don’t want AI to do the thinking for me, I code because I enjoy and love solving problems. But I don't want AI to come up with a solution before I have even got a chance to think about the problem myself.
 

@@ -6,7 +6,7 @@ tags:
     - life
 summary: 'How GPT helped us feed 9000 entries into our codebase on launch day.'
 slug: 'how-ai-helped-save-a-production-disaster'
-image: '/blog-images/markdown-blog-remastered.png'
+image: '/blog-images/blog-6-ai-.png'
 readingTime: '5'
 ---
 

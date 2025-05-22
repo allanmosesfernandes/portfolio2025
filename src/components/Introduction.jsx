@@ -1,6 +1,6 @@
 'use client';
 import wavingHand from '@/app/assets/waving-hand.png';
-import headshot from '@/app/assets/nerd.png';
+import headshot from '@/app/assets/nerd-3.png';
 import headshot2 from '@/app/assets/profile-2.jpg';
 import Image from 'next/image';
 import Link from 'next/link';

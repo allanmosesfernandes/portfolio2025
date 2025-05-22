@@ -47,7 +47,7 @@ const BlogsArticles = ({ posts }) => {
             })}
             <Link
                 href="/blog"
-                className="flex justify-center dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-lg p-2 h-fit w-fit d-flex mx-auto mt-6 mb-20"
+                className="flex justify-center dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-full py-2 px-4 h-fit w-fit d-flex mx-auto mt-6 mb-20"
             >
                 View all articles
             </Link>

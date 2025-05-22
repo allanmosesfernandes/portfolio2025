@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Projects = () => {
     return (
         <div>
-            <p className="dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-lg p-2 h-fit w-fit d-flex mx-auto mt-20 mb-6">
+            <p className="dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-full py-2 px-4 h-fit w-fit d-flex mx-auto mt-20 mb-6">
                 My Projects
             </p>
             <h2 className="text-pantone font-bold text-3xl flex items-center text-center d-flex justify-center">
@@ -87,7 +87,7 @@ const Projects = () => {
             <Link
                 role="button"
                 href="/projects"
-                className="relative hover:rounded-none transition-all transition-discrete flex justify-center dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-lg p-2 h-fit w-fit d-flex mx-auto mt-6 mb-10"
+                className="relative transition-all transition-discrete flex justify-center dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-full py-2 px-4 h-fit w-fit d-flex mx-auto mt-6 mb-10"
             >
                 View all projects
             </Link>

@@ -7,6 +7,8 @@ import { useState } from 'react';
 
 const WorkExperience = () => {
     const [openBlockIds, setOpenBlockIds] = useState([]);
+    const [showItems, setShowItems] = useState(false);
+
     const toggleDescription = (id) => {
         setOpenBlockIds((prevIds) =>
             prevIds.includes(id) ? prevIds.filter((prevId) => prevId !== id) : [...prevIds, id]
@@ -18,10 +20,14 @@ const WorkExperience = () => {
             toggleDescription(id);
         }
     };
+
+    const visibleItems = showItems ? workJSON : workJSON.slice(0, 2);
+
     return (
         <div>
             <h3 className="font-bold text-2xl mt-12 text-pantone">Work Experience</h3>
-            {workJSON.map((workPlace) => {
+            {visibleItems.map((workPlace, idx) => {
+                const isLast = idx === visibleItems.length - 1;
                 const isOpen = openBlockIds.includes(workPlace.id);
                 return (
                     <div
@@ -33,6 +39,9 @@ const WorkExperience = () => {
                         role="button"
                         aria-expanded={isOpen}
                         aria-controls={`description-${workPlace.id}`}
+                        style={{
+                            filter: isLast && !showItems ? 'blur(0.9px)' : undefined,
+                        }}
                     >
                         <div className="flex sm:flex-row flex-col">
                             <Image
@@ -83,7 +92,7 @@ const WorkExperience = () => {
                                 {workPlace.description}
                             </p>
                             <Link
-                                href={workPlace.companyUrl }
+                                href={workPlace.companyUrl}
                                 target="_blank"
                                 className="mt-4 text-white dark:text-white gap-2 text-sm"
                             >
@@ -116,6 +125,16 @@ const WorkExperience = () => {
                     </div>
                 );
             })}
+            <div>
+                <button
+                    role="button"
+                    href="/projects"
+                    onClick={() => setShowItems(!showItems)}
+                    className="rounded-full relative transition-all transition-discrete flex justify-center dark:bg-white dark:text-black bg-black text-white font-medium text-md  py-2 px-4 h-fit d-flex mx-auto mt-6 mb-10"
+                >
+                    Show {showItems ? 'less' : 'more'}
+                </button>
+            </div>
         </div>
     );
 };

@@ -108,14 +108,13 @@ const BlogClient = ({ allPostsData, allTags }) => {
                         ({ id, title, date, tags, slug, summary, readingTime }, index) => (
                             <Link href={`/blog/${slug}`} key={id}>
                                 <div
-                                    style={{ backgroundColor: backgroundColors[index] }}
-                                    className="blog-li p-4 mb-6 rounded text-black article-block"
+                                    className={`text-white bg-variant-${index % 10} blog-li p-4 mb-6 rounded text-black article-block`}
                                 >
                                     <div className="flex flex-col gap-2">
-                                        <h3 className="text-black text-3xl font-bold article-link inline-block relative w-fit">
+                                        <h3 className="text-3xl font-bold article-link inline-block relative w-fit">
                                             {title}
                                         </h3>
-                                        <p className="text-black ">{formatDate(date)}</p>
+                                        <p className="">{formatDate(date)}</p>
                                     </div>
                                     <p className="my-4">{summary}</p>
                                     <div className="flex sm:flex-row flex-col gap-2 sm:items-center justify-between mt-4">
@@ -124,7 +123,7 @@ const BlogClient = ({ allPostsData, allTags }) => {
                                                 tags.map((tag, index) => (
                                                     <span
                                                         key={index}
-                                                        className="uppercase text-xs text-black font-medium text-md rounded-2xl py-2 px-4 h-fit shadow  border border-black cursor-pointer"
+                                                        className="uppercase text-xs font-medium text-md rounded-2xl py-2 px-4 h-fit shadow  border border-white cursor-pointer"
                                                     >
                                                         {tag}
                                                     </span>

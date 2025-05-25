@@ -15,17 +15,14 @@ const BlogsArticles = ({ posts }) => {
                     <Link href={`/blog/${post.slug}`} key={index}>
                         <div
                             key={index}
-                            style={{ backgroundColor: backgroundColors[index] }}
-                            className="mb-8 p-4 article-block cursor-pointer"
+                            className={`bg-variant-${index % 10} mb-8 p-4 article-block cursor-pointer`}
                         >
                             <div className="space-y-4">
-                                <p
-                                    className="text-black text-3xl font-bold article-link inline-block relative"
-                                >
+                                <p className="text-white text-3xl font-bold article-link inline-block relative">
                                     {post.title}
                                 </p>
-                                <p className="font-thin text-sm mt-2">{formatDate(post.date)}</p>
-                                <p className="text-black">{post.summary}</p>
+                                <p className="text-white font-thin text-sm mt-2">{formatDate(post.date)}</p>
+                                <p className="text-white">{post.summary}</p>
                             </div>
                             <div className="flex gap-2 my-4 flex-wrap justify-between items-center">
                                 <div className="flex gap-2">
@@ -33,7 +30,7 @@ const BlogsArticles = ({ posts }) => {
                                         return (
                                             <p
                                                 key={index}
-                                                className="uppercase text-xs text-black font-medium text-md rounded-2xl py-2 px-4 h-fit shadow  border border-black cursor-pointer"
+                                                className="uppercase text-xs text-white font-medium text-md rounded-2xl py-2 px-4 h-fit shadow  border border-white cursor-pointer"
                                             >
                                                 {tag}
                                             </p>

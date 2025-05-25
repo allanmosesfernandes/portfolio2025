@@ -289,4 +289,6 @@ const formatDate = (isoString) => {
     return date.toLocaleDateString(undefined, options);
 };
 
+
+
 export { allProjects, educationJSON, formatDate, projects, skills, workJSON };

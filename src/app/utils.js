@@ -1,8 +1,8 @@
 const workJSON = [
     {
-        company: 'Responsible Life',
-        logo: '/rlife.png',
-        companyUrl: 'https://responsiblelife.co.uk',
+        company: 'Royal London Equity Release',
+        logo: '/pelican-rldn.svg',
+        companyUrl: 'http://equityrelease.royallondon.com',
         id: 'xxx01',
         role: 'Web developer',
         startDate: 'Sep 2023',

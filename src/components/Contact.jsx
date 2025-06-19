@@ -1,24 +1,41 @@
 const Contact = () => {
     return (
         <div className="mb-6">
-            {/* <div className="mb-6">
-                <p className="text-black dark:text-white font-bold flex items-center text-center d-flex justify-center mb-6 text-4xl">
-                    Get in touch
-                </p>
-                <p className="text-black dark:text-white flex items-center text-center d-flex justify-center mb-2">
-                    I'm always looking to collaborate on exciting projects, share ideas or just chat
-                    about tech.
-                </p>
-            </div>
-            <a
-                href="mailto:hello@allanfernandes.dev"
-                title="Email address"
-                className="font-thin italic text-pantone text-3xl text-center py-2 flex flex-wrap justify-center"
-            >
-                hello@allanfernandes.dev
-            </a> */}
-            <p className="text-black dark:text-white text-center text-lg mt-10 mb-20">
-                created with ❤️ & ☕ by Allan Fernandes.
+            <p className="text-black dark:text-white text-center text-lg mt-10 mb-2">
+                created with{' '}
+                <span role="img" aria-label="love">
+                    ❤️
+                </span>{' '}
+                &amp;{' '}
+                <span role="img" aria-label="coffee">
+                    ☕
+                </span>{' '}
+                by Allan Moses Fernandes{' '}
+                <span role="img" aria-label="raccoon">
+                    🦝
+                </span>
+            </p>
+            <p className="text-black dark:text-white text-center text-lg mt-4 mb-[6rem]">
+                travel back in time:{' '}
+                <a
+                    href="https://v2.allanfernandes.dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-pantone transition-colors"
+                    aria-label="Visit version 2 of Allan Fernandes' portfolio (opens in a new tab)"
+                >
+                    v2
+                </a>{' '}
+                &bull;{' '}
+                <a
+                    href="https://v1.allanfernandes.dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-pantone transition-colors"
+                    aria-label="Visit version 1 of Allan Fernandes' portfolio (opens in a new tab)"
+                >
+                    v1
+                </a>
             </p>
         </div>
     );

@@ -225,7 +225,7 @@ const allProjects = [
         description:
             'Website design and development for Ankan Chittalpi, a fashion merchandiser and trend forecaster using Wordpress as a headless CMS and developing the frontend in react.',
         image: '/projects/common-thread.png',
-        link: 'https://ankanchittalipi.com/',
+        link: 'https://ankan-beta.netlify.app/',
     },
     {
         timeline: 'May 2023',

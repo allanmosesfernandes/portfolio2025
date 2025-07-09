@@ -16,7 +16,7 @@ const Contact = () => {
                 </span>
             </p>
             <p className="text-black dark:text-white text-center text-lg mt-4 mb-[6rem]">
-                travel back in time:{' '}
+                Travel back in time 🚀:{' '}
                 <a
                     href="https://v2.allanfernandes.dev"
                     target="_blank"

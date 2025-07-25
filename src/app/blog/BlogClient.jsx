@@ -39,7 +39,11 @@ const BlogClient = ({ allPostsData, allTags }) => {
             <h2 className="font-bold text-pantone sm:text-5xl text-3xl flex items-center justify-center">
                 Blog
             </h2>
-            <Image src={safespace} alt="Safe Space" className="w-full h-auto mt-4 rounded-lg" />
+            <Image
+                src={safespace}
+                alt="Safe Space"
+                className="rounded-xl w-full h-auto mt-4 rounded-lg dark:border-0 border-2 border-[#646cff] p-2"
+            />
             <p className="sm:mt-8 mt-4 justify-center text-center">
                 Incessant yapping about frontend, tech, hacks and life's nuances manifested in its
                 textual form.

@@ -6,6 +6,8 @@ import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { formatDate } from '../utils';
 import { backgroundColors } from '@/utils/utils';
+import safespace from '@/app/assets/safe-space.jpeg';
+import Image from 'next/image';
 
 /**
  * Client Component: Handles interactivity and state.
@@ -37,11 +39,11 @@ const BlogClient = ({ allPostsData, allTags }) => {
             <h2 className="font-bold text-pantone sm:text-5xl text-3xl flex items-center justify-center">
                 Blog
             </h2>
+            <Image src={safespace} alt="Safe Space" className="w-full h-auto mt-4 rounded-lg" />
             <p className="sm:mt-8 mt-4 justify-center text-center">
                 Incessant yapping about frontend, tech, hacks and life's nuances manifested in its
                 textual form.
             </p>
-
             {/* Display All Tags */}
             <div className="mt-4">
                 <h3 className="text-2xl font-semibold mb-4">Tags</h3>

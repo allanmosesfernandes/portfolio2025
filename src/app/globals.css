@@ -330,3 +330,9 @@ pre {
     outline: 3px solid #333;
     box-shadow: 15px 15px #f50057;
 }
+
+@media only screen and (max-width: 500px) {
+    .blog-article article {
+        margin-top: 3.5rem;
+    }
+}

@@ -2,7 +2,7 @@
 title: 'Build your own chrome extension'
 date: '2025-03-03T15:44:11.388Z'
 tags:
-    - frontend
+    - code
     - side projects
 summary: 'Build your own year progress extension in just three files.'
 slug: 'build-your-own-chrome-extension'

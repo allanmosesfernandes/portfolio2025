@@ -2,7 +2,7 @@
 title: 'Enforcing code quality on FE repos'
 date: '2025-08-02T17:38:07.402Z'
 tags:
-    - frontend
+    - code
     - tools
 summary: 'Never let that embarrassing console.log slip through production'
 slug: 'enforcing-code-quality-on-frontend-repos'

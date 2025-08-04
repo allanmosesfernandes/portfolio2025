@@ -2,7 +2,7 @@
 title: 'Build your resume using markdown'
 date: '2025-03-09T19:52:52.687Z'
 tags:
-    - frontend
+    - code
     - side projects
 summary: 'Ditch clunky wordprocessors to build your own resume generator using markdown'
 slug: 'build-your-resume-using-markdown'

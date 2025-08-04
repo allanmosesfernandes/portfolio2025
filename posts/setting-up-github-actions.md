@@ -2,7 +2,7 @@
 title: 'Code quality using Github Actions'
 date: '2025-08-03T17:38:07.402Z'
 tags:
-    - frontend
+    - code
     - tools
 summary: 'Set up Github actions enforcing code checks on PRs'
 slug: 'enforcing-code-quality-using-github-actions'

@@ -2,7 +2,7 @@
 title: 'Building a simple blog architecture'
 date: '2025-01-10T21:40:06.756Z'
 tags:
-    - frontend
+    - code
     - side projects
 summary: "Use NextJS's new app router to build a simple blog architecture that renders your markdown document into an HTML blog post"
 slug: 'next-js-blog-using-app-router'

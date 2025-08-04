@@ -2,7 +2,7 @@
 title: 'How AI helped save a prod disaster'
 date: '2025-05-18T10:40:03.371Z'
 tags:
-    - frontend
+    - code
     - life
 summary: 'How GPT helped us feed 9000 entries into our codebase on launch day.'
 slug: 'how-ai-helped-save-a-production-disaster'

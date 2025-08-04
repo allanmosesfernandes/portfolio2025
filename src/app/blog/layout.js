@@ -3,7 +3,7 @@ import { FloatingMenu } from '@/components/floatingMenu';
 export default function RootLayout({ children }) {
     return (
         <>
-            <div className="max-w-2xl mt-md-10 mt-4 mb-20 mx-auto sm:px-5 px-0 bg-white dark:bg-black space-y-4 font-sans text-black dark:text-white">
+            <div className="mt-md-10 mx-auto mb-20 mt-4 max-w-2xl space-y-4 bg-white px-0 font-sans text-black dark:bg-black dark:text-white sm:px-5">
                 {children}
                 <FloatingMenu />
             </div>

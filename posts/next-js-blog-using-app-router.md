@@ -276,7 +276,7 @@ return (
     Blog
 </h2>
 <p className="sm:mt-8 mt-4 justify-center text-center">
-    Incessant yapping about frontend, tech, hacks and life's nuances manifested in its
+    Incessant yapping about code, tech, hacks and life's nuances manifested in its
     textual form.
 </p>
 {/* Display All Tags */}

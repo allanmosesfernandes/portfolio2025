@@ -97,7 +97,16 @@ const Introduction = () => {
                     football,
                 </Link>
                 {'  '}
-                going on runs to get my ass off the computer, and{' '}
+                <a
+                    href="https://www.strava.com/athletes/112155710"
+                    target="_blank"
+                    aria-label="Allan fernandes good reads account"
+                    title="Reading list"
+                    className="hover-links"
+                >
+                    going on runs
+                </a>{' '}
+                &{' '}
                 <a
                     href="https://www.goodreads.com/review/list/185760981-allan-fernandes?shelf=read"
                     target="_blank"
@@ -105,7 +114,7 @@ const Introduction = () => {
                     title="Reading list"
                     className="hover-links"
                 >
-                    reading books
+                    reading books.
                 </a>
             </p>
         </div>

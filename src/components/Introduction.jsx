@@ -13,7 +13,7 @@ const Introduction = () => {
         <div>
             <div className="introduction flex">
                 <div>
-                    <h2 className="text-black dark:text-white font-bold sm:text-5xl text-3xl flex items-center">
+                    <h2 className="flex items-center text-3xl font-bold text-black dark:text-white sm:text-5xl">
                         Hi, I'm Allan
                         <span className="flex gap-2">
                             <Image
@@ -64,42 +64,46 @@ const Introduction = () => {
                     </p>
                 </div>
                 <Image
-                    src={headshot}
+                    src={headshot2}
                     alt="Allan Fernandes avatar"
                     width={150}
                     height={150}
                     title="Avatar"
-                    className="ml-4 inline object-contain avatar"
+                    className="avatar ml-4 inline object-contain"
                 />
             </div>
-            <h3 className="text-pantone font-bold text-2xl mt-6">About</h3>
+            <h3 className="mt-6 text-2xl font-bold text-pantone">About</h3>
             <p className="text-pretty text-black dark:text-white md:text-lg">
                 I've been building websites for around five years now often using React, plain old
-                javascript, and often being a victim to the shiny object syndrome.<br /> With a master’s degree in Computer
-                Science, I am currently working as a web developer at Responsible Life, where I work
-                as part of a dynamic team focused on building bespoke web applications to transform
-                the equity release space. <br /><br />When I'm not building on the frontend I find myself writing serverless APIs and racking up infinite debt by leaving stuff running on AWS or wiping my tears while going through the documentation.
+                javascript, and often being a victim to the shiny object syndrome.
+                <br /> With a master’s degree in Computer Science, I am currently working as a web
+                developer at Responsible Life, where I work as part of a dynamic team focused on
+                building bespoke web applications to transform the equity release space. <br />
+                <br />
+                When I'm not building on the frontend I find myself writing serverless APIs and
+                racking up infinite debt by leaving stuff running on AWS or wiping my tears while
+                going through the documentation.
                 <br />
                 <br />
             </p>
-            <p className="text-pretty text-black dark:text-white md:text-lg whitespace-pre-wrap">
+            <p className="whitespace-pre-wrap text-pretty text-black dark:text-white md:text-lg">
                 When I'm not breaking things on the internet I'm busy playing{' '}
                 <Link
                     href="tekkers"
                     aria-label="Allan fernandes tekkers"
                     title="Goalzo mate"
-                    className=" hover-links"
+                    className="hover-links"
                 >
                     football,
                 </Link>
                 {'  '}
-                going on runs to get my ass off the computer, and {' '}
+                going on runs to get my ass off the computer, and{' '}
                 <a
                     href="https://www.goodreads.com/review/list/185760981-allan-fernandes?shelf=read"
                     target="_blank"
                     aria-label="Allan fernandes good reads account"
                     title="Reading list"
-                    className=" hover-links"
+                    className="hover-links"
                 >
                     reading books
                 </a>

@@ -7,12 +7,14 @@ import Skills from './Skills';
 import Projects from './Projects';
 import BlogsArticles from './Blogs';
 import Contact from './Contact';
+import Recommendations from './Recommendations';
 
 const Homepage = ({ posts }) => {
     return (
         <>
             <Introduction />
             <WorkExperience />
+            <Recommendations />
             <Education />
             <Skills />
             <Projects />

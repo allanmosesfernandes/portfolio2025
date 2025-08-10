@@ -74,15 +74,20 @@ const Introduction = () => {
             </div>
             <h3 className="mt-6 text-2xl font-bold text-pantone">About</h3>
             <p className="text-pretty text-black dark:text-white md:text-lg">
-                I've been building websites for around five years now often using React, plain old
-                javascript, and often being a victim to the shiny object syndrome.
+                I've been building web applications for around five years now often using React,
+                plain old vanilla javascript, and often being a victim to the shiny object syndrome.
+                <br />
                 <br /> With a master’s degree in Computer Science, I am currently working as a web
-                developer at Responsible Life, where I work as part of a dynamic team focused on
-                building bespoke web applications to transform the equity release space. <br />
+                developer at{' '}
+                <a href="https://equityrelease.royallondon.com/" target="_blank">
+                    Royal London Equity Release
+                </a>
+                , where I work as part of a dynamic team focused on building bespoke web
+                applications to transform the equity release space. <br />
                 <br />
                 When I'm not building on the frontend I find myself writing serverless APIs and
                 racking up infinite debt by leaving stuff running on AWS or wiping my tears while
-                going through the documentation.
+                going through documentation.
                 <br />
                 <br />
             </p>
@@ -106,7 +111,7 @@ const Introduction = () => {
                 >
                     going on runs
                 </a>{' '}
-                &{' '}
+                ,{' '}
                 <a
                     href="https://www.goodreads.com/review/list/185760981-allan-fernandes?shelf=read"
                     target="_blank"
@@ -114,8 +119,9 @@ const Introduction = () => {
                     title="Reading list"
                     className="hover-links"
                 >
-                    reading books.
+                    reading,{' '}
                 </a>
+                or <Link href='/blog' aria-label='Link to blog articles' title='Blog articles' className='hover-links'>writing blog articles.</Link>.
             </p>
         </div>
     );

@@ -30,7 +30,7 @@ export const FloatingMenu = () => {
         <div className="fixed-floating-menu">
             <span className="button-bg"></span>
             <nav
-                className={`bg-gray-950 w-max p-4 gap-6 rounded-full border z-50 pointer-events-auto relative mx-auto flex min-h-full h-full items-center [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]`}
+                className={`pointer-events-auto relative z-50 mx-auto flex h-full min-h-full w-max transform-gpu items-center gap-6 rounded-full border bg-gray-950 p-4 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]`}
             >
                 <Link href="/" title="Home" data-toggle="tooltip" data-placement="top">
                     <p>Home</p>
@@ -48,11 +48,11 @@ export const FloatingMenu = () => {
                     <p>Linkedin</p>
                     <Image src={linkedin} alt="Linkedin Icon" width={20} height={20} />
                 </Link>
-                <a href="/Resume_Allan_Fernandes_.pdf" target="_blank">
+                <a href="/Allan_Moses_Fernandes_CF.pdf" target="_blank">
                     <p>Resume</p>
                     <Image src={pdf} alt="PDF icon" width={20} height={20} />
                 </a>
-                <button onClick={toggleTheme} className="text-white flex">
+                <button onClick={toggleTheme} className="flex text-white">
                     <p>{isDark ? 'Dark mode' : 'Light Mode'}</p>
                     {isDark ? (
                         <Image src={moon} alt="moon" width={20} height={20} />

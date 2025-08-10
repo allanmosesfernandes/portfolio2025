@@ -16,6 +16,8 @@ I always thought enforcing code formatting and linting was overkill unless you h
 
 But like most things in life, I have never been more wrong. Even on a small team, not automating code formatting left us with 10 long PR comments 8 of which were purely formatting stuff a certain way.
 
+And then because we're only human, ever so often you ship that idiot `console.log`, then with your bruised pride you have to `git commit -m 'Remove console.log'`.
+
 ### Step 1: Configure prettier
 
 `npm install --save-dev --save-exact prettier`

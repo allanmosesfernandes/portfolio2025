@@ -79,11 +79,22 @@ const Introduction = () => {
                 <br />
                 <br /> With a master’s degree in Computer Science, I am currently working as a web
                 developer at{' '}
-                <a href="https://equityrelease.royallondon.com/" target="_blank">
+                <a
+                    href="https://equityrelease.royallondon.com/adviser"
+                    target="_blank"
+                    className="hover-links"
+                >
                     Royal London Equity Release
                 </a>
-                , where I work as part of a dynamic team focused on building bespoke web
-                applications to transform the equity release space. <br />
+                , where I work as part of a dynamic team focused on building{' '}
+                <a
+                    href="https://equityrelease.royallondon.com/adviser/broker-portal"
+                    target="_blank"
+                    className="hover-links"
+                >
+                    bespoke web applications
+                </a>{' '}
+                to transform the equity release space. <br />
                 <br />
                 When I'm not building on the frontend I find myself writing serverless APIs and
                 racking up infinite debt by leaving stuff running on AWS or wiping my tears while
@@ -91,37 +102,35 @@ const Introduction = () => {
                 <br />
                 <br />
             </p>
-            <p className="whitespace-pre-wrap text-pretty text-black dark:text-white md:text-lg">
-                When I'm not breaking things on the internet I'm busy playing{' '}
+            <p className="text-pretty text-black dark:text-white md:text-lg">
+                When I&apos;m not breaking things on the internet, I'm busy&nbsp;
                 <Link
                     href="tekkers"
                     aria-label="Allan fernandes tekkers"
                     title="Goalzo mate"
                     className="hover-links"
                 >
-                    football,
+                    playing football
                 </Link>
-                {'  '}
+                &nbsp;
                 <a
                     href="https://www.strava.com/athletes/112155710"
                     target="_blank"
-                    aria-label="Allan fernandes good reads account"
-                    title="Reading list"
+                    aria-label="Allan fernandes strava account"
+                    title="Strava account"
                     className="hover-links"
                 >
-                    going on runs
-                </a>{' '}
-                ,{' '}
-                <a
-                    href="https://www.goodreads.com/review/list/185760981-allan-fernandes?shelf=read"
-                    target="_blank"
-                    aria-label="Allan fernandes good reads account"
-                    title="Reading list"
-                    className="hover-links"
-                >
-                    reading,{' '}
+                    running,
                 </a>
-                or <Link href='/blog' aria-label='Link to blog articles' title='Blog articles' className='hover-links'>writing blog articles.</Link>.
+                &nbsp;or&nbsp;
+                <Link
+                    href="/blog"
+                    aria-label="Link to blog articles"
+                    title="Blog articles"
+                    className="hover-links"
+                >
+                    writing blog articles.
+                </Link>
             </p>
         </div>
     );

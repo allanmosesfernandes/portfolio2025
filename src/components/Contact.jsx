@@ -2,7 +2,7 @@ const Contact = () => {
     return (
         <div className="mb-6">
             <p className="text-black dark:text-white text-center text-lg mt-10 mb-2">
-                created with{' '}
+                Created with{' '}
                 <span role="img" aria-label="love">
                     ❤️
                 </span>{' '}

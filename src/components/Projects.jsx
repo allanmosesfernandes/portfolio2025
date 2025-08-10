@@ -5,44 +5,44 @@ import Link from 'next/link';
 const Projects = () => {
     return (
         <div>
-            <p className="dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-full py-2 px-4 h-fit w-fit d-flex mx-auto mt-20 mb-6">
+            <p className="text-md d-flex mx-auto mb-6 mt-20 h-fit w-fit rounded-full bg-black px-4 py-2 font-medium text-white dark:bg-white dark:text-black">
                 My Projects
             </p>
-            <h2 className="text-pantone font-bold text-3xl flex items-center text-center d-flex justify-center">
+            <h2 className="d-flex flex items-center justify-center text-center text-3xl font-bold text-pantone">
                 Check out my latest work
             </h2>
-            <p className="text-pretty text-black dark:text-white md:text-lg my-4 text-center">
+            <p className="my-4 text-pretty text-center text-black dark:text-white md:text-lg">
                 I've worked on a range of projects, from simple websites to complex web
                 applications. Here are a few of my finest.
             </p>
-            <div className="grid md:grid-cols-2 gap-6 mb-4">
+            <div className="mb-4 grid gap-6 md:grid-cols-2">
                 {projects.map((project, index) => {
                     return (
                         <div
                             key={index}
-                            className="items-center gap-4 rounded-xl rounded-t-md bg-card dark:bg-card-dark dark:bg-white dark:text-black shadow-lg h-[100%] flex flex-col"
+                            className="bg-card dark:bg-card-dark flex h-[100%] flex-col items-center gap-4 rounded-xl rounded-t-md shadow-lg dark:bg-white dark:text-black"
                         >
                             <Image
                                 src={project.image}
                                 alt={project.title}
                                 width={500}
                                 height={50}
-                                className="object-cover h-[200px] rounded-t-md	"
+                                className="h-[200px] rounded-t-md object-cover"
                             />
-                            <div className="p-4 flex flex-col h-[100%]">
-                                <h3 className="font-semibold tracking-tight mt-1 text-base">
+                            <div className="flex h-[100%] flex-col p-4">
+                                <h3 className="mt-1 text-base font-semibold tracking-tight">
                                     {project.title}
                                 </h3>
                                 <p className="text-sm">{project.date}</p>
-                                <p className="text-sm my-2 flex min-h-[140px] items-center">
+                                <p className="my-2 flex min-h-[140px] items-center text-sm">
                                     {project.summary}
                                 </p>
-                                <div className="flex gap-2 my-4 flex-wrap">
+                                <div className="my-4 flex flex-wrap gap-2">
                                     {project.tools.map((tool, index) => {
                                         return (
                                             <p
                                                 key={index}
-                                                className="text-xs dark:text-white bg-black text-white font-medium text-md rounded-2xl py-2 px-4 h-fit shadow dark:bg-gray-800 dark:border-gray-700"
+                                                className="text-md h-fit rounded-2xl bg-black px-4 py-2 text-xs font-medium text-white shadow dark:border-gray-700 dark:bg-gray-800 dark:text-white"
                                             >
                                                 {tool}
                                             </p>
@@ -52,13 +52,13 @@ const Projects = () => {
                                 <Link
                                     href={project.website}
                                     target="_blank"
-                                    className="mt-auto text-white dark:text-white gap-2 text-sm"
+                                    className="mt-auto gap-2 text-sm text-white dark:text-white"
                                 >
                                     <p
                                         key={index}
-                                        className="text-xs dark:text-white bg-black text-white font-medium text-md w-fit rounded-2xl p-2 h-fit shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 d-flex"
+                                        className="text-md d-flex h-fit w-fit rounded-2xl bg-black p-2 text-xs font-medium text-white shadow dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
                                     >
-                                        <span className="flex gap-2 items-center">
+                                        <span className="flex items-center gap-2">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="24"
@@ -87,9 +87,14 @@ const Projects = () => {
             <Link
                 role="button"
                 href="/projects"
-                className="relative transition-all transition-discrete flex justify-center dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-full py-2 px-4 h-fit w-fit d-flex mx-auto mt-6 mb-10"
+                className="text-md group relative mx-auto mb-10 mt-6 flex h-fit justify-center overflow-hidden rounded-full bg-black px-4 py-2 font-medium text-white transition-all duration-300 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 w-fit"
             >
-                View all projects
+                <span className="relative block transition-transform duration-300 ease-out group-hover:-translate-y-[120%]">
+                    View all projects
+                </span>
+                <span className="absolute inset-0 flex translate-y-full items-center justify-center transition-transform duration-300 ease-out group-hover:translate-y-0">
+                    View all projects
+                </span>
             </Link>
         </div>
     );

@@ -96,9 +96,14 @@ const Recommendations = () => {
             {recommendationsData.length > 1 && (
                 <button
                     onClick={() => setShowAll(!showAll)}
-                    className="text-md relative mx-auto mb-10 mt-8 flex h-fit justify-center rounded-full bg-black px-4 py-2 font-medium text-white transition-all dark:bg-white dark:text-black"
+                    className="text-md group relative mx-auto mb-10 mt-6 flex h-fit justify-center overflow-hidden rounded-full bg-black px-4 py-2 font-medium text-white transition-all duration-300 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
                 >
-                    Show {showAll ? 'less' : 'more'}
+                    <span className="relative block transition-transform duration-300 ease-out group-hover:-translate-y-[120%]">
+                        {showAll ? 'Show Less' : 'View all'}
+                    </span>
+                    <span className="absolute inset-0 flex translate-y-full items-center justify-center transition-transform duration-300 ease-out group-hover:translate-y-0">
+                        {showAll ? 'Show Less' : 'View all'}
+                    </span>
                 </button>
             )}
         </div>

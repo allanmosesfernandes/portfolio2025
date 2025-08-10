@@ -7,7 +7,7 @@ const BlogsArticles = ({ posts }) => {
     const limitedPosts = posts.slice(0, 3);
     return (
         <div className="mt-20">
-            <p className="text-pantone font-bold flex items-center text-center d-flex justify-center mb-6 text-4xl">
+            <p className="d-flex mb-6 flex items-center justify-center text-center text-4xl font-bold text-pantone">
                 Blog
             </p>
             {limitedPosts.map((post, index) => {
@@ -15,22 +15,24 @@ const BlogsArticles = ({ posts }) => {
                     <Link href={`/blog/${post.slug}`} key={index}>
                         <div
                             key={index}
-                            className={`bg-variant-${index % 10} mb-8 p-4 article-block cursor-pointer`}
+                            className={`bg-variant-${index % 10} article-block mb-8 cursor-pointer p-4`}
                         >
                             <div className="space-y-4">
-                                <p className="text-white text-3xl font-bold article-link inline-block relative">
+                                <p className="article-link relative inline-block text-3xl font-bold text-white">
                                     {post.title}
                                 </p>
-                                <p className="text-white font-thin text-sm mt-2">{formatDate(post.date)}</p>
+                                <p className="mt-2 text-sm font-thin text-white">
+                                    {formatDate(post.date)}
+                                </p>
                                 <p className="text-white">{post.summary}</p>
                             </div>
-                            <div className="flex gap-2 my-4 flex-wrap justify-between items-center">
+                            <div className="my-4 flex flex-wrap items-center justify-between gap-2">
                                 <div className="flex gap-2">
                                     {post.tags.map((tag, index) => {
                                         return (
                                             <p
                                                 key={index}
-                                                className="uppercase text-xs text-white font-medium text-md rounded-2xl py-2 px-4 h-fit shadow  border border-white cursor-pointer"
+                                                className="text-md h-fit cursor-pointer rounded-2xl border border-white px-4 py-2 text-xs font-medium uppercase text-white shadow"
                                             >
                                                 {tag}
                                             </p>
@@ -44,9 +46,14 @@ const BlogsArticles = ({ posts }) => {
             })}
             <Link
                 href="/blog"
-                className="flex justify-center dark:bg-white dark:text-black bg-black text-white font-medium text-md rounded-full py-2 px-4 h-fit w-fit d-flex mx-auto mt-6 mb-20"
+                className="text-md group relative mx-auto mb-10 mt-6 flex h-fit w-fit justify-center overflow-hidden rounded-full bg-black px-4 py-2 font-medium text-white transition-all duration-300 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
             >
-                View all articles
+                <span className="relative block transition-transform duration-300 ease-out group-hover:-translate-y-[120%]">
+                    View all articles
+                </span>
+                <span className="absolute inset-0 flex translate-y-full items-center justify-center transition-transform duration-300 ease-out group-hover:translate-y-0">
+                    View all articles
+                </span>
             </Link>
         </div>
     );

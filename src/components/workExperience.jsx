@@ -25,13 +25,13 @@ const WorkExperience = () => {
 
     return (
         <div>
-            <h3 className="font-bold text-2xl mt-12 text-pantone">Work Experience</h3>
+            <h3 className="mt-12 text-2xl font-bold text-pantone">Work Experience</h3>
             {visibleItems.map((workPlace, idx) => {
                 const isLast = idx === visibleItems.length - 1;
                 const isOpen = openBlockIds.includes(workPlace.id);
                 return (
                     <div
-                        className="mt-4 mb-6 flex-col gap-4 cursor-pointer group"
+                        className="group mb-6 mt-4 cursor-pointer flex-col gap-4"
                         key={workPlace.id}
                         onClick={() => toggleDescription(workPlace.id)}
                         tabIndex={0}
@@ -43,18 +43,18 @@ const WorkExperience = () => {
                             filter: isLast && !showItems ? 'blur(0.9px)' : undefined,
                         }}
                     >
-                        <div className="flex sm:flex-row flex-col">
+                        <div className="flex flex-col sm:flex-row">
                             <Image
                                 src={workPlace.logo}
                                 alt={workPlace.company}
                                 width={80}
                                 height={80}
                                 title={workPlace.company}
-                                className="w-[80px] h-[50px] inline object-scale-down mr-4"
+                                className="mr-4 inline h-[50px] w-[80px] object-scale-down"
                             />
                             <div>
                                 <div className="flex items-center gap-1">
-                                    <h4 className="text-black dark:text-white font-bold text-md">
+                                    <h4 className="text-md font-bold text-black dark:text-white">
                                         {workPlace.company}
                                     </h4>
                                     <svg
@@ -67,40 +67,40 @@ const WorkExperience = () => {
                                         strokeWidth="2"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
-                                        className={`lucide lucide-chevron-right size-4 transform transition-all duration-300 ease-out sm:opacity-0 group-hover:opacity-100 group-hover:translate-x-1 stroke-black dark:stroke-white ${isOpen ? 'rotate-90' : 'rotate-0'}`}
+                                        className={`lucide lucide-chevron-right size-4 transform stroke-black transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100 dark:stroke-white sm:opacity-0 ${isOpen ? 'rotate-90' : 'rotate-0'}`}
                                     >
                                         <path d="m9 18 6-6-6-6"></path>
                                     </svg>
                                 </div>
-                                <p className="text-black dark:text-white text-sm sm:my-0 my-2">
+                                <p className="my-2 text-sm text-black dark:text-white sm:my-0">
                                     {workPlace.role}
                                 </p>
                             </div>
                             <div className="sm:ml-auto">
-                                <p className="ml-auto text-black dark:text-white text-md">
+                                <p className="text-md ml-auto text-black dark:text-white">
                                     {workPlace.startDate} - {workPlace.endDate}
                                 </p>
-                                <p className="text-black dark:text-white text-md hidden">
+                                <p className="text-md hidden text-black dark:text-white">
                                     {workPlace.description}
                                 </p>
                             </div>
                         </div>
                         <div
-                            className={`transition-all sm:ml-[100px] duration-500 overflow-hidden ${isOpen ? 'max-h-40' : 'max-h-0'}`}
+                            className={`overflow-hidden transition-all duration-500 sm:ml-[100px] ${isOpen ? 'max-h-40' : 'max-h-0'}`}
                         >
-                            <p className="text-black dark:text-white text-md mt-2">
+                            <p className="text-md mt-2 text-black dark:text-white">
                                 {workPlace.description}
                             </p>
                             <Link
                                 href={workPlace.companyUrl}
                                 target="_blank"
-                                className="mt-4 text-white dark:text-white gap-2 text-sm"
+                                className="mt-4 gap-2 text-sm text-white dark:text-white"
                             >
                                 <p
                                     key={workPlace.id}
-                                    className="text-xs dark:text-white bg-black text-white font-medium text-md w-fit rounded-lg p-2 h-fit shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 d-flex mt-2"
+                                    className="text-md d-flex mt-2 h-fit w-fit rounded-lg bg-black p-2 text-xs font-medium text-white shadow dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
                                 >
-                                    <span className="flex gap-2 items-center">
+                                    <span className="flex items-center gap-2">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="24"
@@ -130,9 +130,14 @@ const WorkExperience = () => {
                     role="button"
                     href="/projects"
                     onClick={() => setShowItems(!showItems)}
-                    className="rounded-full relative transition-all transition-discrete flex justify-center dark:bg-white dark:text-black bg-black text-white font-medium text-md  py-2 px-4 h-fit d-flex mx-auto mt-6 mb-10"
+                    className="text-md group relative mx-auto mb-10 mt-6 flex h-fit justify-center overflow-hidden rounded-full bg-black px-4 py-2 font-medium text-white transition-all duration-300 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
                 >
-                    Show {showItems ? 'less' : 'more'}
+                    <span className="relative block transition-transform duration-300 ease-out group-hover:-translate-y-[120%]">
+                        {showItems ? 'Show Less' : 'View all'}
+                    </span>
+                    <span className="absolute inset-0 flex translate-y-full items-center justify-center transition-transform duration-300 ease-out group-hover:translate-y-0">
+                        {showItems ? 'Show Less' : 'View all'}
+                    </span>
                 </button>
             </div>
         </div>

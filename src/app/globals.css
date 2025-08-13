@@ -164,6 +164,14 @@ body {
     display: inline-block;
 }
 
+.dark .text-pantone {
+    color: #6b6fb6;
+}
+
+.dark .hover-links {
+    color: #515389;
+}
+
 .hover-links::before {
     content: '';
     position: absolute;

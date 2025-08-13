@@ -5,7 +5,7 @@
 :root {
     --background: #ffffff;
     --foreground: #171717;
-    --pantone: #969bff;
+    --pantone: #6b6fb6;
 }
 
 .bg-variant-0 {
@@ -159,17 +159,17 @@ body {
 
 .hover-links {
     position: relative;
-    color: #969bff;
+    color: #515389;
     font-weight: 500;
     display: inline-block;
 }
 
 .dark .text-pantone {
-    color: #6b6fb6;
+    color: #969bff;
 }
 
 .dark .hover-links {
-    color: #515389;
+    color: #969bff;
 }
 
 .hover-links::before {

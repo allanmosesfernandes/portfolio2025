@@ -5,7 +5,7 @@
 :root {
     --background: #ffffff;
     --foreground: #171717;
-    --pantone: #646cff;
+    --pantone: #969bff;
 }
 
 .bg-variant-0 {
@@ -159,7 +159,7 @@ body {
 
 .hover-links {
     position: relative;
-    color: #646CFF;
+    color: #969bff;
     font-weight: 500;
     display: inline-block;
 }

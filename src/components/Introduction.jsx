@@ -109,7 +109,7 @@ const Introduction = () => {
                     title="Goalzo mate"
                     className="hover-links"
                 >
-                    playing football
+                    playing football,
                 </Link>
                 &nbsp;
                 <a

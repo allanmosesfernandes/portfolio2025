@@ -4,7 +4,7 @@ const workJSON = [
         logo: '/pelican-rldn.svg',
         companyUrl: 'http://equityrelease.royallondon.com',
         id: 'xxx01',
-        role: 'Web developer',
+        role: 'Software Engineer',
         startDate: 'Sep 2023',
         endDate: 'Present',
         description:
@@ -15,7 +15,7 @@ const workJSON = [
         logo: '/ntsu-logo.png',
         companyUrl: 'https://www.trentstudents.org/',
         id: 'xxx02',
-        role: 'Web developer',
+        role: 'Web Developer',
         startDate: 'Sep 2022',
         endDate: 'Aug 2023',
         description:
@@ -26,7 +26,7 @@ const workJSON = [
         logo: '/this-is-dmg.svg',
         companyUrl: 'https://www.thisisdmg.com/en/',
         id: 'xxx03',
-        role: 'Frontend Developer',
+        role: 'Software Engineer',
         startDate: 'May 2021',
         endDate: 'Feb 2022',
         description:
@@ -37,7 +37,7 @@ const workJSON = [
         logo: '/tsl.png',
         companyUrl: 'https://www.thestarterlabs.com/',
         id: 'xxx04',
-        role: 'Frontend Developer',
+        role: 'Software Engineer',
         startDate: 'Sep 2020',
         endDate: 'May 2021',
         description:

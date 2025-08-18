@@ -38,7 +38,7 @@ const Introduction = () => {
                         a{' '}
                         <ReactTyped
                             strings={[
-                                'developer',
+                                'software engineer',
                                 'espresso fanatic ☕',
                                 'perpetual learner',
                             ]}

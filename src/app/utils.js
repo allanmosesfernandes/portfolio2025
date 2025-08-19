@@ -15,7 +15,7 @@ const workJSON = [
         logo: '/ntsu-logo.png',
         companyUrl: 'https://www.trentstudents.org/',
         id: 'xxx02',
-        role: 'Web Developer',
+        role: 'Software Engineer',
         startDate: 'Sep 2022',
         endDate: 'Aug 2023',
         description:
@@ -48,7 +48,7 @@ const workJSON = [
         logo: '/Unifynd-Logo-Yellow.png',
         companyUrl: 'https://www.unifynd.com/',
         id: 'xxx05',
-        role: 'Frontend Developer',
+        role: 'Software Engineer',
         startDate: 'Nov 2018',
         endDate: 'Aug 2020',
         description:

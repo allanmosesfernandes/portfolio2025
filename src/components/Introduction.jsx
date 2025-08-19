@@ -73,10 +73,10 @@ const Introduction = () => {
             </div>
             <h3 className="mt-6 text-2xl font-bold text-pantone">About</h3>
             <p className="text-pretty text-black dark:text-white md:text-lg">
-                I've been a software engineer for around five years often being a victim to the shiny object syndrome getting my hands dirty writing serverless APIs and racking up infinite debt by leaving stuff running on AWS.
+                I've been a software engineer for around five years, often being a victim to the shiny object syndrome, getting my hands dirty writing serverless APIs, and racking up infinite debt by leaving stuff running on AWS.
                 <br />
-                <br /> With a master’s degree in Computer Science, I am currently working as a web
-                developer at{' '}
+                <br /> With a master’s degree in Computer Science, I am currently working as a software
+                engineer at{' '}
                 <a
                     href="https://equityrelease.royallondon.com/adviser"
                     target="_blank"
@@ -90,7 +90,7 @@ const Introduction = () => {
                     target="_blank"
                     className="hover-links"
                 >
-                    bespoke applications
+                    bespoke financial applications
                 </a>{' '}
                 to transform the equity release space. <br />
                 <br />

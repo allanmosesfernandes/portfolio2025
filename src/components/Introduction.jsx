@@ -84,7 +84,7 @@ const Introduction = () => {
                 >
                     Royal London Equity Release
                 </a>
-                , where I work as part of a dynamic team focused on building{' '}
+                , where I work as part of an agile team focused on building{' '}
                 <a
                     href="https://equityrelease.royallondon.com/adviser/broker-portal"
                     target="_blank"

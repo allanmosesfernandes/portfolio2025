@@ -1,9 +1,10 @@
-import './globals.css';
-import { Fira_Sans } from 'next/font/google';
 import { FloatingMenu } from '@/components/floatingMenu';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Fira_Sans } from 'next/font/google';
 import Script from 'next/script';
+import { ReactNode } from 'react';
+import './globals.css';
 
 const fira = Fira_Sans({
     subsets: ['latin'],
@@ -11,7 +12,10 @@ const fira = Fira_Sans({
     variable: '--font-fira',
 });
 
-export default function RootLayout({ children }) {
+interface RootLayoutProps {
+    children: ReactNode;
+}
+export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang="en" className="dark">
             <head>
@@ -22,8 +26,8 @@ export default function RootLayout({ children }) {
                 <meta charSet="UTF-8" />
                 <meta name="theme-color" content="#646cff" />
             </head>
-            <body className={`bg-white dark:bg-black antialiased`}>
-                <div className="max-w-2xl sm:mt-16 mt-4 mx-auto px-5 bg-white dark:bg-black font-sans">
+            <body className={`${fira.variable} bg-white font-sans antialiased dark:bg-black`}>
+                <div className="mx-auto mt-4 max-w-2xl bg-white px-5 dark:bg-black sm:mt-16">
                     {children}
                     <FloatingMenu />
                 </div>

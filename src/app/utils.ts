@@ -1,4 +1,15 @@
-const workJSON = [
+interface WorkObject {
+    company: string;
+    logo: string;
+    companyUrl: string;
+    id: string;
+    role: string;
+    startDate: string;
+    endDate: string;
+    description: string;
+}
+
+const workJSON: WorkObject[] = [
     {
         company: 'Royal London Equity Release',
         logo: '/pelican-rldn.svg',
@@ -56,7 +67,16 @@ const workJSON = [
     },
 ];
 
-const educationJSON = [
+interface EducationItem {
+    university: string;
+    logo: string;
+    course: string;
+    year: string;
+    id: string;
+    url: string;
+}
+
+const educationJSON: EducationItem[] = [
     {
         university: 'Certified Scrum Master',
         logo: '/sa-csm-300.webp',
@@ -83,7 +103,7 @@ const educationJSON = [
     },
 ];
 
-const skills = [
+const skills: string[] = [
     'AWS',
     'Docker',
     'Firebase',
@@ -107,7 +127,16 @@ const skills = [
     'Vercel',
 ];
 
-const projects = [
+interface Project {
+    image: string;
+    title: string;
+    date: string;
+    summary: string;
+    tools: string[];
+    website: string;
+}
+
+const projects: Project[] = [
     {
         image: '/projects/1.png',
         title: 'Royal London, Broker Portal',
@@ -164,7 +193,15 @@ const projects = [
     // },
 ];
 
-const allProjects = [
+interface AllProject {
+    timeline: string;
+    title: string;
+    description: string;
+    image: string;
+    link: string;
+}
+
+const allProjects: AllProject[] = [
     {
         timeline: 'August 2024',
         title: 'Broker Portal',
@@ -285,12 +322,16 @@ const allProjects = [
     },
 ];
 
-const formatDate = (isoString) => {
+const formatDate = (isoString: string): string => {
     const date = new Date(isoString);
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const options: Intl.DateTimeFormatOptions = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    };
     return date.toLocaleDateString(undefined, options);
 };
 
-
-
 export { allProjects, educationJSON, formatDate, projects, skills, workJSON };
+
+export type { WorkObject, EducationItem, Project, AllProject };

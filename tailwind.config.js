@@ -15,6 +15,13 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-fira)']
+      },
+      maxWidth: {
+        'container': '1400px',
+        'container-wide': '1600px',
+      },
+      padding: {
+        'container': 'clamp(24px, 5vw, 64px)',
       }
     },
   },

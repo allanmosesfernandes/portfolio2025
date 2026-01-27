@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
                 <meta name="theme-color" content="#646cff" />
             </head>
             <body className={`bg-white dark:bg-black antialiased`}>
-                <div className="max-w-2xl sm:mt-16 mt-4 mx-auto px-5 bg-white dark:bg-black font-sans">
+                <div className="max-w-container-wide sm:mt-16 mt-4 mx-auto px-container bg-white dark:bg-black font-sans">
                     {children}
                     <FloatingMenu />
                 </div>

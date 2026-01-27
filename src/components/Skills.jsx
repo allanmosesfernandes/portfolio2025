@@ -1,30 +1,49 @@
+'use client';
 import React from 'react';
 import { skills } from '@/app/utils';
 
 const Skills = () => {
+    const skillsRow1 = skills.slice(0, Math.ceil(skills.length / 2));
+    const skillsRow2 = skills.slice(Math.ceil(skills.length / 2));
+    
     return (
-        <div className="mt-20">
-            <h3 className="text-pantone font-bold text-2xl mt-6">Skills</h3>
-            <div className="flex gap-4 w-full flex-wrap">
-                <p className="text-pretty text-black dark:text-white md:text-lg my-4">
-                    Programming languages, frameworks, tools and technologies I&apos;ve had
-                    hands-down experience with and while I won&apos;t claim mastery in all,
-                    I&apos;ve fearlessly delved into their realm, expanding my skills.
-                </p>
-                <div className="flex gap-2 flex-wrap justify-center">
-                    {skills.map((skill, index) => {
-                        return (
-                            <p
-                                key={index}
-                                className="bg-transparent dark:text-white dark:border-white border-black border-[0.5px] font-medium text-md rounded-lg py-2 px-4 h-fit"
-                            >
-                                {skill}
-                            </p>
-                        );
-                    })}
+        <section className="skills-marquee py-20 overflow-hidden marquee-container">
+            <h3 className="text-3xl md:text-4xl font-bold mb-8 text-black dark:text-white">
+                Tech Stack
+            </h3>
+            
+            {/* Marquee Row 1 - Forward */}
+            <div className="marquee-track overflow-hidden mb-4">
+                <div className="flex gap-4 w-max animate-marquee-forward">
+                    {[...skillsRow1, ...skillsRow1].map((skill, i) => (
+                        <span 
+                            key={i}
+                            className="px-7 py-4 bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent border border-indigo-500/20 rounded-full text-base text-purple-300 font-medium whitespace-nowrap"
+                        >
+                            {skill}
+                        </span>
+                    ))}
                 </div>
             </div>
-        </div>
+            
+            {/* Marquee Row 2 - Reverse */}
+            <div className="marquee-track overflow-hidden">
+                <div className="flex gap-4 w-max animate-marquee-reverse">
+                    {[...skillsRow2, ...skillsRow2].map((skill, i) => (
+                        <span 
+                            key={i}
+                            className="px-7 py-4 bg-white/3 dark:bg-white/3 border border-white/8 dark:border-white/8 rounded-full text-base text-gray-600 dark:text-gray-400 font-medium whitespace-nowrap"
+                        >
+                            {skill}
+                        </span>
+                    ))}
+                </div>
+            </div>
+            
+            <p className="text-xs text-gray-500 text-center mt-8 opacity-60">
+                ↔ Auto-scrolling • Hover to pause
+            </p>
+        </section>
     );
 };
 

@@ -5,7 +5,7 @@ import Education from './Education';
 import WorkExperience from './workExperience';
 import Skills from './Skills';
 import Projects from './Projects';
-import BlogsArticles from './Blogs';
+import ReadWrite from './ReadWrite';
 import Contact from './Contact';
 import Recommendations from './Recommendations';
 
@@ -18,7 +18,7 @@ const Homepage = ({ posts }) => {
             <Education />
             <Skills />
             <Projects />
-            <BlogsArticles posts={posts} />
+            <ReadWrite posts={posts} />
             <Contact />
         </>
     );

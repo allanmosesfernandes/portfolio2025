@@ -221,6 +221,7 @@ export default function AdminPage() {
             setRefreshKey((k) => k + 1);
         } catch (err) {
             setMessage({ type: 'error', text: err.message });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         } finally {
             setLoading(false);
         }
@@ -288,6 +289,7 @@ export default function AdminPage() {
             setRefreshKey((k) => k + 1);
         } catch (err) {
             setMessage({ type: 'error', text: err.message });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         } finally {
             setLoading(false);
         }
@@ -504,7 +506,12 @@ export default function AdminPage() {
 
                                 <div>
                                     <label className="mb-2 block text-sm font-medium">Content</label>
-                                    <TipTapEditor content={content} onChange={setContent} token={token} />
+                                    <TipTapEditor
+                                        key={isEditing ? `edit-blog-${originalSlug}` : 'new-blog'}
+                                        content={content}
+                                        onChange={setContent}
+                                        token={token}
+                                    />
                                 </div>
 
                                 <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
@@ -597,6 +604,7 @@ export default function AdminPage() {
                                 <div>
                                     <label className="mb-2 block text-sm font-medium">Content</label>
                                     <TipTapEditor
+                                        key={isEditing ? `edit-musing-${originalYear}-${originalWeek}` : 'new-musing'}
                                         content={musingContent}
                                         onChange={setMusingContent}
                                         token={token}

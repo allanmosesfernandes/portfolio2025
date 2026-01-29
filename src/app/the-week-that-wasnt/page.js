@@ -24,9 +24,9 @@ export default async function WeeklyMusingsPage() {
     const years = Object.keys(musingsByYear).sort((a, b) => b - a);
 
     return (
-        <div className="min-h-screen bg-gray-950 px-4 py-12 text-white">
+        <div className="min-h-screen bg-gray-950 px-4 py-8 text-white sm:px-8 sm:py-12">
             <div className="mx-auto max-w-3xl">
-                <Link href="/" className="mb-8 inline-flex items-center text-gray-400 hover:text-white">
+                <Link href="/" className="mb-6 inline-flex items-center text-gray-400 hover:text-white sm:mb-8">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="20"

@@ -24,6 +24,7 @@ import {
     FaSpinner,
     FaPalette,
     FaTimes,
+    FaParagraph,
 } from 'react-icons/fa';
 
 const PRESET_COLORS = [
@@ -181,13 +182,23 @@ const MenuBar = ({ editor, token }) => {
         <div className="flex flex-wrap gap-1 border-b border-gray-700 bg-gray-800 p-2">
             <button
                 type="button"
+                onClick={() => editor.chain().focus().setParagraph().run()}
+                className={`rounded p-2 hover:bg-gray-700 ${
+                    editor.isActive('paragraph') ? 'bg-gray-700' : ''
+                }`}
+                title="Normal Text"
+            >
+                <FaParagraph className="text-white" />
+            </button>
+            <button
+                type="button"
                 onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
                 className={`rounded p-2 hover:bg-gray-700 ${
                     editor.isActive('heading', { level: 1 }) ? 'bg-gray-700' : ''
                 }`}
                 title="Heading 1"
             >
-                <FaHeading className="text-white" />
+                <span className="text-sm font-bold text-white">H1</span>
             </button>
             <button
                 type="button"
@@ -197,7 +208,17 @@ const MenuBar = ({ editor, token }) => {
                 }`}
                 title="Heading 2"
             >
-                <FaHeading className="text-sm text-white" />
+                <span className="text-sm font-bold text-white">H2</span>
+            </button>
+            <button
+                type="button"
+                onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
+                className={`rounded p-2 hover:bg-gray-700 ${
+                    editor.isActive('heading', { level: 3 }) ? 'bg-gray-700' : ''
+                }`}
+                title="Heading 3"
+            >
+                <span className="text-xs font-bold text-white">H3</span>
             </button>
             <button
                 type="button"

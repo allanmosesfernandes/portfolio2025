@@ -16,7 +16,6 @@ const WorkExperience = () => {
                     : index === 3
                       ? '#ec4899'
                       : '#8b5cf6',
-        highlight: index === 0 ? '+47% efficiency' : 'Software Engineer',
     }));
 
     return (
@@ -33,7 +32,6 @@ function WorkCard({
     role,
     startDate,
     endDate,
-    highlight,
     logo,
     companyUrl,
     color,
@@ -44,7 +42,7 @@ function WorkCard({
             href={companyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="work-card flex min-h-[280px] min-w-[340px] snap-start flex-col rounded-2xl border p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+            className="work-card flex h-full min-w-[340px] snap-start flex-col rounded-2xl border p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
             style={{
                 background: `linear-gradient(135deg, ${color}15, transparent)`,
                 borderColor: `${color}30`,
@@ -62,19 +60,9 @@ function WorkCard({
                 {role} • {startDate} - {endDate}
             </p>
 
-            <p className="mb-4 line-clamp-3 flex-grow text-sm text-gray-700 dark:text-gray-300">
+            <p className="text-sm text-gray-700 dark:text-gray-300">
                 {description}
             </p>
-
-            <div
-                className="mt-auto w-fit rounded-full px-4 py-1.5 text-xs font-medium"
-                style={{
-                    background: `${color}20`,
-                    color: color,
-                }}
-            >
-                {highlight}
-            </div>
         </a>
     );
 }

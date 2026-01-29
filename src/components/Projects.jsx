@@ -39,8 +39,8 @@ function ProjectCard({ title, date, summary, image, tools, website, featured }) 
             rel="noopener noreferrer"
             className={`project-card flex snap-start flex-col rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 ${
                 featured
-                    ? 'h-[420px] min-w-[480px] border-indigo-500/30 bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-transparent'
-                    : 'bg-white/2 dark:bg-white/2 border-white/6 dark:border-white/6 h-[420px] min-w-[320px]'
+                    ? 'h-[320px] min-w-[300px] border-indigo-500/30 bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-transparent md:h-[420px] md:min-w-[480px]'
+                    : 'bg-white/2 dark:bg-white/2 border-white/6 dark:border-white/6 h-[320px] min-w-[300px] md:h-[420px] md:min-w-[320px]'
             }`}
         >
             {featured && (

@@ -14,10 +14,7 @@ const ReadWrite = ({ posts }) => {
                     BLOG
                 </p>
                 <h2 className="mb-2 text-4xl font-bold text-white dark:text-white md:text-5xl lg:text-6xl">
-                    I write about code,
-                </h2>
-                <h2 className="text-4xl font-bold text-orange-500 md:text-5xl lg:text-6xl">
-                    tools & life
+                    I also write sometimes,
                 </h2>
             </div>
 
@@ -27,7 +24,7 @@ const ReadWrite = ({ posts }) => {
                 {latestPost && (
                     <Link
                         href={`/blog/${latestPost.slug}`}
-                        className="group relative flex min-h-[400px] flex-col rounded-3xl border border-orange-500/20 bg-gradient-to-br from-orange-900/40 to-orange-950/20 p-8 transition-all duration-300 hover:border-orange-500/40"
+                        className="group relative flex min-h-[200px] flex-col rounded-3xl border border-orange-500/20 bg-gradient-to-br from-orange-900/40 to-orange-950/20 p-6 transition-all duration-300 hover:border-orange-500/40 lg:min-h-[400px] lg:p-8"
                     >
                         <span className="mb-6 inline-flex w-fit items-center gap-2 rounded-full bg-orange-500/20 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-orange-500">
                             ★ LATEST POST
@@ -38,7 +35,7 @@ const ReadWrite = ({ posts }) => {
                         </h3>
 
                         <p className="mb-6 line-clamp-2 text-gray-400">
-                            {latestPost.description || 'Click to read more...'}
+                            {latestPost.summary || 'Click to read more...'}
                         </p>
 
                         <div className="mt-auto flex items-center justify-between">
@@ -54,7 +51,7 @@ const ReadWrite = ({ posts }) => {
                             </div>
                             <div className="flex items-center gap-3 text-sm text-gray-400">
                                 <span>{formatDate(latestPost.date)}</span>
-                                {latestPost.readTime && <span>• {latestPost.readTime}</span>}
+                                {latestPost.readingTime && <span>• {latestPost.readingTime} min</span>}
                             </div>
                         </div>
                     </Link>
@@ -66,7 +63,7 @@ const ReadWrite = ({ posts }) => {
                         <Link
                             key={i}
                             href={`/blog/${post.slug}`}
-                            className="group flex flex-1 flex-col rounded-2xl border border-orange-500/20 bg-gradient-to-br from-orange-900/40 to-orange-950/20 p-6 transition-all duration-300 hover:border-orange-500/40"
+                            className="group flex min-h-[200px] flex-col rounded-2xl border border-orange-500/20 bg-gradient-to-br from-orange-900/40 to-orange-950/20 p-6 transition-all duration-300 hover:border-orange-500/40 lg:min-h-0 lg:flex-1"
                         >
                             <div className="mb-3 flex gap-2">
                                 {post.tags?.slice(0, 2).map((tag, j) => (
@@ -84,7 +81,7 @@ const ReadWrite = ({ posts }) => {
                             </h4>
 
                             <p className="mb-2 line-clamp-2 text-sm text-gray-400">
-                                {post.description || 'Click to read more...'}
+                                {post.summary || 'Click to read more...'}
                             </p>
 
                             <p className="mt-auto text-sm text-gray-500">{formatDate(post.date)}</p>
@@ -93,25 +90,26 @@ const ReadWrite = ({ posts }) => {
                 </div>
             </div>
 
-            {/* Stats and CTA */}
-            <div className="flex items-center justify-between">
-                <div className="flex items-center gap-8">
-                    <div className="flex items-baseline gap-2">
-                        <span className="text-5xl font-bold text-orange-500">{posts.length}</span>
-                        <span className="text-gray-400">articles</span>
-                    </div>
-                    <div className="flex items-baseline gap-2">
-                        <span className="text-5xl font-bold text-white">2025</span>
-                        <span className="text-gray-400">writing since</span>
-                    </div>
-                </div>
-
+            {/* View All Button */}
+            <div className="flex justify-center">
                 <Link
                     href="/blog"
-                    className="flex items-center gap-2 rounded-full bg-orange-500 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/30"
+                    className="group inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-6 py-3 font-medium text-orange-400 transition-all duration-300 hover:border-orange-500 hover:bg-orange-500/20"
                 >
-                    View all articles
-                    <span>→</span>
+                    <span>View all articles</span>
+                    <svg
+                        className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                    </svg>
                 </Link>
             </div>
         </section>

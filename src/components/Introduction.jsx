@@ -9,9 +9,9 @@ const Introduction = () => {
             {/* Background gradient accent */}
             <div className="bg-gradient-radial pointer-events-none absolute right-[-10%] top-[-50%] h-[600px] w-[600px] from-indigo-500/15 via-transparent to-transparent" />
 
-            <div className="hero__content flex flex-col-reverse items-center justify-between gap-16 lg:flex-row">
-                {/* Left side: Text content */}
-                <div className="hero__text max-w-full text-center lg:max-w-[60%] lg:text-left">
+            <div className="hero__content flex flex-col-reverse items-center gap-16 lg:flex-row">
+                {/* Left side: Text content - 60% */}
+                <div className="hero__text max-w-full text-center lg:w-[60%] lg:text-left">
                     <h1 className="mb-6 bg-gradient-to-br from-black to-indigo-400 bg-clip-text text-5xl font-extrabold leading-[1.05] text-transparent dark:from-white sm:text-6xl md:text-7xl lg:text-8xl">
                         Software
                         <br />
@@ -39,8 +39,8 @@ const Introduction = () => {
                     </div>
                 </div>
 
-                {/* Right side: Avatar */}
-                <div className="hero__avatar-wrapper relative">
+                {/* Right side: Avatar - 40% */}
+                <div className="hero__avatar-wrapper relative flex lg:w-[40%] lg:justify-start">
                     <Image
                         src={headshot2}
                         alt="Allan Fernandes"
@@ -50,22 +50,6 @@ const Introduction = () => {
                     />
                 </div>
             </div>
-
-            {/* Company logos */}
-            <div className="hero__companies mt-16 border-t border-gray-200 pt-8 dark:border-white/5">
-                <p className="mb-4 text-xs uppercase tracking-wider text-gray-500">
-                    Currently at Royal London • Previously
-                </p>
-                <div className="hero__companies-logos flex flex-wrap items-center gap-8">
-                    <div className="dark:bg-white/3 rounded-lg bg-white/5 px-5 py-2 text-sm text-gray-600 dark:text-gray-500">
-                        Royal London
-                    </div>
-                    <div className="dark:bg-white/3 rounded-lg bg-white/5 px-5 py-2 text-sm text-gray-600 dark:text-gray-500">
-                        Nottingham Trent SU
-                    </div>
-                </div>
-            </div>
-
             {/* About Section */}
             <div className="mt-20">
                 <h3 className="mb-4 text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">

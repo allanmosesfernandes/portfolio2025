@@ -15,7 +15,7 @@ const BlogsArticles = ({ posts }) => {
                     <Link href={`/blog/${post.slug}`} key={index}>
                         <div
                             key={index}
-                            className={`bg-variant-${index % 10} article-block mb-8 cursor-pointer p-4`}
+                            className={`bg-variant-${index % 40} article-block mb-8 cursor-pointer p-4`}
                         >
                             <div className="space-y-4">
                                 <p className="article-link relative inline-block text-3xl font-bold text-white">

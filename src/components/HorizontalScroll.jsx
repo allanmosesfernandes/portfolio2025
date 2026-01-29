@@ -67,7 +67,7 @@ export default function HorizontalScroll({ children, title, showArrows = true, c
 
             <div
                 ref={scrollRef}
-                className="hide-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-4"
+                className="hide-scrollbar flex snap-x snap-mandatory items-stretch gap-5 overflow-x-auto scroll-smooth pb-4"
                 style={{ WebkitOverflowScrolling: 'touch' }}
             >
                 {children}

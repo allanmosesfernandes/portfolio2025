@@ -114,7 +114,7 @@ const BlogClient = ({ allPostsData, allTags }) => {
                         ({ id, title, date, tags, slug, summary, readingTime }, index) => (
                             <Link href={`/blog/${slug}`} key={id}>
                                 <div
-                                    className={`text-white bg-variant-${index % 10} blog-li p-4 mb-6 rounded text-black article-block`}
+                                    className={`text-white bg-variant-${index % 40} blog-li p-4 mb-6 rounded text-black article-block`}
                                 >
                                     <div className="flex flex-col gap-2">
                                         <h3 className="text-3xl font-bold article-link inline-block relative w-fit">

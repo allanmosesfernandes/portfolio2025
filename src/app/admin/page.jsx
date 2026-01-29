@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import TipTapEditor from './components/TipTapEditor';
 import ImageUpload from './components/ImageUpload';
@@ -18,6 +18,18 @@ function getCurrentWeekAndYear() {
 }
 
 export default function AdminPage() {
+    return (
+        <Suspense fallback={
+            <div className="flex min-h-screen items-center justify-center bg-gray-950">
+                <FaSpinner className="h-8 w-8 animate-spin text-blue-500" />
+            </div>
+        }>
+            <AdminPageContent />
+        </Suspense>
+    );
+}
+
+function AdminPageContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const editSlug = searchParams.get('edit');

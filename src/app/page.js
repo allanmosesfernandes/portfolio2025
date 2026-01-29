@@ -20,8 +20,8 @@ export const metadata = {
     },
 };
 
-export default function Home() {
-    const allPostsData = getSortedPostsData();
+export default async function Home() {
+    const allPostsData = await getSortedPostsData();
 
     return (
         <Homepage posts={allPostsData} />

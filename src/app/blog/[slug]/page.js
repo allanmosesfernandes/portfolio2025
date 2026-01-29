@@ -6,7 +6,8 @@ import SocialShareComponent from '../SocialShareComponent';
 
 // This function runs on the server and generates metadata for each page
 export async function generateMetadata({ params }) {
-    const postData = await getPostData(params.slug);
+    const { slug } = await params;
+    const postData = await getPostData(slug);
 
     return {
         title: `Blog - ${postData.title}`,
@@ -37,7 +38,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function PostPage({ params }) {
-    const postData = await getPostData(params.slug);
+    const { slug } = await params;
+    const postData = await getPostData(slug);
     return (
         <>
             <ScrollIndicator />

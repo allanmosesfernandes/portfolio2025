@@ -1,79 +1,54 @@
-// lib/posts.js
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
+import { connectDB } from '@/lib/mongodb';
+import Post from '@/models/Post';
 
-const postsDirectory = path.join(process.cwd(), 'posts');
+export async function getSortedPostsData() {
+    await connectDB();
 
-export function getSortedPostsData() {
-    const fileNames = fs.readdirSync(postsDirectory);
-    const allPostsData = fileNames.map((fileName) => {
-        const id = fileName.replace(/\.md$/, '');
-        const fullPath = path.join(postsDirectory, fileName);
-        const fileContents = fs.readFileSync(fullPath, 'utf8');
-        const matterResult = matter(fileContents);
-        return {
-            id,
-            slug: matterResult.data.slug,
-            ...matterResult.data,
-        };
-    });
-    return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+    const posts = await Post.find({ status: 'published' })
+        .sort({ publishedAt: -1 })
+        .select('title slug summary image readingTime tags publishedAt')
+        .lean();
+
+    return posts.map((post) => ({
+        id: post._id.toString(),
+        slug: post.slug,
+        title: post.title,
+        summary: post.summary,
+        image: post.image,
+        readingTime: post.readingTime,
+        tags: post.tags,
+        date: post.publishedAt?.toISOString(),
+    }));
 }
 
 export async function getPostData(slug) {
-    // Use the promises-based API
-    const fileNames = await fs.promises.readdir(postsDirectory);
+    await connectDB();
 
-    // Read all files and find the one with matching slug
-    let matchedFile = null;
-    let matchedData = null;
+    const post = await Post.findOne({ slug, status: 'published' }).lean();
 
-    for (const fileName of fileNames) {
-        const fullPath = path.join(postsDirectory, fileName);
-        const fileContents = await fs.promises.readFile(fullPath, 'utf8');
-        const matterResult = matter(fileContents);
-
-        if (matterResult.data.slug === slug) {
-            matchedFile = fileName;
-            matchedData = matterResult;
-            break; // Exit the loop once we find the match
-        }
+    if (!post) {
+        throw new Error(`Post not found: ${slug}`);
     }
-
-    if (!matchedFile) {
-        throw new Error(`Post with slug '${slug}' not found`);
-    }
-
-    // We already have the content from the search, no need to read the file again
-    const processedContent = await remark().use(html).process(matchedData.content);
-    const contentHtml = processedContent.toString();
 
     return {
-        slug,
-        contentHtml,
-        ...matchedData.data,
+        id: post._id.toString(),
+        slug: post.slug,
+        title: post.title,
+        summary: post.summary,
+        image: post.image,
+        readingTime: post.readingTime,
+        tags: post.tags,
+        date: post.publishedAt?.toISOString(),
+        contentHtml: post.content,
     };
 }
 
-/**
- * Retrieves all unique tags from the blog posts.
- * @returns {string[]} Array of unique tags.
- */
-export function getAllTags() {
-    const fileNames = fs.readdirSync(postsDirectory);
-    const allTags = fileNames.reduce((acc, fileName) => {
-        const fullPath = path.join(postsDirectory, fileName);
-        const fileContents = fs.readFileSync(fullPath, 'utf8');
-        const matterResult = matter(fileContents);
-        if (matterResult.data.tags && Array.isArray(matterResult.data.tags)) {
-            acc.push(...matterResult.data.tags);
-        }
-        return acc;
-    }, []);
+export async function getAllTags() {
+    await connectDB();
 
-    // Remove duplicate tags
-    return Array.from(new Set(allTags));
+    const posts = await Post.find({ status: 'published' }).select('tags').lean();
+
+    const allTags = posts.flatMap((post) => post.tags || []);
+
+    return [...new Set(allTags)];
 }

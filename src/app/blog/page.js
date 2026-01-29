@@ -12,8 +12,8 @@ export const metadata = {
 };
 
 const BlogPage = async () => {
-    const allPostsData = getSortedPostsData();
-    const allTags = getAllTags();
+    const allPostsData = await getSortedPostsData();
+    const allTags = await getAllTags();
 
     return <BlogClient allPostsData={allPostsData} allTags={allTags} />;
 };

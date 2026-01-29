@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { getSortedMusingsData } from '../lib/musings';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
     title: "The Week That Wasn't - Allan Fernandes",
     description: 'Weekly musings and reflections by Allan Fernandes.',

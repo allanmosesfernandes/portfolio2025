@@ -2,6 +2,8 @@ import { getMusingData } from '@/app/lib/musings';
 import { formatDate } from '@/app/utils';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({ params }) {
     const { year, weekNumber } = await params;
 

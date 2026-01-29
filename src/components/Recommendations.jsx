@@ -1,34 +1,35 @@
 'use client';
-import { useState } from 'react';
+import HorizontalScroll from './HorizontalScroll';
+
 const recommendationsData = [
     {
-        id: Date.now(),
+        id: 'rec-1',
         name: 'Lewis King',
         title: 'Head of Software Engineering',
         content: `I've been fortunate to have Allan working in the Responsible development team for the past 18 months and I can't recommend him highly enough.
 
-            He is incredibly hardworking, consistently delivers quality work and always demonstrates a "no task is too big" attitude.
+He is incredibly hardworking, consistently delivers quality work and always demonstrates a "no task is too big" attitude.
 
-            Outside of his technical skills, Allan is a genuinely friendly and supportive team member. He brings a positive energy that boosts team morale on a daily basis.
+Outside of his technical skills, Allan is a genuinely friendly and supportive team member. He brings a positive energy that boosts team morale on a daily basis.
 
-            I have no doubt he'll go far in his career & will be an asset to any team or organization fortunate enough to have him.`,
+I have no doubt he'll go far in his career & will be an asset to any team or organization fortunate enough to have him.`,
         initials: 'LK',
     },
     {
-        id: Date.now(),
+        id: 'rec-2',
         name: 'Dan Hopkinson',
         title: 'Senior Software Engineer',
         content: `I have had the pleasure of working closely with Allan for one and a half years and he has been an invaluable member of our team. From day one, he demonstrated a strong work ethic, a keen eye for detail, and a genuine passion for delivering high-quality solutions.
 
-        One of Allan’s greatest strengths is his dedication to continuous learning. Development is an iterative process, and what truly sets him apart is his eagerness to absorb feedback, refine his skills, and consistently improve. His ability to take on challenges with enthusiasm and adaptability has been truly impressive.
+One of Allan's greatest strengths is his dedication to continuous learning. Development is an iterative process, and what truly sets him apart is his eagerness to absorb feedback, refine his skills, and consistently improve. His ability to take on challenges with enthusiasm and adaptability has been truly impressive.
 
-        Working in a small team with a demanding workload requires both technical expertise and perseverance, and Allan has excelled in both areas. He has consistently shown initiative, problem-solving skills, and a commitment to delivering great work. His collaborative nature and willingness to support his colleagues have made him an essential part of the team.
+Working in a small team with a demanding workload requires both technical expertise and perseverance, and Allan has excelled in both areas. He has consistently shown initiative, problem-solving skills, and a commitment to delivering great work. His collaborative nature and willingness to support his colleagues have made him an essential part of the team.
 
-        Allan is a talented and hardworking developer who will be a fantastic addition to any organisation. I have no doubt that he will continue to thrive in his career, and I highly recommend him to any team looking for a skilled and dedicated professional.`,
+Allan is a talented and hardworking developer who will be a fantastic addition to any organisation. I have no doubt that he will continue to thrive in his career, and I highly recommend him to any team looking for a skilled and dedicated professional.`,
         initials: 'DH',
     },
     {
-        id: Date.now(),
+        id: 'rec-3',
         name: 'John Wilkie',
         title: 'Innovation Director',
         content:
@@ -38,13 +39,12 @@ const recommendationsData = [
 ];
 
 const Recommendations = () => {
-    const [showAll, setShowAll] = useState(false);
-    const recommendationsToShow = showAll ? recommendationsData : recommendationsData.slice(0, 1);
-
     return (
-        <div className="mt-20">
+        <div className="mt-8">
             <div className="mb-8 flex items-center gap-4">
-                <h3 className="text-2xl font-bold text-pantone">Recommendations</h3>
+                <h3 className="text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">
+                    My co-workers seem to like me
+                </h3>
                 <a
                     href="https://www.linkedin.com/in/allanmosesfernandes/"
                     target="_blank"
@@ -69,11 +69,17 @@ const Recommendations = () => {
                 </a>
             </div>
 
-            <div className="space-y-8">
-                {recommendationsToShow.map((rec) => (
-                    <article key={rec.id} className="rounded-lg bg-slate-800 p-8 shadow-lg">
+            <div
+                className="hide-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-4"
+                style={{ WebkitOverflowScrolling: 'touch' }}
+            >
+                {recommendationsData.map((rec) => (
+                    <article
+                        key={rec.id}
+                        className="min-w-[90%] snap-start rounded-2xl border border-white/10 bg-slate-800/50 p-8 shadow-lg md:min-w-[500px]"
+                    >
                         <div className="flex items-center gap-4">
-                            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-slate-700 text-lg font-bold text-white">
+                            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-indigo-500/20 text-lg font-bold text-indigo-400">
                                 {rec.initials}
                             </div>
                             <div>
@@ -82,30 +88,20 @@ const Recommendations = () => {
                             </div>
                         </div>
                         <div className="relative mt-6">
-                            <span className="absolute -left-7 -top-3 font-serif text-7xl text-gray-100 opacity-20">
-                                “
+                            <span className="absolute -left-6 -top-3 font-serif text-6xl text-indigo-400 opacity-20">
+                                "
                             </span>
-                            <p className="relative whitespace-pre-line text-gray-300">
+                            <p className="relative line-clamp-6 whitespace-pre-line text-sm leading-relaxed text-gray-300">
                                 {rec.content}
-                            </p>{' '}
+                            </p>
                         </div>
                     </article>
                 ))}
             </div>
 
-            {recommendationsData.length > 1 && (
-                <button
-                    onClick={() => setShowAll(!showAll)}
-                    className="text-md group relative mx-auto mb-10 mt-6 flex h-fit justify-center overflow-hidden rounded-full bg-black px-4 py-2 font-medium text-white transition-all duration-300 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
-                >
-                    <span className="relative block transition-transform duration-300 ease-out group-hover:-translate-y-[120%]">
-                        {showAll ? 'Show Less' : 'View all'}
-                    </span>
-                    <span className="absolute inset-0 flex translate-y-full items-center justify-center transition-transform duration-300 ease-out group-hover:translate-y-0">
-                        {showAll ? 'Show Less' : 'View all'}
-                    </span>
-                </button>
-            )}
+            <p className="mt-4 text-center text-xs text-gray-500 opacity-60 md:hidden">
+                ↔ Swipe to scroll
+            </p>
         </div>
     );
 };

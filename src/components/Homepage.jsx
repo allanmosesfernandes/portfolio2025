@@ -15,8 +15,8 @@ const Homepage = ({ posts }) => {
             <Introduction />
             <WorkExperience />
             <Recommendations />
-            <Education />
             <Skills />
+            <Education />
             <Projects />
             <ReadWrite posts={posts} />
             <Contact />

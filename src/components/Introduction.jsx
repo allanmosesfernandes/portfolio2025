@@ -1,58 +1,44 @@
 'use client';
-import { useState, useEffect } from 'react';
 import headshot2 from '@/app/assets/profile-2.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const Introduction = () => {
-    const [counter, setCounter] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCounter((prev) => (prev === 0 ? 1 : 0));
-        }, 2000);
-        return () => clearInterval(interval);
-    }, []);
-
     return (
-        <section className="hero relative min-h-[90vh] flex flex-col justify-center py-20 overflow-hidden">
+        <section className="hero relative flex min-h-[90vh] flex-col justify-center overflow-hidden py-12 lg:py-16">
             {/* Background gradient accent */}
-            <div className="absolute top-[-50%] right-[-10%] w-[600px] h-[600px] bg-gradient-radial from-indigo-500/15 via-transparent to-transparent pointer-events-none" />
-            
-            <div className="hero__content flex justify-between items-center gap-16 flex-col-reverse lg:flex-row">
+            <div className="bg-gradient-radial pointer-events-none absolute right-[-10%] top-[-50%] h-[600px] w-[600px] from-indigo-500/15 via-transparent to-transparent" />
+
+            <div className="hero__content flex flex-col-reverse items-center justify-between gap-16 lg:flex-row">
                 {/* Left side: Text content */}
-                <div className="hero__text max-w-full lg:max-w-[60%] text-center lg:text-left">
-                    <div className="hero__badge inline-flex items-center gap-2 bg-indigo-500/15 px-4 py-2 rounded-full mb-6">
-                        <span className="text-2xl font-bold text-indigo-400">{counter}</span>
-                        <span className="text-gray-500">→</span>
-                        <span className="text-2xl font-bold text-indigo-400">{counter === 0 ? 1 : 0}</span>
-                        <span className="text-sm text-gray-400">builder</span>
-                    </div>
-                    
-                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] mb-6 bg-gradient-to-br from-black dark:from-white to-indigo-400 bg-clip-text text-transparent">
-                        Software<br />Engineer
+                <div className="hero__text max-w-full text-center lg:max-w-[60%] lg:text-left">
+                    <h1 className="mb-6 bg-gradient-to-br from-black to-indigo-400 bg-clip-text text-5xl font-extrabold leading-[1.05] text-transparent dark:from-white sm:text-6xl md:text-7xl lg:text-8xl">
+                        Software
+                        <br />
+                        Engineer
                     </h1>
-                    
-                    <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-[500px] mx-auto lg:mx-0">
-                        Building cool things on the internet while caring deeply about accessibility and user experience.
+
+                    <p className="mx-auto mb-8 max-w-[500px] text-lg leading-relaxed text-gray-600 dark:text-gray-400 lg:mx-0">
+                        Building cool things on the internet while caring deeply about accessibility
+                        and user experience.
                     </p>
-                    
-                    <div className="hero__cta flex gap-3 justify-center lg:justify-start flex-wrap">
-                        <a 
-                            href="#projects" 
-                            className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-sm font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300"
+
+                    <div className="hero__cta flex flex-wrap justify-center gap-3 lg:justify-start">
+                        <a
+                            href="#projects"
+                            className="rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/30"
                         >
                             View Projects
                         </a>
-                        <Link 
-                            href="/blog" 
-                            className="px-6 py-3 bg-white/5 dark:bg-white/5 text-gray-700 dark:text-gray-300 rounded-full text-sm border border-gray-200 dark:border-white/10 hover:bg-white/10 dark:hover:bg-white/10 transition-all duration-300"
+                        <Link
+                            href="/blog"
+                            className="rounded-full border border-gray-200 bg-white/5 px-6 py-3 text-sm text-gray-700 transition-all duration-300 hover:bg-white/10 dark:border-white/10 dark:bg-white/5 dark:text-gray-300 dark:hover:bg-white/10"
                         >
                             Read Blog
                         </Link>
                     </div>
                 </div>
-                
+
                 {/* Right side: Avatar */}
                 <div className="hero__avatar-wrapper relative">
                     <Image
@@ -60,25 +46,21 @@ const Introduction = () => {
                         alt="Allan Fernandes"
                         width={280}
                         height={280}
-                        className="hero__avatar rounded-full object-cover border-2 border-white/10"
+                        className="hero__avatar rounded-full border-2 border-white/10 object-cover"
                     />
-                    <div className="hero__status absolute bottom-[-16px] left-1/2 transform -translate-x-1/2 bg-gray-100 dark:bg-gray-900 px-4 py-2 rounded-full text-xs text-green-500 border border-green-500/30 whitespace-nowrap">
-                        <span className="inline-block w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse" />
-                        Available for work
-                    </div>
                 </div>
             </div>
-            
+
             {/* Company logos */}
-            <div className="hero__companies mt-16 pt-8 border-t border-gray-200 dark:border-white/5">
-                <p className="text-xs text-gray-500 uppercase tracking-wider mb-4">
+            <div className="hero__companies mt-16 border-t border-gray-200 pt-8 dark:border-white/5">
+                <p className="mb-4 text-xs uppercase tracking-wider text-gray-500">
                     Currently at Royal London • Previously
                 </p>
-                <div className="hero__companies-logos flex gap-8 items-center flex-wrap">
-                    <div className="px-5 py-2 bg-white/5 dark:bg-white/3 rounded-lg text-sm text-gray-600 dark:text-gray-500">
+                <div className="hero__companies-logos flex flex-wrap items-center gap-8">
+                    <div className="dark:bg-white/3 rounded-lg bg-white/5 px-5 py-2 text-sm text-gray-600 dark:text-gray-500">
                         Royal London
                     </div>
-                    <div className="px-5 py-2 bg-white/5 dark:bg-white/3 rounded-lg text-sm text-gray-600 dark:text-gray-500">
+                    <div className="dark:bg-white/3 rounded-lg bg-white/5 px-5 py-2 text-sm text-gray-600 dark:text-gray-500">
                         Nottingham Trent SU
                     </div>
                 </div>
@@ -86,12 +68,16 @@ const Introduction = () => {
 
             {/* About Section */}
             <div className="mt-20">
-                <h3 className="text-2xl font-bold text-pantone mb-4">About</h3>
-                <p className="text-pretty text-black dark:text-white text-base md:text-lg leading-relaxed">
-                    I've been a software engineer for around five years, often being a victim to the shiny object syndrome, getting my hands dirty writing serverless APIs, and racking up infinite debt by leaving stuff running on AWS.
+                <h3 className="mb-4 text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">
+                    About
+                </h3>
+                <p className="text-pretty text-base leading-relaxed text-black dark:text-white md:text-lg">
+                    I've been a software engineer for around five years, often being a victim to the
+                    shiny object syndrome, getting my hands dirty writing serverless APIs, and
+                    racking up infinite debt by leaving stuff running on AWS.
                     <br />
-                    <br /> With a master's degree in Computer Science, I am currently working as a software
-                    engineer at{' '}
+                    <br /> With a master's degree in Computer Science, I am currently working as a
+                    software engineer at{' '}
                     <a
                         href="https://equityrelease.royallondon.com/adviser"
                         target="_blank"
@@ -110,7 +96,7 @@ const Introduction = () => {
                     to transform the equity release space. <br />
                     <br />
                 </p>
-                <p className="text-pretty text-black dark:text-white text-base md:text-lg leading-relaxed">
+                <p className="text-pretty text-base leading-relaxed text-black dark:text-white md:text-lg">
                     When I&apos;m not breaking things on the internet, I'm busy&nbsp;
                     <Link
                         href="tekkers"

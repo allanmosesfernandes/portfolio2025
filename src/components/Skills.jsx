@@ -18,7 +18,7 @@ const Skills = () => {
                     {[...skillsRow1, ...skillsRow1].map((skill, i) => (
                         <span
                             key={i}
-                            className="whitespace-nowrap rounded-full border border-indigo-500/20 bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent px-7 py-4 text-base font-medium text-purple-300"
+                            className="whitespace-nowrap rounded-full border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent px-7 py-4 text-base font-medium text-indigo-700 dark:border-indigo-500/20 dark:text-purple-300"
                         >
                             {skill}
                         </span>
@@ -32,7 +32,7 @@ const Skills = () => {
                     {[...skillsRow2, ...skillsRow2].map((skill, i) => (
                         <span
                             key={i}
-                            className="bg-white/3 dark:bg-white/3 border-white/8 dark:border-white/8 whitespace-nowrap rounded-full border px-7 py-4 text-base font-medium text-gray-600 dark:text-gray-400"
+                            className="whitespace-nowrap rounded-full border border-gray-300 bg-gray-100 px-7 py-4 text-base font-medium text-gray-700 dark:border-white/10 dark:bg-white/5 dark:text-gray-400"
                         >
                             {skill}
                         </span>

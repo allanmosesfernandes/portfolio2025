@@ -13,7 +13,7 @@ const ReadWrite = ({ posts }) => {
                 <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-orange-500">
                     BLOG
                 </p>
-                <h2 className="mb-2 text-4xl font-bold text-white dark:text-white md:text-5xl lg:text-6xl">
+                <h2 className="mb-2 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
                     I also write sometimes,
                 </h2>
             </div>
@@ -24,17 +24,17 @@ const ReadWrite = ({ posts }) => {
                 {latestPost && (
                     <Link
                         href={`/blog/${latestPost.slug}`}
-                        className="group relative flex min-h-[200px] flex-col rounded-3xl border border-orange-500/20 bg-gradient-to-br from-orange-900/40 to-orange-950/20 p-6 transition-all duration-300 hover:border-orange-500/40 lg:min-h-[400px] lg:p-8"
+                        className="group relative flex min-h-[200px] flex-col rounded-3xl border border-orange-300 bg-gradient-to-br from-orange-100 to-orange-50 p-6 transition-all duration-300 hover:border-orange-400 dark:border-orange-500/20 dark:from-orange-900/40 dark:to-orange-950/20 dark:hover:border-orange-500/40 lg:min-h-[400px] lg:p-8"
                     >
-                        <span className="mb-6 inline-flex w-fit items-center gap-2 rounded-full bg-orange-500/20 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-orange-500">
+                        <span className="mb-6 inline-flex w-fit items-center gap-2 rounded-full bg-orange-500/20 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-orange-600 dark:text-orange-500">
                             ★ LATEST POST
                         </span>
 
-                        <h3 className="mb-4 text-3xl font-bold text-white transition-colors group-hover:text-orange-400">
+                        <h3 className="mb-4 text-3xl font-bold text-gray-900 transition-colors group-hover:text-orange-600 dark:text-white dark:group-hover:text-orange-400">
                             {latestPost.title}
                         </h3>
 
-                        <p className="mb-6 line-clamp-2 text-gray-400">
+                        <p className="mb-6 line-clamp-2 text-gray-600 dark:text-gray-400">
                             {latestPost.summary || 'Click to read more...'}
                         </p>
 
@@ -43,13 +43,13 @@ const ReadWrite = ({ posts }) => {
                                 {latestPost.tags?.slice(0, 2).map((tag, i) => (
                                     <span
                                         key={i}
-                                        className="rounded-lg border border-orange-500/30 bg-orange-950/50 px-3 py-1 text-xs text-orange-300"
+                                        className="rounded-lg border border-orange-400/50 bg-orange-100 px-3 py-1 text-xs text-orange-700 dark:border-orange-500/30 dark:bg-orange-950/50 dark:text-orange-300"
                                     >
                                         {tag}
                                     </span>
                                 ))}
                             </div>
-                            <div className="flex items-center gap-3 text-sm text-gray-400">
+                            <div className="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
                                 <span>{formatDate(latestPost.date)}</span>
                                 {latestPost.readingTime && <span>• {latestPost.readingTime} min</span>}
                             </div>
@@ -63,24 +63,24 @@ const ReadWrite = ({ posts }) => {
                         <Link
                             key={i}
                             href={`/blog/${post.slug}`}
-                            className="group flex min-h-[200px] flex-col rounded-2xl border border-orange-500/20 bg-gradient-to-br from-orange-900/40 to-orange-950/20 p-6 transition-all duration-300 hover:border-orange-500/40 lg:min-h-0 lg:flex-1"
+                            className="group flex min-h-[200px] flex-col rounded-2xl border border-orange-300 bg-gradient-to-br from-orange-100 to-orange-50 p-6 transition-all duration-300 hover:border-orange-400 dark:border-orange-500/20 dark:from-orange-900/40 dark:to-orange-950/20 dark:hover:border-orange-500/40 lg:min-h-0 lg:flex-1"
                         >
                             <div className="mb-3 flex gap-2">
                                 {post.tags?.slice(0, 2).map((tag, j) => (
                                     <span
                                         key={j}
-                                        className="rounded-lg border border-orange-500/30 bg-orange-950/50 px-2.5 py-0.5 text-xs font-medium text-orange-300"
+                                        className="rounded-lg border border-orange-400/50 bg-orange-100 px-2.5 py-0.5 text-xs font-medium text-orange-700 dark:border-orange-500/30 dark:bg-orange-950/50 dark:text-orange-300"
                                     >
                                         {tag}
                                     </span>
                                 ))}
                             </div>
 
-                            <h4 className="mb-2 text-xl font-semibold text-white transition-colors group-hover:text-orange-400">
+                            <h4 className="mb-2 text-xl font-semibold text-gray-900 transition-colors group-hover:text-orange-600 dark:text-white dark:group-hover:text-orange-400">
                                 {post.title}
                             </h4>
 
-                            <p className="mb-2 line-clamp-2 text-sm text-gray-400">
+                            <p className="mb-2 line-clamp-2 text-sm text-gray-600 dark:text-gray-400">
                                 {post.summary || 'Click to read more...'}
                             </p>
 

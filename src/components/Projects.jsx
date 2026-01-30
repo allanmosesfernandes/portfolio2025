@@ -39,17 +39,17 @@ function ProjectCard({ title, date, summary, image, tools, website, featured }) 
             rel="noopener noreferrer"
             className={`project-card flex snap-start flex-col rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 ${
                 featured
-                    ? 'h-[320px] min-w-[300px] border-indigo-500/30 bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-transparent md:h-[420px] md:min-w-[480px]'
-                    : 'bg-white/2 dark:bg-white/2 border-white/6 dark:border-white/6 h-[320px] min-w-[300px] md:h-[420px] md:min-w-[320px]'
+                    ? 'h-[320px] min-w-[300px] border-indigo-300 bg-gradient-to-br from-indigo-100 via-purple-50 to-white dark:border-indigo-500/30 dark:from-indigo-500/20 dark:via-purple-500/10 dark:to-transparent md:h-[420px] md:min-w-[480px]'
+                    : 'h-[320px] min-w-[300px] border-gray-200 bg-gray-50 dark:border-white/10 dark:bg-white/5 md:h-[420px] md:min-w-[320px]'
             }`}
         >
             {featured && (
-                <span className="mb-4 inline-block w-fit rounded-full bg-indigo-500/30 px-3 py-1 text-xs text-purple-300">
+                <span className="mb-4 inline-block w-fit rounded-full bg-indigo-500/20 px-3 py-1 text-xs text-indigo-700 dark:bg-indigo-500/30 dark:text-purple-300">
                     ★ FEATURED
                 </span>
             )}
 
-            <div className="dark:bg-white/3 mb-5 flex-1 overflow-hidden rounded-xl bg-white/5">
+            <div className="mb-5 flex-1 overflow-hidden rounded-xl bg-gray-200 dark:bg-white/5">
                 <Image
                     src={image}
                     alt={title}
@@ -69,7 +69,7 @@ function ProjectCard({ title, date, summary, image, tools, website, featured }) 
                     {tools.map((tech, i) => (
                         <span
                             key={i}
-                            className="bg-white/8 dark:bg-white/8 rounded-xl px-3 py-1 text-xs text-gray-600 dark:text-gray-400"
+                            className="rounded-xl bg-gray-200 px-3 py-1 text-xs text-gray-700 dark:bg-white/10 dark:text-gray-400"
                         >
                             {tech}
                         </span>

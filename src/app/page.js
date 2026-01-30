@@ -1,6 +1,8 @@
 import Homepage from "@/components/Homepage";
 import { getSortedPostsData } from "./lib/posts";
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
     title: 'Home - Allan Fernandes',
     description:

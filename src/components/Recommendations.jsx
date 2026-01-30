@@ -76,22 +76,22 @@ const Recommendations = () => {
                 {recommendationsData.map((rec) => (
                     <article
                         key={rec.id}
-                        className="min-w-[90%] snap-start rounded-2xl border border-white/10 bg-slate-800/50 p-8 shadow-lg md:min-w-[500px]"
+                        className="min-w-[90%] snap-start rounded-2xl border border-gray-200 bg-gray-100 p-8 shadow-lg dark:border-white/10 dark:bg-slate-800/50 md:min-w-[500px]"
                     >
                         <div className="flex items-center gap-4">
-                            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-indigo-500/20 text-lg font-bold text-indigo-400">
+                            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-indigo-500/20 text-lg font-bold text-indigo-600 dark:text-indigo-400">
                                 {rec.initials}
                             </div>
                             <div>
-                                <p className="font-bold text-white">{rec.name}</p>
-                                <p className="text-sm text-gray-400">{rec.title}</p>
+                                <p className="font-bold text-gray-900 dark:text-white">{rec.name}</p>
+                                <p className="text-sm text-gray-600 dark:text-gray-400">{rec.title}</p>
                             </div>
                         </div>
                         <div className="relative mt-6">
                             <span className="absolute -left-6 -top-3 font-serif text-6xl text-indigo-400 opacity-20">
                                 "
                             </span>
-                            <p className="relative line-clamp-6 whitespace-pre-line text-sm leading-relaxed text-gray-300">
+                            <p className="relative line-clamp-6 whitespace-pre-line text-sm leading-relaxed text-gray-700 dark:text-gray-300">
                                 {rec.content}
                             </p>
                         </div>

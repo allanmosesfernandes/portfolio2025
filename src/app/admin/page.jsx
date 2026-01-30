@@ -324,7 +324,7 @@ function AdminPageContent() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-950 px-4 py-6 text-white sm:p-8">
+        <div className="min-h-screen bg-gray-950 px-4 py-6 pb-24 text-white sm:p-8 sm:pb-24">
             <div className="mx-auto max-w-5xl">
                 <div className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex items-center gap-4">

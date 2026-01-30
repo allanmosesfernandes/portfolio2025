@@ -17,14 +17,22 @@ const Projects = () => {
                 <Link
                     role="button"
                     href="/projects"
-                    className="text-md group relative mx-auto flex h-fit w-fit justify-center overflow-hidden rounded-full bg-black px-6 py-3 font-medium text-white transition-all duration-300 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+                    className="group inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent px-6 py-3 font-medium text-indigo-700 transition-all duration-300 hover:border-indigo-500 hover:from-indigo-500/20 dark:text-indigo-400"
                 >
-                    <span className="relative block transition-transform duration-300 ease-out group-hover:-translate-y-[150%]">
-                        View all projects
-                    </span>
-                    <span className="absolute inset-0 flex translate-y-full items-center justify-center transition-transform duration-300 ease-out group-hover:translate-y-0">
-                        View all projects
-                    </span>
+                    <span>View all projects</span>
+                    <svg
+                        className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                    </svg>
                 </Link>
             </div>
         </section>

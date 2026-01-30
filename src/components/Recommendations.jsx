@@ -41,7 +41,7 @@ Allan is a talented and hardworking developer who will be a fantastic addition t
 const Recommendations = () => {
     return (
         <div className="mt-8">
-            <div className="mb-8 flex items-center gap-4">
+            <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
                 <h3 className="text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">
                     My co-workers seem to like me
                 </h3>
@@ -49,7 +49,7 @@ const Recommendations = () => {
                     href="https://www.linkedin.com/in/allanmosesfernandes/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ml-auto flex items-center gap-1 text-sm text-gray-800 transition-colors hover:text-pantone dark:text-gray-300 dark:hover:text-pantone"
+                    className="flex items-center gap-1 text-sm text-gray-800 transition-colors hover:text-pantone dark:text-gray-300 dark:hover:text-pantone sm:ml-auto"
                 >
                     View on LinkedIn
                     <svg

@@ -9,6 +9,25 @@ export const metadata = {
     description: 'Weekly musings and reflections by Allan Fernandes.',
 };
 
+function getWeekDateRange(year, weekNumber) {
+    const startOfYear = new Date(year, 0, 1);
+    const dow = startOfYear.getDay();
+    const firstDayOffset = (weekNumber - 1) * 7 - dow;
+    const start = new Date(year, 0, 1 + firstDayOffset);
+    const end = new Date(year, 0, 1 + firstDayOffset + 6);
+    return { start, end };
+}
+
+function formatDateRange(start, end) {
+    const opts = { month: 'short', day: 'numeric' };
+    const startStr = start.toLocaleDateString('en-US', opts);
+    if (start.getMonth() === end.getMonth()) {
+        return `${startStr} – ${end.getDate()}`;
+    }
+    const endStr = end.toLocaleDateString('en-US', opts);
+    return `${startStr} – ${endStr}`;
+}
+
 export default async function WeeklyMusingsPage() {
     const musings = await getSortedMusingsData();
 
@@ -24,7 +43,7 @@ export default async function WeeklyMusingsPage() {
     const years = Object.keys(musingsByYear).sort((a, b) => b - a);
 
     return (
-        <div className="min-h-screen bg-gray-950 px-4 py-8 text-white sm:px-8 sm:py-12">
+        <div className="min-h-screen bg-gray-950 px-6 py-8 text-white sm:px-8 sm:py-12">
             <div className="mx-auto max-w-3xl">
                 <Link href="/" className="mb-6 inline-flex items-center text-gray-400 hover:text-white sm:mb-8">
                     <svg
@@ -54,26 +73,29 @@ export default async function WeeklyMusingsPage() {
                     years.map((year) => (
                         <div key={year} className="mb-10">
                             <h2 className="mb-4 text-2xl font-semibold text-gray-300">{year}</h2>
-                            <ul className="space-y-3">
-                                {musingsByYear[year].map((musing) => (
-                                    <li key={musing.id}>
+                            <div className="space-y-4">
+                                {musingsByYear[year].map((musing) => {
+                                    const { start, end } = getWeekDateRange(musing.year, musing.weekNumber);
+                                    const dateRange = formatDateRange(start, end);
+                                    return (
                                         <Link
+                                            key={musing.id}
                                             href={`/the-week-that-wasnt/${musing.year}/${musing.weekNumber}`}
-                                            className="group flex items-center justify-between rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 transition-colors hover:border-gray-700 hover:bg-gray-800"
+                                            className="group block rounded-lg border border-gray-800 bg-gray-900 p-5 transition-colors hover:border-gray-600 hover:bg-gray-800/80"
                                         >
-                                            <span className="font-medium">Week {musing.weekNumber}</span>
-                                            <span className="text-sm text-gray-500 group-hover:text-gray-400">
-                                                {musing.date
-                                                    ? new Date(musing.date).toLocaleDateString('en-US', {
-                                                          month: 'short',
-                                                          day: 'numeric',
-                                                      })
-                                                    : ''}
-                                            </span>
+                                            <p className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-500 group-hover:text-gray-400">
+                                                {dateRange}
+                                            </p>
+                                            <h3 className="text-lg font-semibold group-hover:text-white">
+                                                {musing.title || `Week ${musing.weekNumber}`}
+                                            </h3>
+                                            <p className="mt-3 text-right text-xs text-gray-600 group-hover:text-gray-500">
+                                                Week {musing.weekNumber}
+                                            </p>
                                         </Link>
-                                    </li>
-                                ))}
-                            </ul>
+                                    );
+                                })}
+                            </div>
                         </div>
                     ))
                 )}

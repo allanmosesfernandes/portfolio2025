@@ -7,8 +7,9 @@ export const dynamic = 'force-dynamic';
 export async function generateMetadata({ params }) {
     const { year, weekNumber } = await params;
 
+    const musing = await getMusingData(year, weekNumber);
     return {
-        title: `Week ${weekNumber}, ${year} - The Week That Wasn't`,
+        title: `${musing.title || `Week ${weekNumber}, ${year}`} - The Week That Wasn't`,
         description: `Weekly musing for week ${weekNumber} of ${year}`,
     };
 }
@@ -18,7 +19,7 @@ export default async function WeeklyMusingPage({ params }) {
     const musing = await getMusingData(year, weekNumber);
 
     return (
-        <div className="min-h-screen bg-gray-950 px-4 py-8 text-white sm:px-8 sm:py-12">
+        <div className="min-h-screen bg-gray-950 px-6 py-8 text-white sm:px-8 sm:py-12">
             <div className="mx-auto max-w-3xl">
                 <Link
                     href="/the-week-that-wasnt"
@@ -45,7 +46,7 @@ export default async function WeeklyMusingPage({ params }) {
                 <article className="blog-article">
                     <header className="mb-8">
                         <h1 className="mb-2 text-3xl font-bold sm:text-4xl">
-                            Week {musing.weekNumber}, {musing.year}
+                            {musing.title || `Week ${musing.weekNumber}, ${musing.year}`}
                         </h1>
                         <p className="text-gray-400">
                             {musing.date ? formatDate(musing.date) : ''}

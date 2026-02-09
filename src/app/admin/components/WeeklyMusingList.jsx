@@ -131,7 +131,7 @@ export default function WeeklyMusingList({ token, onEdit, refresh }) {
                             <div className="mb-3 flex items-center justify-between">
                                 <div>
                                     <span className="font-medium text-white">
-                                        Week {musing.weekNumber}, {musing.year}
+                                        {musing.title || `Week ${musing.weekNumber}, ${musing.year}`}
                                     </span>
                                     <p className="text-sm text-gray-400">
                                         {musing.date
@@ -227,7 +227,7 @@ export default function WeeklyMusingList({ token, onEdit, refresh }) {
                                 <tr key={key} className="bg-gray-900 hover:bg-gray-800">
                                     <td className="px-4 py-3">
                                         <span className="font-medium text-white">
-                                            Week {musing.weekNumber}
+                                            {musing.title || `Week ${musing.weekNumber}`}
                                         </span>
                                     </td>
                                     <td className="px-4 py-3 text-gray-300">{musing.year}</td>

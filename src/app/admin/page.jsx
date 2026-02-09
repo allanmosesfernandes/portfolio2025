@@ -56,6 +56,7 @@ function AdminPageContent() {
     const [originalSlug, setOriginalSlug] = useState('');
 
     // Weekly musing form state
+    const [musingTitle, setMusingTitle] = useState('');
     const [weekNumber, setWeekNumber] = useState('');
     const [year, setYear] = useState('');
     const [musingContent, setMusingContent] = useState('');
@@ -130,6 +131,7 @@ function AdminPageContent() {
             if (!response.ok) throw new Error('Musing not found');
 
             const musing = await response.json();
+            setMusingTitle(musing.title || '');
             setWeekNumber(musing.weekNumber.toString());
             setYear(musing.year.toString());
             setOriginalWeek(musing.weekNumber);
@@ -155,6 +157,7 @@ function AdminPageContent() {
         setImageUrl('');
 
         // Reset weekly musing form
+        setMusingTitle('');
         const current = getCurrentWeekAndYear();
         setWeekNumber(current.week.toString());
         setYear(current.year.toString());
@@ -251,6 +254,7 @@ function AdminPageContent() {
         setMessage(null);
 
         const musingData = {
+            title: musingTitle,
             weekNumber: parseInt(weekNumber),
             year: parseInt(year),
             content: musingContent,
@@ -583,6 +587,17 @@ function AdminPageContent() {
                             </div>
 
                             <form onSubmit={(e) => handleMusingSubmit(e, 'draft')} className="space-y-6">
+                                <div>
+                                    <label className="mb-2 block text-sm font-medium">Title</label>
+                                    <input
+                                        type="text"
+                                        value={musingTitle}
+                                        onChange={(e) => setMusingTitle(e.target.value)}
+                                        className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        placeholder="e.g. The one where I ran a half marathon"
+                                    />
+                                </div>
+
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
                                         <label className="mb-2 block text-sm font-medium">Week Number</label>

@@ -114,7 +114,7 @@ const projects = [
         date: 'August 2024 - January 2025',
         summary:
             'Developed a custom portal for equity release advisors, streamlining the entire case management journey. The portal enables advisors to create cases, generate quotes, produce Key Facts Illustrations (KFIs), submit applications, and securely upload required documentation.',
-        tools: ['React', 'Playwright', 'SCSS', 'AWS'],
+        tools: ['React', 'Playwright', 'SCSS'],
         website: 'https://www.youtube.com/watch?v=YpkjyMbBHTg',
     },
     {
@@ -123,7 +123,7 @@ const projects = [
         date: 'August 2024 - September 2024',
         summary:
             'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',
-        tools: ['Javascript', 'Twig', 'PHP', 'SCSS', 'Docker'],
+        tools: ['Javascript', 'Twig', 'PHP', 'SCSS'],
         website: 'https://equityrelease.royallondon.com/',
     },
     // {

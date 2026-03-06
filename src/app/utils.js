@@ -110,7 +110,7 @@ const skills = [
 const projects = [
     {
         image: '/projects/1.png',
-        title: 'Royal London, Broker Portal',
+        title: 'Broker Portal',
         date: 'August 2024 - January 2025',
         summary:
             'Developed a custom portal for equity release advisors, streamlining the entire case management journey. The portal enables advisors to create cases, generate quotes, produce Key Facts Illustrations (KFIs), submit applications, and securely upload required documentation.',
@@ -119,7 +119,7 @@ const projects = [
     },
     {
         image: '/projects/1.png',
-        title: 'Royal London, Equity Release',
+        title: 'Equity Release',
         date: 'August 2024 - September 2024',
         summary:
             'Revamped the Responsible Equity Release website to match the Royal London brand guidelines. To allow users and advisers to explore the Royal London products range.',

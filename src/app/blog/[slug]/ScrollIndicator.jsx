@@ -13,14 +13,13 @@ const ScrollIndicator = () => {
     useEffect(() => {
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
-    }, []);
+    }, [onScroll]);
 
     return (
-        <div className="scroll_box">
-            <div className="scroll_bar">
-                <div style={{ width: `${scroll}%` }} className="scroll_indicator"></div>
-            </div>
-        </div>
+        <div
+            className="fixed top-[68px] left-0 z-[99] h-[3px] bg-yellow transition-[width] duration-100"
+            style={{ width: `${scroll}%` }}
+        />
     );
 };
 

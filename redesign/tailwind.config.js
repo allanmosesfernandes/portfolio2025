@@ -1,5 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 
+// ============================================================
+// ALLAN FERNANDES — Brand & Design System
+// tailwind.config.js
+// ============================================================
+// Drop this into the root of your Next.js project and extend
+// your existing config, or use it as a standalone base.
+// ============================================================
+
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
 module.exports = {
@@ -20,7 +28,7 @@ module.exports = {
           DEFAULT: "#F5C800",
           light:   "#F9D740",
           dark:    "#D4AC00",
-          muted:   "#F5C80033",
+          muted:   "#F5C80033", // 20% opacity overlay
         },
 
         // Accents
@@ -39,38 +47,39 @@ module.exports = {
 
         // Neutrals
         ink: {
-          DEFAULT: "#0D0D0D",
-          soft:    "#1A1A1A",
-          mid:     "#2A2A2A",
-          faint:   "#3A3A3A",
+          DEFAULT: "#0D0D0D",   // near-black base
+          soft:    "#1A1A1A",   // cards / elevated surfaces
+          mid:     "#2A2A2A",   // borders in dark mode
+          faint:   "#3A3A3A",   // subtle borders
         },
         paper: {
-          DEFAULT: "#FAFAFA",
-          warm:    "#F5F4F0",
-          grey:    "#F0F0F0",
-          mid:     "#E0E0E0",
+          DEFAULT: "#FAFAFA",   // white base
+          warm:    "#F5F4F0",   // slightly warm white
+          grey:    "#F0F0F0",   // light grey background
+          mid:     "#E0E0E0",   // dividers
         },
 
-        // Semantic aliases
+        // Semantic aliases (readable in JSX)
         brand:   "#F5C800",
         surface: "#141414",
         muted:   "#888888",
-        "muted-light": "#999999",
       },
 
       // ── TYPOGRAPHY ──────────────────────────────────────────
       fontFamily: {
-        display: ["var(--font-display)", ...fontFamily.sans],
-        sans:    ["var(--font-sans)", ...fontFamily.sans],
-        mono:    ["var(--font-mono)", ...fontFamily.mono],
+        display: ["Bebas Neue", ...fontFamily.sans],  // Headlines
+        sans:    ["DM Sans", ...fontFamily.sans],     // Body
+        mono:    ["Space Mono", ...fontFamily.mono],  // Labels, code, tags
       },
 
       fontSize: {
+        // Display scale (Bebas Neue)
         "display-2xl": ["clamp(4rem, 10vw, 8rem)",   { lineHeight: "0.92", letterSpacing: "0.01em" }],
         "display-xl":  ["clamp(3rem, 7vw, 5.5rem)",  { lineHeight: "0.95", letterSpacing: "0.01em" }],
         "display-lg":  ["clamp(2rem, 5vw, 3.5rem)",  { lineHeight: "1",    letterSpacing: "0.02em" }],
         "display-md":  ["clamp(1.5rem, 3vw, 2rem)",  { lineHeight: "1.1",  letterSpacing: "0.02em" }],
 
+        // Label / mono scale (Space Mono)
         "label-lg":  ["0.85rem", { lineHeight: "1.5", letterSpacing: "0.05em" }],
         "label-md":  ["0.75rem", { lineHeight: "1.5", letterSpacing: "0.08em" }],
         "label-sm":  ["0.65rem", { lineHeight: "1.5", letterSpacing: "0.12em" }],
@@ -78,33 +87,42 @@ module.exports = {
       },
 
       // ── SHADOWS ─────────────────────────────────────────────
+      // Naming convention: [color]-[size]
+      // Hard shadows use offset + no blur (brutalist style)
       boxShadow: {
+        // Hard shadows (buttons, cards - the signature style)
         "hard-sm":     "3px 3px 0px #0D0D0D",
         "hard":        "4px 4px 0px #0D0D0D",
         "hard-md":     "6px 6px 0px #0D0D0D",
         "hard-lg":     "8px 8px 0px #0D0D0D",
         "hard-xl":     "12px 12px 0px #0D0D0D",
 
+        // Coloured hard shadows
         "hard-yellow": "4px 4px 0px #F5C800",
         "hard-pink":   "4px 4px 0px #F272C8",
         "hard-indigo": "4px 4px 0px #5865F2",
 
+        // Soft glows (for dark mode hovers / focus rings)
         "glow-yellow": "0 0 20px #F5C80066, 0 0 40px #F5C80033",
         "glow-pink":   "0 0 20px #F272C866, 0 0 40px #F272C833",
         "glow-indigo": "0 0 20px #5865F266, 0 0 40px #5865F233",
 
+        // Elevation shadows (soft, for floating panels)
         "float-sm":    "0 4px 16px rgba(0,0,0,0.08)",
         "float":       "0 8px 30px rgba(0,0,0,0.10)",
         "float-md":    "0 16px 48px rgba(0,0,0,0.12)",
         "float-lg":    "0 24px 64px rgba(0,0,0,0.15)",
         "float-xl":    "0 40px 80px rgba(0,0,0,0.20)",
 
+        // Dark mode elevation
         "dark-float":     "0 4px 20px rgba(0,0,0,0.40)",
         "dark-float-lg":  "0 16px 48px rgba(0,0,0,0.50)",
 
+        // Inner / pressed state
         "inner-yellow": "inset 2px 2px 0px #D4AC00",
         "inner-dark":   "inset 0 2px 6px rgba(0,0,0,0.4)",
 
+        // Border highlight (top-edge light hit)
         "edge-light": "inset 0 1px 0 rgba(255,255,255,0.08)",
       },
 
@@ -124,8 +142,8 @@ module.exports = {
         "22": "5.5rem",
         "26": "6.5rem",
         "30": "7.5rem",
-        "section": "6rem",
-        "gutter":  "3rem",
+        "section": "6rem",    // standard section padding
+        "gutter":  "3rem",    // page horizontal gutter
       },
 
       // ── TRANSITIONS ─────────────────────────────────────────
@@ -170,9 +188,9 @@ module.exports = {
           "0%":   { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
         },
-        "marquee-reverse": {
-          "0%":   { transform: "translateX(-50%)" },
-          "100%": { transform: "translateX(0%)" },
+        "hard-shadow-lift": {
+          "0%":   { boxShadow: "4px 4px 0px #0D0D0D", transform: "translate(0, 0)" },
+          "100%": { boxShadow: "8px 8px 0px #0D0D0D", transform: "translate(-2px, -2px)" },
         },
       },
 
@@ -184,9 +202,9 @@ module.exports = {
         "scale-in":      "scale-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both",
         "pulse-dot":     "pulse-dot 2s ease-in-out infinite",
         "marquee":       "marquee 20s linear infinite",
-        "marquee-reverse": "marquee-reverse 20s linear infinite",
       },
 
+      // ── BACKDROP BLUR ───────────────────────────────────────
       backdropBlur: {
         xs: "2px",
       },
@@ -203,7 +221,8 @@ module.exports = {
   },
 
   plugins: [
-    function ({ matchUtilities }) {
+    // Animate delay utilities: animate-delay-[100|200|300|400|500]
+    function ({ matchUtilities, theme }) {
       matchUtilities(
         { "animate-delay": (value) => ({ animationDelay: value }) },
         { values: { 100: "100ms", 200: "200ms", 300: "300ms", 400: "400ms", 500: "500ms", 600: "600ms", 800: "800ms" } }

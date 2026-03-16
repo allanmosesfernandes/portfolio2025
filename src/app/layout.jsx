@@ -1,32 +1,44 @@
 import './globals.css';
-import { Fira_Sans } from 'next/font/google';
-import { FloatingMenu } from '@/components/floatingMenu';
+import { Bebas_Neue, DM_Sans, Space_Mono } from 'next/font/google';
+import Nav from '@/components/Nav';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Script from 'next/script';
 
-const fira = Fira_Sans({
+const bebasNeue = Bebas_Neue({
+    subsets: ['latin'],
+    weight: ['400'],
+    variable: '--font-display',
+});
+
+const dmSans = DM_Sans({
+    subsets: ['latin'],
+    weight: ['300', '400', '500', '700'],
+    variable: '--font-sans',
+});
+
+const spaceMono = Space_Mono({
     subsets: ['latin'],
     weight: ['400', '700'],
-    variable: '--font-fira',
+    variable: '--font-mono',
 });
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en" className="dark">
+        <html lang="en">
             <head>
                 <link
                     rel="icon"
                     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>🦡</text></svg>"
                 ></link>
                 <meta charSet="UTF-8" />
-                <meta name="theme-color" content="#646cff" />
+                <meta name="theme-color" content="#F5C800" />
             </head>
-            <body className={`bg-white dark:bg-black antialiased`}>
-                <div className="max-w-container-wide sm:mt-16 mt-4 mx-auto px-container bg-white dark:bg-black font-sans">
-                    {children}
-                    <FloatingMenu />
-                </div>
+            <body
+                className={`${bebasNeue.variable} ${dmSans.variable} ${spaceMono.variable} bg-ink text-paper antialiased font-sans`}
+            >
+                <Nav />
+                {children}
                 <Analytics />
                 <SpeedInsights />
                 <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />

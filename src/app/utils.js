@@ -1,12 +1,23 @@
 const workJSON = [
     {
+        company: 'PrinterPix',
+        logo: '/printerpix-logo.png',
+        companyUrl: 'https://www.printerpix.co.uk/',
+        id: 'xxx00',
+        role: 'Software Engineer',
+        startDate: 'Oct 2025',
+        endDate: 'Present',
+        description:
+            'Building and scaling the ecommerce platform at PrinterPix, a global photo personalisation company, working across the storefront, customisation tools, and checkout experiences.',
+    },
+    {
         company: 'Royal London Equity Release',
         logo: '/pelican-rldn.svg',
         companyUrl: 'http://equityrelease.royallondon.com',
         id: 'xxx01',
         role: 'Software Engineer',
         startDate: 'Sep 2023',
-        endDate: 'Present',
+        endDate: 'Oct 2025',
         description:
             'Collaborated within an agile team to develop customized financial systems and products for Responsible Life and Royal London in the equity release sector, contributing to a 47% increase in processing efficiency.',
     },
@@ -114,7 +125,7 @@ const projects = [
         date: 'August 2024 - January 2025',
         summary:
             'Developed a custom portal for equity release advisors, streamlining the entire case management journey. The portal enables advisors to create cases, generate quotes, produce Key Facts Illustrations (KFIs), submit applications, and securely upload required documentation.',
-        tools: ['React', 'Playwright', 'SCSS', 'AWS'],
+        tools: ['React', 'Typescript', 'Playwright', 'Jest', 'Storybook'],
         website: 'https://www.youtube.com/watch?v=YpkjyMbBHTg',
     },
     {

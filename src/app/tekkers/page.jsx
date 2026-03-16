@@ -2,20 +2,17 @@ import Image from 'next/image';
 
 const page = () => {
     return (
-        <>
-            <h2 className="text-black dark:text-white font-bold sm:text-5xl text-3xl flex justify-center text-center mx-auto mb-4">
+        <div className="px-6 md:px-12 lg:px-16 py-section max-w-[800px] mx-auto">
+            <h2 className="font-display text-display-lg text-paper text-center mb-4">
                 Goalazooo!
             </h2>
-            <p className="text-pretty text-black dark:text-white md:text-lg text-center mb-4">
+            <p className="text-muted-light text-lg text-center mb-8">
                 Pretty sure my life peaked right here.
             </p>
-            {/* Video */}
-            <div className="video-frame">
-                <video src="/video/golazo.mp4" controls muted playsInline />
+            <div className="rounded-card overflow-hidden border border-ink-mid">
+                <video src="/video/golazo.mp4" controls muted playsInline className="w-full" />
             </div>
-            {/* <Image src="/giphy.gif" width={300} alt="Gif" height={300} className="mx-auto my-8" />
-            <div className="my-10"></div> */}
-        </>
+        </div>
     );
 };
 

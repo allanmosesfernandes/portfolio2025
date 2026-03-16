@@ -1,12 +1,10 @@
-// app/blog/page.js
-
 import React from 'react';
 import { getSortedPostsData, getAllTags } from '../lib/posts';
 import BlogClient from './BlogClient';
 
 export const metadata = {
-    title: 'Blog - Allan Fernandes',
-    description: 'A collection of blog posts on various topics written by Allan Fernandes.',
+    title: 'Blog — Allan Fernandes',
+    description: 'Incessant yapping about code, tech, hacks and life\'s nuances — manifested in textual form.',
     image: '/og-image.png',
     url: 'https://www.allanfernandes.dev/blog',
 };

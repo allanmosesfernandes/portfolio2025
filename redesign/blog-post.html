@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code quality using Github Actions — Allan Fernandes</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --yellow: #F5C800; --pink: #F272C8; --indigo: #5865F2;
+  --ink: #0D0D0D; --ink-soft: #1A1A1A; --ink-mid: #2A2A2A; --ink-faint: #3A3A3A;
+  --paper: #FAFAFA; --muted: #666; --muted-light: #999;
+  --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
+  --ease-expo: cubic-bezier(0.16,1,0.3,1);
+}
+html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+body { background: var(--ink); color: var(--paper); font-family: 'DM Sans', sans-serif; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  border-bottom: 1px solid var(--ink-mid);
+  background: rgba(13,13,13,0.92); backdrop-filter: blur(12px);
+  padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 64px;
+}
+.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.05em; color: var(--paper); text-decoration: none; }
+.nav-logo span { color: var(--yellow); }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--muted-light); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--paper); }
+.nav-links a.active { color: var(--yellow); }
+.nav-right { display: flex; gap: 8px; }
+.nav-btn {
+  font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 7px 14px; border-radius: 4px; border: 1px solid var(--ink-faint); color: var(--muted-light);
+  text-decoration: none; transition: all 0.2s;
+}
+.nav-btn:hover { border-color: var(--yellow); color: var(--yellow); }
+
+/* ── PROGRESS BAR ── */
+#progress-bar {
+  position: fixed; top: 64px; left: 0; z-index: 99;
+  height: 3px; background: var(--yellow); width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ── HERO / TITLE AREA ── */
+.post-hero {
+  padding: 72px 48px 56px;
+  border-bottom: 1px solid var(--ink-mid);
+  position: relative; overflow: hidden;
+}
+.post-hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, var(--yellow) 0%, transparent 60%);
+}
+.hero-inner { max-width: 760px; margin: 0 auto; }
+
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; margin-bottom: 36px;
+  transition: color 0.2s, gap 0.2s var(--ease-spring);
+}
+.back-link:hover { color: var(--yellow); gap: 12px; }
+.back-arrow { display: inline-block; transition: transform 0.2s var(--ease-spring); }
+.back-link:hover .back-arrow { transform: translateX(-3px); }
+
+.post-tags { display: flex; gap: 8px; margin-bottom: 20px; }
+.post-tag {
+  font-family: 'Space Mono', monospace; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 4px;
+}
+.post-tag.code { background: rgba(88,101,242,0.12); color: var(--indigo); border: 1px solid rgba(88,101,242,0.3); }
+.post-tag.tools { background: rgba(245,200,0,0.08); color: #c9a400; border: 1px solid rgba(245,200,0,0.2); }
+
+.post-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem,6vw,5rem);
+  line-height: 0.95; letter-spacing: 0.01em;
+  margin-bottom: 20px;
+}
+.post-excerpt { font-size: 1.1rem; color: var(--muted-light); line-height: 1.7; margin-bottom: 32px; }
+
+.post-meta-row {
+  display: flex; align-items: center; gap: 0;
+  padding: 20px 0 0; border-top: 1px solid var(--ink-mid);
+  flex-wrap: wrap;
+}
+.meta-item {
+  display: flex; flex-direction: column; gap: 3px;
+  padding-right: 32px; margin-right: 32px; border-right: 1px solid var(--ink-mid);
+}
+.meta-item:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+.meta-label { font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.meta-val { font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: var(--paper); }
+.meta-val.yellow { color: var(--yellow); }
+
+/* ── LAYOUT ── */
+.post-layout {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 64px;
+  max-width: 1060px; margin: 0 auto;
+  padding: 56px 48px 80px;
+  align-items: start;
+}
+
+/* ── TABLE OF CONTENTS (sidebar) ── */
+.toc {
+  position: sticky; top: 88px;
+  background: var(--ink-soft); border: 1px solid var(--ink-mid); border-radius: 12px;
+  padding: 24px;
+}
+.toc-title { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.toc-item a {
+  display: block; font-size: 0.8rem; color: var(--muted-light); text-decoration: none;
+  padding: 6px 10px; border-radius: 5px; border-left: 2px solid transparent;
+  transition: all 0.15s; line-height: 1.4;
+}
+.toc-item a:hover { color: var(--paper); border-left-color: var(--yellow); background: rgba(245,200,0,0.04); }
+.toc-item a.active { color: var(--yellow); border-left-color: var(--yellow); background: rgba(245,200,0,0.06); }
+.toc-divider { height: 1px; background: var(--ink-mid); margin: 16px 0; }
+.toc-share-label { font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.share-row { display: flex; gap: 8px; }
+.share-btn {
+  flex: 1; text-align: center; padding: 7px 0; border-radius: 4px; border: 1px solid var(--ink-faint);
+  font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--muted-light); text-decoration: none;
+  transition: all 0.15s;
+}
+.share-btn:hover { border-color: var(--yellow); color: var(--yellow); }
+
+/* ── ARTICLE BODY ── */
+.post-body { max-width: 100%; }
+
+.post-body h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem; letter-spacing: 0.02em; color: var(--paper);
+  margin: 48px 0 16px; padding-top: 48px; border-top: 1px solid var(--ink-mid);
+  scroll-margin-top: 96px;
+}
+.post-body h3:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+
+.post-body p {
+  font-size: 1rem; line-height: 1.85; color: #c8c8c8;
+  margin-bottom: 20px;
+}
+.post-body p strong { color: var(--paper); font-weight: 700; }
+.post-body p a { color: var(--yellow); text-decoration: none; border-bottom: 1px solid rgba(245,200,0,0.3); transition: border-color 0.2s; }
+.post-body p a:hover { border-color: var(--yellow); }
+
+/* Callout */
+.callout {
+  background: rgba(245,200,0,0.06); border-left: 3px solid var(--yellow);
+  border-radius: 0 8px 8px 0; padding: 18px 20px; margin: 24px 0;
+  font-size: 0.9rem; color: #c8c8c8; line-height: 1.7;
+}
+.callout.info { border-left-color: var(--indigo); background: rgba(88,101,242,0.06); }
+.callout strong { color: var(--paper); }
+
+/* Inline code */
+.post-body code {
+  font-family: 'Space Mono', monospace; font-size: 0.8em;
+  background: var(--ink-soft); color: var(--yellow);
+  padding: 2px 7px; border-radius: 4px; border: 1px solid var(--ink-mid);
+}
+
+/* Code block */
+.code-block-wrap { margin: 28px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--ink-mid); }
+.code-block-header {
+  background: var(--ink-mid); padding: 10px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.code-filename { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--muted-light); }
+.code-lang { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--yellow); }
+.code-copy {
+  font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase;
+  background: transparent; border: 1px solid var(--ink-faint); color: var(--muted); padding: 3px 10px; border-radius: 3px; cursor: pointer;
+  transition: all 0.15s;
+}
+.code-copy:hover { border-color: var(--yellow); color: var(--yellow); }
+.code-block-wrap pre {
+  background: #080808; padding: 24px 20px;
+  font-family: 'Space Mono', monospace; font-size: 0.72rem; line-height: 1.9;
+  color: #aaa; overflow-x: auto; margin: 0;
+}
+.ck  { color: var(--indigo); }    /* keyword */
+.cs  { color: var(--yellow); }   /* string */
+.cc  { color: #555; font-style: italic; } /* comment */
+.cp  { color: var(--pink); }     /* property */
+.cn  { color: #c8c8c8; }         /* name */
+.cm  { color: var(--muted-light); }
+
+/* Bullets */
+.post-body ul { padding-left: 0; list-style: none; margin-bottom: 20px; }
+.post-body ul li {
+  font-size: 1rem; line-height: 1.75; color: #c8c8c8; margin-bottom: 8px;
+  padding-left: 20px; position: relative;
+}
+.post-body ul li::before { content: '→'; position: absolute; left: 0; color: var(--yellow); font-weight: 700; }
+.post-body ul li strong { color: var(--paper); }
+
+/* Post image */
+.post-img {
+  width: 100%; border-radius: 8px; border: 1px solid var(--ink-mid);
+  margin: 24px 0;
+}
+.post-img-caption {
+  text-align: center; font-family: 'Space Mono', monospace; font-size: 0.6rem;
+  color: var(--muted); margin-top: -16px; margin-bottom: 24px;
+}
+
+/* Pro tip */
+.pro-tip {
+  background: var(--ink-soft); border: 1px solid var(--ink-faint); border-radius: 10px;
+  padding: 20px 24px; margin: 28px 0; display: flex; gap: 16px; align-items: flex-start;
+}
+.pro-tip-icon {
+  background: var(--yellow); color: var(--ink); border-radius: 6px;
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700; flex-shrink: 0; font-family: 'Space Mono', monospace;
+}
+.pro-tip-body {}
+.pro-tip-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--yellow); margin-bottom: 6px; }
+.pro-tip-text { font-size: 0.88rem; color: var(--muted-light); line-height: 1.65; }
+.pro-tip-text a { color: var(--yellow); }
+
+/* ── POST FOOTER ── */
+.post-footer {
+  max-width: 760px; margin: 0 auto; padding: 0 48px 80px;
+  border-top: 1px solid var(--ink-mid); padding-top: 48px;
+}
+.post-footer-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.post-nav-card {
+  background: var(--ink-soft); border: 1px solid var(--ink-mid); border-radius: 10px; padding: 24px;
+  text-decoration: none; color: inherit; display: block;
+  transition: border-color 0.2s, transform 0.2s var(--ease-expo);
+}
+.post-nav-card:hover { border-color: var(--ink-faint); transform: translateY(-2px); }
+.post-nav-card:hover .nav-card-title { color: var(--yellow); }
+.nav-card-dir { font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.nav-card-title { font-size: 0.9rem; font-weight: 700; color: var(--paper); line-height: 1.4; transition: color 0.2s; }
+.post-nav-card.next { text-align: right; }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--ink-mid); padding: 32px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--muted); letter-spacing: 0.05em; }
+.footer-logo span { color: var(--yellow); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
+.fade-up { animation: fadeUp 0.6s var(--ease-expo) both; }
+.d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="blog-listing.html" class="nav-logo">AF<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="blog-listing.html" class="active">Blog</a></li>
+    <li><a href="#">Projects</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="blog-listing.html" class="nav-btn">← All Posts</a>
+  </div>
+</nav>
+
+<!-- POST HERO -->
+<header class="post-hero">
+  <div class="hero-inner">
+    <a href="blog-listing.html" class="back-link fade-up"><span class="back-arrow">←</span> Back to all posts</a>
+    <div class="post-tags fade-up d1">
+      <span class="post-tag code">Code</span>
+      <span class="post-tag tools">Tools</span>
+    </div>
+    <h1 class="post-title fade-up d2">Code Quality<br>Using Github<br><span style="color:var(--yellow)">Actions</span></h1>
+    <p class="post-excerpt fade-up d2">An additional layer of scrutiny so your code quality is practically bulletproof — enforced on every push, no escape hatches.</p>
+    <div class="post-meta-row fade-up d3">
+      <div class="meta-item">
+        <span class="meta-label">Published</span>
+        <span class="meta-val">August 3, 2025</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Reading Time</span>
+        <span class="meta-val yellow">10 min</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Author</span>
+        <span class="meta-val">Allan Fernandes</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Part of</span>
+        <span class="meta-val">Code Quality Series</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- POST LAYOUT -->
+<div class="post-layout">
+
+  <!-- BODY -->
+  <article class="post-body">
+
+    <p>In my <a href="#">previous article</a> I showcased how you could set up code quality checks locally and share that config across developers — but that whole setup had one flaw: it could be bypassed fairly easily.</p>
+
+    <div class="callout">
+      <strong>The problem:</strong> Local hooks can be skipped with <code>--no-verify</code>. What you need is a CI-level check that has no escape hatch.
+    </div>
+
+    <p>The straightforward solution is enforcing checks on the CI pipeline as well. This gives you an additional layer of scrutiny so your code quality is practically bulletproof.</p>
+
+    <h3 id="understanding">Understanding Github Actions</h3>
+
+    <p>To oversimplify, think of Github actions as automated processes you can set up in your repository. GitHub provides virtual machines (Linux, Windows, or macOS) that can run a series of commands, or <code>Actions</code>, for you.</p>
+
+    <p>You can use these actions to automatically build your code, run tests, and check formatting every time you push a change or open a pull request — streamlining your entire CI/CD pipeline.</p>
+
+    <h3 id="setup">Setting Up Your First Github Action</h3>
+
+    <p>On your <code>main</code> branch, create a directory called <code>.github</code> and a sub-directory called <code>workflows</code>. This is where all your GitHub Actions will live.</p>
+
+    <p>Create a <code>code-quality.yml</code> file. The <code>.yml</code> extension is for YAML — the language used to define your workflow actions.</p>
+
+    <div class="callout info">
+      <strong>⚠️ YAML is painfully pedantic with formatting.</strong> One wrong indentation and you'll waste 30 minutes of your life. Save yourself the tears — ask an AI to cross-verify your config. 9 out of 10 times if it's not working, you've put an extra tab somewhere.
+    </div>
+
+    <p>Copy the below into your <code>code-quality.yml</code>:</p>
+
+    <div class="code-block-wrap">
+      <div class="code-block-header">
+        <span class="code-filename">.github/workflows/code-quality.yml</span>
+        <span class="code-lang">YAML</span>
+        <button class="code-copy" onclick="copyCode(this)">Copy</button>
+      </div>
+      <pre><span class="ck">name</span><span class="cm">:</span> <span class="cs">Code Quality</span>
+
+<span class="ck">on</span><span class="cm">:</span>
+  <span class="ck">push</span><span class="cm">:</span>
+    <span class="ck">branches</span><span class="cm">:</span>
+      <span class="cm">-</span> <span class="cs">'**'</span>
+  <span class="ck">pull_request</span><span class="cm">:</span>
+    <span class="ck">branches</span><span class="cm">:</span>
+      <span class="cm">-</span> <span class="cs">'**'</span>
+
+<span class="ck">jobs</span><span class="cm">:</span>
+  <span class="ck">lint</span><span class="cm">:</span>
+    <span class="ck">name</span><span class="cm">:</span> <span class="cs">Code Quality</span>
+    <span class="ck">runs-on</span><span class="cm">:</span> <span class="cs">ubuntu-latest</span>
+    <span class="ck">steps</span><span class="cm">:</span>
+      <span class="cm">-</span> <span class="ck">name</span><span class="cm">:</span> <span class="cs">⬇️ Checkout repo</span>
+        <span class="ck">uses</span><span class="cm">:</span> <span class="cs">actions/checkout@v4</span>
+
+      <span class="cm">-</span> <span class="ck">name</span><span class="cm">:</span> <span class="cs">🔧 Setup Node</span>
+        <span class="ck">uses</span><span class="cm">:</span> <span class="cs">actions/setup-node@v4</span>
+        <span class="ck">with</span><span class="cm">:</span>
+          <span class="ck">node-version</span><span class="cm">:</span> <span class="cs">'lts/*'</span>
+          <span class="ck">cache</span><span class="cm">:</span> <span class="cs">'npm'</span>
+
+      <span class="cm">-</span> <span class="ck">name</span><span class="cm">:</span> <span class="cs">📦 Install dependencies</span>
+        <span class="ck">run</span><span class="cm">:</span> <span class="cs">npm ci</span>
+
+      <span class="cm">-</span> <span class="ck">name</span><span class="cm">:</span> <span class="cs">🚨 Run ESLint</span>
+        <span class="ck">run</span><span class="cm">:</span> <span class="cs">npx eslint . --max-warnings=0</span>
+
+      <span class="cm">-</span> <span class="ck">name</span><span class="cm">:</span> <span class="cs">🔍 Run Prettier check</span>
+        <span class="ck">run</span><span class="cm">:</span> <span class="cs">npx prettier --check .</span></pre>
+    </div>
+
+    <h3 id="breakdown">What Each Part Does</h3>
+
+    <ul>
+      <li><strong><code>name: Code Quality</code></strong> — Sets the workflow's display name in the Actions tab of your repo.</li>
+      <li><strong><code>on:</code></strong> — Defines trigger events. Runs on every push and pull request to any branch (<code>**</code>).</li>
+      <li><strong><code>jobs:</code></strong> — Contains all the jobs in the workflow. <code>lint</code> is the unique ID for this job.</li>
+      <li><strong><code>runs-on: ubuntu-latest</code></strong> — Executes on a GitHub-hosted Ubuntu VM.</li>
+      <li><strong><code>actions/checkout@v4</code></strong> — Checks out your repo so the job can access the code.</li>
+      <li><strong><code>actions/setup-node@v4</code></strong> — Sets up a Node.js environment with LTS and npm caching.</li>
+      <li><strong><code>npm ci</code></strong> — Installs dependencies. Faster and more reliable than <code>npm install</code> in CI.</li>
+      <li><strong><code>eslint . --max-warnings=0</code></strong> — Fails the job if any linting warnings are found. Zero tolerance.</li>
+      <li><strong><code>prettier --check .</code></strong> — Fails the job if files aren't formatted correctly, without modifying them.</li>
+    </ul>
+
+    <h3 id="test">Test Your Github Action</h3>
+
+    <p>If you now push your commit up to your repo, it should trigger the GitHub Action. You can verify this has worked by going to your repository on GitHub, clicking the <strong>Actions</strong> tab, and checking that the <code>Code Quality</code> workflow shows up and has run successfully.</p>
+
+    <div class="pro-tip">
+      <div class="pro-tip-icon">★</div>
+      <div class="pro-tip-body">
+        <div class="pro-tip-label">Pro Tip</div>
+        <div class="pro-tip-text">Use the official <a href="#">Github Actions VS Code plugin</a> to monitor all your actions running from the editor itself — no need to open the browser. You're welcome.</div>
+      </div>
+    </div>
+
+    <h3 id="protection">Enable Branch Protection Rules</h3>
+
+    <p>The final piece of the puzzle is ensuring our Action is enforced across all branches — so no one can merge code that fails the check.</p>
+
+    <p>Go to <strong>Settings → Branches → Branch Protection Rules → Add rule</strong> and configure:</p>
+
+    <ul>
+      <li><strong>Branch name pattern:</strong> <code>*</code></li>
+      <li><strong>✅ Require status checks to pass before merging</strong></li>
+      <li>Search for <code>Code Quality</code> — this should appear as a Github Action</li>
+      <li>Hit <strong>Create</strong></li>
+    </ul>
+
+    <h3 id="testing">Testing It All Works</h3>
+
+    <p>Create a new branch, push some intentionally rubbish code, and open a PR. The GitHub Action should trigger, fail, and block the merge. Everyone's happy, no one's wasting time arguing over single vs double quotes vs tab spacing vs semicolons — and we can all go back to maximising shareholder value.</p>
+
+  </article>
+
+  <!-- TOC SIDEBAR -->
+  <aside>
+    <nav class="toc">
+      <div class="toc-title">In This Article</div>
+      <ul class="toc-list">
+        <li class="toc-item"><a href="#understanding" class="active">Understanding Actions</a></li>
+        <li class="toc-item"><a href="#setup">Setup</a></li>
+        <li class="toc-item"><a href="#breakdown">Breakdown</a></li>
+        <li class="toc-item"><a href="#test">Test the Action</a></li>
+        <li class="toc-item"><a href="#protection">Branch Protection</a></li>
+        <li class="toc-item"><a href="#testing">Testing</a></li>
+      </ul>
+      <div class="toc-divider"></div>
+      <div class="toc-share-label">Share</div>
+      <div class="share-row">
+        <a href="#" class="share-btn">𝕏</a>
+        <a href="#" class="share-btn">LI</a>
+        <a href="#" class="share-btn">🔗</a>
+      </div>
+    </nav>
+  </aside>
+
+</div>
+
+<!-- POST NAV -->
+<div class="post-footer">
+  <div class="post-footer-inner">
+    <a href="#" class="post-nav-card prev">
+      <div class="nav-card-dir">← Previous</div>
+      <div class="nav-card-title">Enforcing Code Quality on FE Repos</div>
+    </a>
+    <a href="#" class="post-nav-card next">
+      <div class="nav-card-dir">Next →</div>
+      <div class="nav-card-title">How AI Helped Save a Prod Disaster</div>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">AF<span>.</span></div>
+  <div style="font-family:'Space Mono',monospace;font-size:0.6rem;color:var(--muted)">Created with ❤️ & ☕ by Allan Moses Fernandes</div>
+</footer>
+
+<script>
+// Reading progress bar
+window.addEventListener('scroll', () => {
+  const el = document.documentElement;
+  const scrolled = el.scrollTop / (el.scrollHeight - el.clientHeight);
+  document.getElementById('progress-bar').style.width = (scrolled * 100) + '%';
+});
+
+// TOC active state
+const headings = document.querySelectorAll('.post-body h3[id]');
+const tocLinks = document.querySelectorAll('.toc-item a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      tocLinks.forEach(l => l.classList.remove('active'));
+      const link = document.querySelector(`.toc-item a[href="#${e.target.id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+headings.forEach(h => observer.observe(h));
+
+// Copy code button
+function copyCode(btn) {
+  const pre = btn.closest('.code-block-wrap').querySelector('pre');
+  navigator.clipboard.writeText(pre.innerText);
+  btn.textContent = 'Copied!';
+  setTimeout(() => btn.textContent = 'Copy', 2000);
+}
+</script>
+</body>
+</html>

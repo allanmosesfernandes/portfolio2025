@@ -51,7 +51,7 @@ export async function PUT(request, { params }) {
 
         const { year, weekNumber } = await params;
         const body = await request.json();
-        const { content, status, newWeekNumber, newYear } = body;
+        const { title, content, status, newWeekNumber, newYear } = body;
 
         const musing = await WeeklyMusing.findOne({
             year: parseInt(year),
@@ -81,6 +81,7 @@ export async function PUT(request, { params }) {
             if (newYear) musing.year = newYear;
         }
 
+        if (title !== undefined) musing.title = title;
         if (content !== undefined) musing.content = content;
 
         if (status !== undefined) {

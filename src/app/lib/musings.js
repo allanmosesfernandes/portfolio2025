@@ -14,11 +14,12 @@ export async function getSortedMusingsData() {
 
     const musings = await WeeklyMusing.find({ status: 'published' })
         .sort({ year: -1, weekNumber: -1 })
-        .select('weekNumber year publishedAt')
+        .select('title weekNumber year publishedAt')
         .lean();
 
     return musings.map((musing) => ({
         id: musing._id.toString(),
+        title: musing.title || '',
         weekNumber: musing.weekNumber,
         year: musing.year,
         date: musing.publishedAt?.toISOString(),
@@ -40,6 +41,7 @@ export async function getMusingData(year, weekNumber) {
 
     return {
         id: musing._id.toString(),
+        title: musing.title || '',
         weekNumber: musing.weekNumber,
         year: musing.year,
         date: musing.publishedAt?.toISOString(),

@@ -9,11 +9,11 @@ const ReadWrite = ({ posts }) => {
     return (
         <section className="read-write py-20">
             {/* Header with left border */}
-            <div className="mb-12 border-l-4 border-orange-500 pl-6">
-                <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-orange-500">
+            <div className="mb-12 border-l-4 border-indigo-500 pl-6">
+                <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
                     BLOG
                 </p>
-                <h2 className="mb-2 text-4xl font-bold text-white dark:text-white md:text-5xl lg:text-6xl">
+                <h2 className="mb-2 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
                     I also write sometimes,
                 </h2>
             </div>
@@ -24,17 +24,17 @@ const ReadWrite = ({ posts }) => {
                 {latestPost && (
                     <Link
                         href={`/blog/${latestPost.slug}`}
-                        className="group relative flex min-h-[200px] flex-col rounded-3xl border border-orange-500/20 bg-gradient-to-br from-orange-900/40 to-orange-950/20 p-6 transition-all duration-300 hover:border-orange-500/40 lg:min-h-[400px] lg:p-8"
+                        className="group relative flex min-h-[200px] flex-col rounded-3xl border border-indigo-300 bg-gradient-to-br from-indigo-100 via-purple-50 to-white p-6 transition-all duration-300 hover:border-indigo-400 dark:border-indigo-500/30 dark:from-indigo-500/20 dark:via-purple-500/10 dark:to-transparent dark:hover:border-indigo-500/50 lg:min-h-[400px] lg:p-8"
                     >
-                        <span className="mb-6 inline-flex w-fit items-center gap-2 rounded-full bg-orange-500/20 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-orange-500">
+                        <span className="mb-6 inline-flex w-fit items-center gap-2 rounded-full bg-indigo-500/20 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-indigo-700 dark:text-purple-300">
                             ★ LATEST POST
                         </span>
 
-                        <h3 className="mb-4 text-3xl font-bold text-white transition-colors group-hover:text-orange-400">
+                        <h3 className="mb-4 text-3xl font-bold text-gray-900 transition-colors group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
                             {latestPost.title}
                         </h3>
 
-                        <p className="mb-6 line-clamp-2 text-gray-400">
+                        <p className="mb-6 line-clamp-2 text-gray-600 dark:text-gray-400">
                             {latestPost.summary || 'Click to read more...'}
                         </p>
 
@@ -43,13 +43,13 @@ const ReadWrite = ({ posts }) => {
                                 {latestPost.tags?.slice(0, 2).map((tag, i) => (
                                     <span
                                         key={i}
-                                        className="rounded-lg border border-orange-500/30 bg-orange-950/50 px-3 py-1 text-xs text-orange-300"
+                                        className="rounded-lg border border-indigo-300 bg-indigo-50 px-3 py-1 text-xs text-indigo-700 dark:border-indigo-500/30 dark:bg-indigo-950/50 dark:text-indigo-300"
                                     >
                                         {tag}
                                     </span>
                                 ))}
                             </div>
-                            <div className="flex items-center gap-3 text-sm text-gray-400">
+                            <div className="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
                                 <span>{formatDate(latestPost.date)}</span>
                                 {latestPost.readingTime && <span>• {latestPost.readingTime} min</span>}
                             </div>
@@ -63,24 +63,24 @@ const ReadWrite = ({ posts }) => {
                         <Link
                             key={i}
                             href={`/blog/${post.slug}`}
-                            className="group flex min-h-[200px] flex-col rounded-2xl border border-orange-500/20 bg-gradient-to-br from-orange-900/40 to-orange-950/20 p-6 transition-all duration-300 hover:border-orange-500/40 lg:min-h-0 lg:flex-1"
+                            className="group flex min-h-[200px] flex-col rounded-2xl border border-gray-200 bg-gray-50 p-6 transition-all duration-300 hover:border-gray-300 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20 lg:min-h-0 lg:flex-1"
                         >
                             <div className="mb-3 flex gap-2">
                                 {post.tags?.slice(0, 2).map((tag, j) => (
                                     <span
                                         key={j}
-                                        className="rounded-lg border border-orange-500/30 bg-orange-950/50 px-2.5 py-0.5 text-xs font-medium text-orange-300"
+                                        className="rounded-lg border border-indigo-300 bg-indigo-50 px-2.5 py-0.5 text-xs font-medium text-indigo-700 dark:border-indigo-500/30 dark:bg-indigo-950/50 dark:text-indigo-300"
                                     >
                                         {tag}
                                     </span>
                                 ))}
                             </div>
 
-                            <h4 className="mb-2 text-xl font-semibold text-white transition-colors group-hover:text-orange-400">
+                            <h4 className="mb-2 text-xl font-semibold text-gray-900 transition-colors group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
                                 {post.title}
                             </h4>
 
-                            <p className="mb-2 line-clamp-2 text-sm text-gray-400">
+                            <p className="mb-2 line-clamp-2 text-sm text-gray-600 dark:text-gray-400">
                                 {post.summary || 'Click to read more...'}
                             </p>
 
@@ -94,7 +94,7 @@ const ReadWrite = ({ posts }) => {
             <div className="flex justify-center">
                 <Link
                     href="/blog"
-                    className="group inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-6 py-3 font-medium text-orange-400 transition-all duration-300 hover:border-orange-500 hover:bg-orange-500/20"
+                    className="group inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent px-6 py-3 font-medium text-indigo-700 transition-all duration-300 hover:border-indigo-500 hover:from-indigo-500/20 dark:text-indigo-400"
                 >
                     <span>View all articles</span>
                     <svg

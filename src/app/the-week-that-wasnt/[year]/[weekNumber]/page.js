@@ -3,6 +3,8 @@ import { formatDate } from '@/app/utils';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({ params }) {
     const { year, weekNumber } = await params;
     return {

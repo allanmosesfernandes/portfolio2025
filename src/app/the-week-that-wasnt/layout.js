@@ -10,5 +10,9 @@ export const metadata = {
 };
 
 export default function WeeklyMusingsLayout({ children }) {
-    return children;
+    return (
+        <div className="-mx-[clamp(24px,5vw,64px)] -mt-4 sm:-mt-16">
+            {children}
+        </div>
+    );
 }

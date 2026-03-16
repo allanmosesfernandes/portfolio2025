@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { getSortedMusingsData } from '../lib/musings';
 import Footer from '@/components/Footer';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
     title: "The Week That Wasn't — Allan Fernandes",
     description: 'Weekly musings and reflections by Allan Fernandes.',

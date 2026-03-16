@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import TipTapEditor from './components/TipTapEditor';
 import ImageUpload from './components/ImageUpload';
@@ -18,6 +18,18 @@ function getCurrentWeekAndYear() {
 }
 
 export default function AdminPage() {
+    return (
+        <Suspense fallback={
+            <div className="flex min-h-screen items-center justify-center bg-gray-950">
+                <FaSpinner className="h-8 w-8 animate-spin text-blue-500" />
+            </div>
+        }>
+            <AdminPageContent />
+        </Suspense>
+    );
+}
+
+function AdminPageContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const editSlug = searchParams.get('edit');
@@ -44,6 +56,7 @@ export default function AdminPage() {
     const [originalSlug, setOriginalSlug] = useState('');
 
     // Weekly musing form state
+    const [musingTitle, setMusingTitle] = useState('');
     const [weekNumber, setWeekNumber] = useState('');
     const [year, setYear] = useState('');
     const [musingContent, setMusingContent] = useState('');
@@ -118,6 +131,7 @@ export default function AdminPage() {
             if (!response.ok) throw new Error('Musing not found');
 
             const musing = await response.json();
+            setMusingTitle(musing.title || '');
             setWeekNumber(musing.weekNumber.toString());
             setYear(musing.year.toString());
             setOriginalWeek(musing.weekNumber);
@@ -143,6 +157,7 @@ export default function AdminPage() {
         setImageUrl('');
 
         // Reset weekly musing form
+        setMusingTitle('');
         const current = getCurrentWeekAndYear();
         setWeekNumber(current.week.toString());
         setYear(current.year.toString());
@@ -239,6 +254,7 @@ export default function AdminPage() {
         setMessage(null);
 
         const musingData = {
+            title: musingTitle,
             weekNumber: parseInt(weekNumber),
             year: parseInt(year),
             content: musingContent,
@@ -312,7 +328,7 @@ export default function AdminPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-950 px-4 py-6 text-white sm:p-8">
+        <div className="min-h-screen bg-gray-950 px-4 py-6 pb-24 text-white sm:p-8 sm:pb-24">
             <div className="mx-auto max-w-5xl">
                 <div className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex items-center gap-4">
@@ -571,6 +587,17 @@ export default function AdminPage() {
                             </div>
 
                             <form onSubmit={(e) => handleMusingSubmit(e, 'draft')} className="space-y-6">
+                                <div>
+                                    <label className="mb-2 block text-sm font-medium">Title</label>
+                                    <input
+                                        type="text"
+                                        value={musingTitle}
+                                        onChange={(e) => setMusingTitle(e.target.value)}
+                                        className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        placeholder="e.g. The one where I ran a half marathon"
+                                    />
+                                </div>
+
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
                                         <label className="mb-2 block text-sm font-medium">Week Number</label>

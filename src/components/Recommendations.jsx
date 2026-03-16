@@ -41,7 +41,7 @@ Allan is a talented and hardworking developer who will be a fantastic addition t
 const Recommendations = () => {
     return (
         <div className="mt-8">
-            <div className="mb-8 flex items-center gap-4">
+            <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
                 <h3 className="text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">
                     My co-workers seem to like me
                 </h3>
@@ -49,7 +49,7 @@ const Recommendations = () => {
                     href="https://www.linkedin.com/in/allanmosesfernandes/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ml-auto flex items-center gap-1 text-sm text-gray-800 transition-colors hover:text-pantone dark:text-gray-300 dark:hover:text-pantone"
+                    className="flex items-center gap-1 text-sm text-gray-800 transition-colors hover:text-pantone dark:text-gray-300 dark:hover:text-pantone sm:ml-auto"
                 >
                     View on LinkedIn
                     <svg
@@ -76,22 +76,22 @@ const Recommendations = () => {
                 {recommendationsData.map((rec) => (
                     <article
                         key={rec.id}
-                        className="min-w-[90%] snap-start rounded-2xl border border-white/10 bg-slate-800/50 p-8 shadow-lg md:min-w-[500px]"
+                        className="min-w-[90%] snap-start rounded-2xl border border-gray-200 bg-gray-100 p-8 shadow-lg dark:border-white/10 dark:bg-slate-800/50 md:min-w-[500px]"
                     >
                         <div className="flex items-center gap-4">
-                            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-indigo-500/20 text-lg font-bold text-indigo-400">
+                            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-indigo-500/20 text-lg font-bold text-indigo-600 dark:text-indigo-400">
                                 {rec.initials}
                             </div>
                             <div>
-                                <p className="font-bold text-white">{rec.name}</p>
-                                <p className="text-sm text-gray-400">{rec.title}</p>
+                                <p className="font-bold text-gray-900 dark:text-white">{rec.name}</p>
+                                <p className="text-sm text-gray-600 dark:text-gray-400">{rec.title}</p>
                             </div>
                         </div>
                         <div className="relative mt-6">
                             <span className="absolute -left-6 -top-3 font-serif text-6xl text-indigo-400 opacity-20">
                                 "
                             </span>
-                            <p className="relative line-clamp-6 whitespace-pre-line text-sm leading-relaxed text-gray-300">
+                            <p className="relative line-clamp-6 whitespace-pre-line text-sm leading-relaxed text-gray-700 dark:text-gray-300">
                                 {rec.content}
                             </p>
                         </div>

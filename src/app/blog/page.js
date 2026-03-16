@@ -2,6 +2,8 @@ import React from 'react';
 import { getSortedPostsData, getAllTags } from '../lib/posts';
 import BlogClient from './BlogClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
     title: 'Blog — Allan Fernandes',
     description: 'Incessant yapping about code, tech, hacks and life\'s nuances — manifested in textual form.',

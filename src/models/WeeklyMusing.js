@@ -2,6 +2,10 @@ import mongoose from 'mongoose';
 
 const WeeklyMusingSchema = new mongoose.Schema(
     {
+        title: {
+            type: String,
+            default: '',
+        },
         weekNumber: {
             type: Number,
             required: [true, 'Week number is required'],
@@ -35,4 +39,9 @@ const WeeklyMusingSchema = new mongoose.Schema(
 WeeklyMusingSchema.index({ year: 1, weekNumber: 1 }, { unique: true });
 WeeklyMusingSchema.index({ status: 1, year: -1, weekNumber: -1 });
 
-export default mongoose.models.WeeklyMusing || mongoose.model('WeeklyMusing', WeeklyMusingSchema);
+// Clear cached model so schema changes (e.g. new fields) are picked up in dev HMR
+if (mongoose.models?.WeeklyMusing) {
+    delete mongoose.models.WeeklyMusing;
+}
+
+export default mongoose.model('WeeklyMusing', WeeklyMusingSchema);

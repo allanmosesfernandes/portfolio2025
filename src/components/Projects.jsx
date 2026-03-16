@@ -17,14 +17,22 @@ const Projects = () => {
                 <Link
                     role="button"
                     href="/projects"
-                    className="text-md group relative mx-auto flex h-fit w-fit justify-center overflow-hidden rounded-full bg-black px-6 py-3 font-medium text-white transition-all duration-300 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+                    className="group inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent px-6 py-3 font-medium text-indigo-700 transition-all duration-300 hover:border-indigo-500 hover:from-indigo-500/20 dark:text-indigo-400"
                 >
-                    <span className="relative block transition-transform duration-300 ease-out group-hover:-translate-y-[150%]">
-                        View all projects
-                    </span>
-                    <span className="absolute inset-0 flex translate-y-full items-center justify-center transition-transform duration-300 ease-out group-hover:translate-y-0">
-                        View all projects
-                    </span>
+                    <span>View all projects</span>
+                    <svg
+                        className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                    </svg>
                 </Link>
             </div>
         </section>
@@ -39,17 +47,17 @@ function ProjectCard({ title, date, summary, image, tools, website, featured }) 
             rel="noopener noreferrer"
             className={`project-card flex snap-start flex-col rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 ${
                 featured
-                    ? 'h-[320px] min-w-[300px] border-indigo-500/30 bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-transparent md:h-[420px] md:min-w-[480px]'
-                    : 'bg-white/2 dark:bg-white/2 border-white/6 dark:border-white/6 h-[320px] min-w-[300px] md:h-[420px] md:min-w-[320px]'
+                    ? 'h-[320px] min-w-[300px] border-indigo-300 bg-gradient-to-br from-indigo-100 via-purple-50 to-white dark:border-indigo-500/30 dark:from-indigo-500/20 dark:via-purple-500/10 dark:to-transparent md:h-[420px] md:min-w-[480px]'
+                    : 'h-[320px] min-w-[300px] border-gray-200 bg-gray-50 dark:border-white/10 dark:bg-white/5 md:h-[420px] md:min-w-[320px]'
             }`}
         >
             {featured && (
-                <span className="mb-4 inline-block w-fit rounded-full bg-indigo-500/30 px-3 py-1 text-xs text-purple-300">
+                <span className="mb-4 inline-block w-fit rounded-full bg-indigo-500/20 px-3 py-1 text-xs text-indigo-700 dark:bg-indigo-500/30 dark:text-purple-300">
                     ★ FEATURED
                 </span>
             )}
 
-            <div className="dark:bg-white/3 mb-5 flex-1 overflow-hidden rounded-xl bg-white/5">
+            <div className="mb-5 flex-1 overflow-hidden rounded-xl bg-gray-200 dark:bg-white/5">
                 <Image
                     src={image}
                     alt={title}
@@ -69,7 +77,7 @@ function ProjectCard({ title, date, summary, image, tools, website, featured }) 
                     {tools.map((tech, i) => (
                         <span
                             key={i}
-                            className="bg-white/8 dark:bg-white/8 rounded-xl px-3 py-1 text-xs text-gray-600 dark:text-gray-400"
+                            className="rounded-xl bg-gray-200 px-3 py-1 text-xs text-gray-700 dark:bg-white/10 dark:text-gray-400"
                         >
                             {tech}
                         </span>

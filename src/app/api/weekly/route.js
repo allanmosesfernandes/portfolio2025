@@ -25,7 +25,7 @@ export async function GET(request) {
 
         const musings = await WeeklyMusing.find(query)
             .sort({ year: -1, weekNumber: -1 })
-            .select('weekNumber year status publishedAt createdAt updatedAt')
+            .select('title weekNumber year status publishedAt createdAt updatedAt')
             .lean();
 
         const formattedMusings = musings.map((musing) => ({
@@ -53,7 +53,7 @@ export async function POST(request) {
         await connectDB();
 
         const body = await request.json();
-        const { weekNumber, year, content, status } = body;
+        const { title, weekNumber, year, content, status } = body;
 
         if (!weekNumber || !year || !content) {
             return NextResponse.json(
@@ -71,6 +71,7 @@ export async function POST(request) {
         }
 
         const musingData = {
+            title: title || '',
             weekNumber,
             year,
             content,

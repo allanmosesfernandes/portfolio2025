@@ -24,6 +24,7 @@ import {
     FaSpinner,
     FaPalette,
     FaTimes,
+    FaParagraph,
 } from 'react-icons/fa';
 
 const PRESET_COLORS = [
@@ -181,13 +182,23 @@ const MenuBar = ({ editor, token }) => {
         <div className="flex flex-wrap gap-1 border-b border-gray-700 bg-gray-800 p-2">
             <button
                 type="button"
+                onClick={() => editor.chain().focus().setParagraph().run()}
+                className={`rounded p-2 hover:bg-gray-700 ${
+                    editor.isActive('paragraph') ? 'bg-gray-700' : ''
+                }`}
+                title="Normal Text"
+            >
+                <FaParagraph className="text-white" />
+            </button>
+            <button
+                type="button"
                 onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
                 className={`rounded p-2 hover:bg-gray-700 ${
                     editor.isActive('heading', { level: 1 }) ? 'bg-gray-700' : ''
                 }`}
                 title="Heading 1"
             >
-                <FaHeading className="text-white" />
+                <span className="text-sm font-bold text-white">H1</span>
             </button>
             <button
                 type="button"
@@ -197,7 +208,17 @@ const MenuBar = ({ editor, token }) => {
                 }`}
                 title="Heading 2"
             >
-                <FaHeading className="text-sm text-white" />
+                <span className="text-sm font-bold text-white">H2</span>
+            </button>
+            <button
+                type="button"
+                onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
+                className={`rounded p-2 hover:bg-gray-700 ${
+                    editor.isActive('heading', { level: 3 }) ? 'bg-gray-700' : ''
+                }`}
+                title="Heading 3"
+            >
+                <span className="text-xs font-bold text-white">H3</span>
             </button>
             <button
                 type="button"
@@ -349,9 +370,41 @@ const MenuBar = ({ editor, token }) => {
     );
 };
 
+// Normalize HTML content to ensure proper paragraph structure
+// This converts <br><br> patterns to proper paragraph breaks
+function normalizeContent(html) {
+    if (!html) return '';
+
+    // If content is just text without any block elements, wrap in paragraph
+    if (!html.includes('<p>') && !html.includes('<h1>') && !html.includes('<h2>') && !html.includes('<h3>')) {
+        // Split by double line breaks and wrap each in paragraph
+        const paragraphs = html.split(/(?:<br\s*\/?>\s*){2,}/gi);
+        return paragraphs.map(p => p.trim()).filter(p => p).map(p => `<p>${p}</p>`).join('');
+    }
+
+    // Replace patterns of multiple <br> with paragraph breaks
+    // This handles content that uses <br><br> for paragraph separation
+    let normalized = html;
+
+    // Find content inside paragraphs that has double br tags and split them
+    normalized = normalized.replace(/<p>([\s\S]*?)<\/p>/gi, (match, content) => {
+        // Check if this paragraph has double line breaks
+        if (/<br\s*\/?>\s*<br\s*\/?>/i.test(content)) {
+            const parts = content.split(/<br\s*\/?>\s*<br\s*\/?>/gi);
+            return parts.map(p => p.trim()).filter(p => p).map(p => `<p>${p}</p>`).join('');
+        }
+        return match;
+    });
+
+    return normalized;
+}
+
 export default function TipTapEditor({ content, onChange, token }) {
     // Track the content to prevent update loops
     const lastContent = useRef(content || '');
+
+    // Normalize content on initial load
+    const normalizedInitialContent = normalizeContent(content || '');
 
     const editor = useEditor({
         immediatelyRender: false,
@@ -378,7 +431,7 @@ export default function TipTapEditor({ content, onChange, token }) {
                 placeholder: 'Start writing your blog post...',
             }),
         ],
-        content: content || '',
+        content: normalizedInitialContent,
         editorProps: {
             attributes: {
                 class: 'prose prose-invert max-w-none p-4 focus:outline-none min-h-[500px]',
@@ -394,7 +447,8 @@ export default function TipTapEditor({ content, onChange, token }) {
     // Update editor content when prop changes externally (e.g., when loading a post for editing or clearing form)
     useEffect(() => {
         if (editor && content !== lastContent.current) {
-            editor.commands.setContent(content || '');
+            const normalized = normalizeContent(content || '');
+            editor.commands.setContent(normalized);
             lastContent.current = content || '';
         }
     }, [editor, content]);

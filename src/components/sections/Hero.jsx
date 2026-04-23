@@ -2,52 +2,134 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
+const CornerFlourish = () => (
+    <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M4 50 Q4 4 50 4"
+            stroke="var(--r-ink-3)"
+            strokeWidth="1"
+            fill="none"
+            opacity="0.4"
+        />
+        <path
+            d="M10 44 Q10 10 44 10"
+            stroke="var(--r-ink-3)"
+            strokeWidth="0.5"
+            fill="none"
+            opacity="0.3"
+        />
+        <path
+            d="M4 50 C4 30 12 16 28 8"
+            stroke="var(--r-ink-3)"
+            strokeWidth="0.7"
+            fill="none"
+            opacity="0.35"
+        />
+        <circle cx="4" cy="50" r="2.5" fill="var(--r-ink-3)" opacity="0.35" />
+    </svg>
+);
+
 const Hero = () => {
     return (
-        <section className="min-h-[calc(100vh-68px)] bg-yellow grid grid-cols-1 md:grid-cols-[3fr_2fr] overflow-hidden relative">
-            {/* Geometric shapes */}
-            <div className="absolute right-[-60px] top-[-80px] w-[280px] h-[500px] bg-pink rotate-[14deg] rounded-[20px] pointer-events-none hidden md:block" />
-            <div className="absolute right-[60px] top-[80px] w-[200px] h-[400px] bg-indigo rotate-[14deg] rounded-[20px] pointer-events-none hidden md:block" />
+        <section className="renaissance-hero">
+            {/* Top bar */}
+            <header className="renaissance-topbar">
+                <div className="monogram">AF</div>
+                <span className="brand-text">
+                    Allan Fernandes — <span className="est"></span>
+                </span>
 
-            {/* Left column */}
-            <div className="flex flex-col justify-center px-8 md:px-12 lg:px-16 py-16 relative z-10">
-                <h1 className="font-display text-display-2xl text-ink animate-fade-up animate-delay-100">
-                    Allan<br />
-                    <span className="inline-block bg-ink text-yellow px-2">Moses</span><br />
-                    Fernandes<span className="text-pink">.</span>
-                </h1>
+                <ul className="renaissance-topbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><Link href="/blog">Blog</Link></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
 
-                <p className="text-ink/70 text-base max-w-[340px] mt-5 leading-relaxed animate-fade-up animate-delay-200">
-                    Software Engineer building cool things on the internet while caring deeply about accessibility and user experience.
-                </p>
+                {/* <span className="light-indicator">Light</span> */}
+            </header>
 
-                <div className="flex gap-3 mt-8 flex-wrap animate-fade-up animate-delay-300">
-                    <a href="#projects" className="inline-flex items-center gap-2 bg-ink text-yellow font-sans font-semibold text-sm px-6 py-3 rounded-btn border-2 border-ink shadow-hard-sm hover:-translate-y-0.5 transition-all" data-cursor="btn">
-                        View Projects →
-                    </a>
-                    <Link href="/blog" className="inline-flex items-center gap-2 bg-transparent text-ink font-sans font-semibold text-sm px-6 py-3 rounded-btn border-2 border-ink hover:bg-ink hover:text-yellow transition-all" data-cursor="btn">
-                        Read Blog
-                    </Link>
+            {/* Main grid */}
+            <div className="renaissance-grid">
+                {/* Left column — copy */}
+                <div>
+                    {/* Eyebrow */}
+                    <div className="renaissance-eyebrow renaissance-fade-up">
+                        <span className="rule" />
+                    </div>
+
+                    {/* H1 */}
+                    <h1 className="renaissance-h1 renaissance-fade-up renaissance-fade-up-delay-1">
+                        Software<br />
+                        <em>Engineer</em>
+                    </h1>
+
+                    {/* Sub-copy */}
+                    <p className="renaissance-sub renaissance-fade-up renaissance-fade-up-delay-2">
+                        Building cool things on the internet while caring deeply about{' '}
+                        <strong>accessibility</strong> and <strong>user experience</strong>.
+                        Currently working as a software engineer at{' '}
+                        <a href="https://printerpix.co.uk/" target="_blank" rel="noopener noreferrer">
+                            Printerpix
+                        </a>
+                    </p>
+
+                    {/* CTAs */}
+                    <div className="flex gap-4 flex-wrap renaissance-fade-up renaissance-fade-up-delay-3 renaissance-cta-row">
+                        <a className="seal-btn" href="#projects">
+                            {/* <span className="seal" /> */}
+                            <span>View Projects</span>
+                            <span className="arrow">&rarr;</span>
+                        </a>
+                        <Link className="seal-btn ghost" href="/blog">
+                            {/* <span className="seal" /> */}
+                            <span>Read the Blog</span>
+                            <span className="arrow">&rarr;</span>
+                        </Link>
+                    </div>
                 </div>
 
-                <a href="#about" className="mt-12 flex items-center gap-2 text-ink/40 hover:text-ink/70 transition-colors animate-fade-up animate-delay-400">
-                    <span className="font-mono text-label-xs uppercase tracking-widest">Scroll</span>
-                    <span className="text-lg">↓</span>
-                </a>
+                {/* Right column — portrait */}
+                <div className="renaissance-portrait-wrapper renaissance-fade-in">
+                    <div className="renaissance-portrait-float">
+                        {/* Circular image */}
+                        <div className="renaissance-portrait-image">
+                            <Image
+                                src="/vitruvian.png"
+                                alt="Vitruvian-style illustration of Allan Fernandes"
+                                width={600}
+                                height={600}
+                                priority
+                            />
+                        </div>
+
+                        {/* Double ink ring SVG */}
+                        <svg className="renaissance-ring" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="300" cy="300" r="292" stroke="var(--r-ink)" strokeWidth="1" opacity="0.55" />
+                            <circle cx="300" cy="300" r="285" stroke="var(--r-ink)" strokeWidth="0.5" opacity="0.4" />
+                        </svg>
+
+                        {/* Corner flourishes */}
+                        <div className="renaissance-flourish renaissance-flourish--tl"><CornerFlourish /></div>
+                        <div className="renaissance-flourish renaissance-flourish--tr"><CornerFlourish /></div>
+                        <div className="renaissance-flourish renaissance-flourish--bl"><CornerFlourish /></div>
+                        <div className="renaissance-flourish renaissance-flourish--br"><CornerFlourish /></div>
+                    </div>
+                </div>
             </div>
 
-            {/* Right column */}
-            <div className="relative hidden md:flex items-center justify-center">
-                <div className="relative z-10 w-[380px] h-[380px] flex items-center justify-center">
-                    <Image
-                        src="/photo.png"
-                        alt="Allan Fernandes"
-                        width={380}
-                        height={380}
-                        className="object-contain w-full h-full drop-shadow-2xl"
-                        priority
-                    />
-                </div>
+            {/* Bottom marginalia */}
+            <div className="renaissance-marginalia renaissance-marginalia--left">
+                <em>&sect; I.</em> Homo faber, qui aedificat in rete.
+            </div>
+            <div className="renaissance-marginalia renaissance-marginalia--right">
+                <em>Notanda:</em> accessibilitas prima.
+            </div>
+
+            {/* Scroll cue */}
+            <div className="renaissance-scroll-cue">
+                <span>Scroll &middot; continua</span>
+                <div className="pulse-line" />
             </div>
         </section>
     );

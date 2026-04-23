@@ -1,7 +1,7 @@
 import { workJSON } from '@/app/utils';
 
 const mainJobs = workJSON.slice(0, 3);
-const olderJobs = workJSON.slice(3);
+const olderJobs = workJSON.slice(0, 3);
 
 const dotColors = ['bg-yellow', 'bg-pink', 'bg-indigo'];
 const initialsMap = {

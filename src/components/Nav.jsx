@@ -10,6 +10,8 @@ const Nav = () => {
     // Don't show the nav on admin pages
     if (pathname.startsWith('/admin')) return null;
 
+    const isHomepage = pathname === '/';
+
     const links = [
         { href: '/', label: 'Home' },
         { href: '/#experience', label: 'Experience' },
@@ -25,7 +27,7 @@ const Nav = () => {
 
     return (
         <>
-            <nav className="sticky top-0 z-nav h-[68px] bg-ink/90 backdrop-blur-md border-b border-ink-mid px-6 md:px-12 flex items-center justify-between">
+            <nav className={`sticky top-0 z-nav h-[68px] bg-ink/90 backdrop-blur-md border-b border-ink-mid px-6 md:px-12 flex items-center justify-between ${isHomepage ? 'renaissance-hide-desktop' : ''}`}>
                 {/* Logo */}
                 <Link href="/" className="font-display text-2xl tracking-wide text-paper">
                     AF<span className="text-yellow">.</span>

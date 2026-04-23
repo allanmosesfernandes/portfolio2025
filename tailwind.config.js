@@ -63,6 +63,8 @@ module.exports = {
         display: ["var(--font-display)", ...fontFamily.sans],
         sans:    ["var(--font-sans)", ...fontFamily.sans],
         mono:    ["var(--font-mono)", ...fontFamily.mono],
+        cormorant: ["var(--font-cormorant)", ...fontFamily.serif],
+        'eb-garamond': ["var(--font-eb-garamond)", ...fontFamily.serif],
       },
 
       fontSize: {

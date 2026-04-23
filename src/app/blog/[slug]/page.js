@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
             type: 'article',
             images: [
                 {
-                    url: `https://www.allanfernandes.dev${postData.image}`,
+                    url: postData.image?.startsWith('http') ? postData.image : `https://www.allanfernandes.dev${postData.image}`,
                     alt: postData.title,
                 },
             ],
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }) {
             card: 'summary_large_image',
             title: `${postData.title} — Allan Fernandes`,
             description: postData.summary,
-            images: [`https://www.allanfernandes.dev${postData.image}`],
+            images: [postData.image?.startsWith('http') ? postData.image : `https://www.allanfernandes.dev${postData.image}`],
         },
     };
 }

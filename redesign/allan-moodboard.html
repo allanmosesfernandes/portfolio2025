@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allan Fernandes — Brand & Portfolio Redesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --yellow: #F5C800;
+    --yellow-dark: #E0B400;
+    --pink: #F272C8;
+    --blue: #5865F2;
+    --black: #0D0D0D;
+    --white: #FAFAFA;
+    --grey: #F0F0F0;
+    --mid: #888;
+  }
+
+  body {
+    background: var(--grey);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--black);
+  }
+
+  /* ── HEADER ── */
+  .doc-header {
+    background: var(--black);
+    padding: 40px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 4px solid var(--yellow);
+  }
+  .doc-header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .doc-header h1 span { color: var(--yellow); }
+  .doc-header .meta {
+    text-align: right;
+    color: var(--mid);
+    font-size: 0.8rem;
+    font-family: 'Space Mono', monospace;
+    line-height: 1.8;
+  }
+
+  /* ── SECTION LABELS ── */
+  .section {
+    padding: 48px;
+  }
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+  }
+
+  /* ── COLOR PALETTE ── */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  }
+  .swatch {
+    padding: 32px 20px 20px;
+    position: relative;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .swatch-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .swatch-hex {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    opacity: 0.7;
+  }
+  .swatch-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.2);
+  }
+  .s1 { background: var(--yellow); color: var(--black); }
+  .s2 { background: var(--pink); color: var(--black); }
+  .s3 { background: var(--blue); color: var(--white); }
+  .s4 { background: var(--black); color: var(--white); }
+  .s5 { background: var(--white); color: var(--black); border: 1px solid #eee; }
+
+  /* ── TYPOGRAPHY ── */
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .type-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+  .type-card.dark {
+    background: var(--black);
+    color: var(--white);
+  }
+  .type-role {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 16px;
+  }
+  .type-card.dark .type-role { color: #666; }
+  .display-sample {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+  }
+  .display-sample .accent { color: var(--yellow); }
+  .body-sample {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+  }
+  .type-card.dark .body-sample { color: #aaa; }
+  .mono-sample {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--blue);
+    margin-top: 12px;
+  }
+
+  /* ── COMPONENTS ── */
+  .components-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .comp-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+  .comp-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--mid);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  /* Badge */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .badge-yellow { background: var(--yellow); color: var(--black); }
+  .badge-pink { background: var(--pink); color: var(--black); }
+  .badge-blue { background: var(--blue); color: var(--white); }
+  .badge-outline { border: 1.5px solid var(--black); color: var(--black); }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .badges-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    transition: transform 0.1s, box-shadow 0.1s;
+    text-decoration: none;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--yellow); color: var(--black); box-shadow: 4px 4px 0 var(--black); }
+  .btn-primary:hover { box-shadow: 6px 6px 0 var(--black); }
+  .btn-ghost { background: transparent; color: var(--black); border: 2px solid var(--black); }
+  .btn-ghost:hover { background: var(--black); color: var(--white); }
+  .btn-pink { background: var(--pink); color: var(--black); box-shadow: 4px 4px 0 var(--black); }
+  .btn-pink:hover { box-shadow: 6px 6px 0 var(--black); }
+  .btns-col { display: flex; flex-direction: column; gap: 12px; }
+
+  /* Tech tag */
+  .tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background: var(--grey);
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: #444;
+    margin: 4px;
+  }
+  .tags-wrap { margin-top: 8px; }
+
+  /* ── HERO PREVIEW ── */
+  .hero-preview {
+    background: var(--yellow);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    min-height: 520px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+  }
+  .hero-left {
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--black);
+    color: var(--white);
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    width: fit-content;
+  }
+  .hero-eyebrow .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--pink);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 7vw, 6.5rem);
+    line-height: 0.92;
+    letter-spacing: 0.01em;
+    color: var(--black);
+    margin: 24px 0 0;
+  }
+  .hero-name .on-dark {
+    display: inline-block;
+    background: var(--black);
+    color: var(--yellow);
+    padding: 0 8px;
+  }
+  .hero-tagline {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(0,0,0,0.7);
+    max-width: 320px;
+    margin-top: 20px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+
+  /* Right side decorative shapes */
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+  .shape-pink {
+    position: absolute;
+    right: -60px;
+    top: -80px;
+    width: 280px;
+    height: 500px;
+    background: var(--pink);
+    transform: rotate(12deg);
+    border-radius: 20px;
+  }
+  .shape-blue {
+    position: absolute;
+    right: 60px;
+    top: 80px;
+    width: 200px;
+    height: 400px;
+    background: var(--blue);
+    transform: rotate(12deg);
+    border-radius: 20px;
+  }
+  .hero-photo-placeholder {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 3;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: rgba(0,0,0,0.4);
+    padding-bottom: 20px;
+    font-style: italic;
+  }
+
+  /* ── WORK CARD PREVIEW ── */
+  .work-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+  }
+  .work-card {
+    background: var(--black);
+    border-radius: 16px;
+    padding: 32px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .work-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 40%, rgba(242, 114, 200, 0.15));
+    pointer-events: none;
+  }
+  .work-card.accent { background: var(--yellow); color: var(--black); }
+  .work-card.accent::before { background: linear-gradient(135deg, transparent 40%, rgba(88,101,242,0.15)); }
+  .work-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    line-height: 1;
+    opacity: 0.08;
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    letter-spacing: -0.02em;
+  }
+  .work-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+  .work-card-sub {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.5;
+  }
+  .work-star {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-weight: 700;
+  }
+  .work-card.accent .work-star { background: var(--black); color: var(--yellow); }
+
+  /* ── MOTION NOTES ── */
+  .motion-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .motion-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 24px;
+    border-top: 4px solid var(--yellow);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  }
+  .motion-card.b { border-color: var(--pink); }
+  .motion-card.c { border-color: var(--blue); }
+  .motion-card.d { border-color: var(--black); }
+  .motion-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  .motion-desc {
+    font-size: 0.82rem;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* ── NAV PREVIEW ── */
+  .nav-preview {
+    background: var(--black);
+    border-radius: 16px;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    letter-spacing: 0.05em;
+  }
+  .nav-logo span { color: var(--yellow); }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links li a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 500;
+  }
+  .nav-links li a:hover { color: var(--white); }
+  .nav-links li a.active { color: var(--yellow); }
+  .nav-cta {
+    background: var(--yellow);
+    color: var(--black);
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    background: var(--black);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 48px;
+  }
+  .doc-footer p {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: #555;
+  }
+  .doc-footer span { color: var(--yellow); }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: #e0e0e0; margin: 0 48px; }
+
+  /* Scroll-in animation */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .section { animation: fadeUp 0.5s ease both; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="doc-header">
+  <h1>Brand<br>Direction<span>.</span></h1>
+  <div class="meta">
+    Allan Fernandes — Portfolio Redesign<br>
+    Mood Board & Design System<br>
+    March 2026
+  </div>
+</div>
+
+<!-- PALETTE -->
+<div class="section">
+  <div class="section-label">01 — Color Palette</div>
+  <div class="palette-grid">
+    <div class="swatch s1">
+      <span class="swatch-tag">Primary</span>
+      <div class="swatch-name">Flash Yellow</div>
+      <div class="swatch-hex">#F5C800</div>
+    </div>
+    <div class="swatch s2">
+      <span class="swatch-tag">Accent A</span>
+      <div class="swatch-name">Electric Pink</div>
+      <div class="swatch-hex">#F272C8</div>
+    </div>
+    <div class="swatch s3">
+      <span class="swatch-tag">Accent B</span>
+      <div class="swatch-name">Indigo Pop</div>
+      <div class="swatch-hex">#5865F2</div>
+    </div>
+    <div class="swatch s4">
+      <span class="swatch-tag">Base</span>
+      <div class="swatch-name">Near Black</div>
+      <div class="swatch-hex">#0D0D0D</div>
+    </div>
+    <div class="swatch s5">
+      <span class="swatch-tag">Surface</span>
+      <div class="swatch-name">Paper White</div>
+      <div class="swatch-hex">#FAFAFA</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- TYPOGRAPHY -->
+<div class="section">
+  <div class="section-label">02 — Typography System</div>
+  <div class="type-grid">
+    <div class="type-card dark">
+      <div class="type-role">Display — Bebas Neue</div>
+      <div class="display-sample">Software<br><span class="accent">Engineer.</span></div>
+      <div class="body-sample">Used for hero headings, section titles, and big numbers. Punchy, editorial, unmistakable.</div>
+    </div>
+    <div class="type-card">
+      <div class="type-role">Body — DM Sans · Mono — Space Mono</div>
+      <div style="margin-bottom: 16px;">
+        <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">Building things on the internet</div>
+        <div class="body-sample">I've been a software engineer for five years, caring deeply about accessibility and UX. Currently at Royal London building bespoke financial applications.</div>
+      </div>
+      <div class="mono-sample">→ const allan = { role: "engineer" }</div>
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: #aaa; margin-top: 12px;">Space Mono for labels, tags, metadata, timestamps</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- UI COMPONENTS -->
+<div class="section">
+  <div class="section-label">03 — UI Components</div>
+  <div class="components-grid">
+
+    <div class="comp-card">
+      <div class="comp-title">Status Badges</div>
+      <div class="badges-row">
+        <span class="badge badge-yellow"><span class="badge-dot"></span>Available</span>
+        <span class="badge badge-pink"><span class="badge-dot"></span>Featured</span>
+        <span class="badge badge-blue"><span class="badge-dot"></span>React</span>
+        <span class="badge badge-outline">Next.js</span>
+        <span class="badge badge-outline">TypeScript</span>
+      </div>
+      <div style="margin-top: 20px;" class="tags-wrap">
+        <span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">Firebase</span>
+        <span class="tag">Tailwind</span><span class="tag">Playwright</span><span class="tag">Node.js</span>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-title">Buttons</div>
+      <div class="btns-col">
+        <button class="btn btn-primary">View Projects →</button>
+        <button class="btn btn-pink">Read Blog ✍</button>
+        <button class="btn btn-ghost">Download Resume</button>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-title">Navigation Bar Preview</div>
+      <div class="nav-preview">
+        <div class="nav-logo">AF<span>.</span></div>
+        <ul class="nav-links">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+        <a href="#" class="nav-cta">Resume</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- HERO PREVIEW -->
+<div class="section">
+  <div class="section-label">04 — Hero Section Concept</div>
+  <div class="hero-preview">
+    <div class="hero-left">
+      <div>
+        <div class="hero-eyebrow"><span class="dot"></span>Open to new roles</div>
+        <div class="hero-name">
+          Allan<br>
+          <span class="on-dark">Moses</span><br>
+          Fernandes<span style="color: var(--pink);">.</span>
+        </div>
+        <p class="hero-tagline">Software Engineer building cool things on the internet while caring deeply about accessibility and user experience.</p>
+      </div>
+      <div class="hero-ctas">
+        <button class="btn btn-primary">View Projects →</button>
+        <button class="btn btn-ghost">Read Blog</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="shape-pink"></div>
+      <div class="shape-blue"></div>
+      <div class="hero-photo-placeholder">← Profile photo here</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- WORK CARDS -->
+<div class="section">
+  <div class="section-label">05 — Project Card Style</div>
+  <div class="work-grid">
+    <div class="work-card">
+      <span class="work-star">★ Featured</span>
+      <div class="work-number">01</div>
+      <div class="work-card-title">Broker Portal</div>
+      <div class="work-card-sub">A custom portal for equity release advisors. Case management, KFI generation, and secure document upload.</div>
+      <div style="margin-top: 16px;">
+        <span class="badge badge-yellow">React</span>&nbsp;
+        <span class="badge badge-pink">Playwright</span>&nbsp;
+        <span class="badge badge-blue">SCSS</span>
+      </div>
+    </div>
+    <div class="work-card accent">
+      <span class="work-star">Personal</span>
+      <div class="work-number">02</div>
+      <div class="work-card-title">Daily Stoic Reminders</div>
+      <div class="work-card-sub">Web app for daily stoic quotes and reflection.</div>
+      <div style="margin-top: 16px;">
+        <span class="badge badge-outline">React</span>&nbsp;
+        <span class="badge badge-outline">Firebase</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- MOTION / ANIMATION NOTES -->
+<div class="section">
+  <div class="section-label">06 — Motion & Personality</div>
+  <div class="motion-row">
+    <div class="motion-card">
+      <div class="motion-title">Staggered Reveal</div>
+      <div class="motion-desc">Hero text fades in word by word on load. Gives the name cinematic weight without being distracting.</div>
+    </div>
+    <div class="motion-card b">
+      <div class="motion-title">Hard Shadows</div>
+      <div class="motion-desc">Buttons lift with a 4px offset black box-shadow on hover — tactile, brutalist, satisfying.</div>
+    </div>
+    <div class="motion-card c">
+      <div class="motion-title">Scroll Trigger</div>
+      <div class="motion-desc">Section cards slide up as you scroll past them. Keeps pace with the reader, not against them.</div>
+    </div>
+    <div class="motion-card d">
+      <div class="motion-title">Cursor Pop</div>
+      <div class="motion-desc">Custom cursor grows yellow on interactive elements — a tiny signature that's unmistakably yours.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <p>Designed for <span>allanfernandes.dev</span> — March 2026</p>
+  <p>Colors inspired by <span>Stack Overflow Beta</span> redesign palette</p>
+</div>
+
+</body>
+</html>

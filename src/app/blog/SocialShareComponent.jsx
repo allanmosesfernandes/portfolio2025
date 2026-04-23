@@ -64,7 +64,7 @@ const SocialShareComponent = ({ shareURL, title, summary }) => {
             {isOpen && (
                 <div
                     ref={modalRef}
-                    className="absolute top-10 left-0 bg-white dark:bg-gray-400 dark:text-white text-black p-2 rounded-lg shadow-lg"
+                    className="absolute top-10 left-0 bg-ink-soft border border-ink-mid text-paper p-3 rounded-card shadow-dark-float z-50"
                 >
                     <ul className="flex flex-col gap-2 w-48 share-links-list">
                         <li>

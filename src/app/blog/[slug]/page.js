@@ -6,16 +6,15 @@ import SocialShareComponent from '../SocialShareComponent';
 
 export const dynamic = 'force-dynamic';
 
-// This function runs on the server and generates metadata for each page
 export async function generateMetadata({ params }) {
     const { slug } = await params;
     const postData = await getPostData(slug);
 
     return {
-        title: `Blog - ${postData.title}`,
+        title: `${postData.title} — Allan Fernandes`,
         description: postData.summary,
         openGraph: {
-            title: `Blog - ${postData.title}`,
+            title: `${postData.title} — Allan Fernandes`,
             description: postData.summary,
             url: `https://www.allanfernandes.dev/blog/${postData.slug}`,
             type: 'article',
@@ -32,7 +31,7 @@ export async function generateMetadata({ params }) {
         },
         twitter: {
             card: 'summary_large_image',
-            title: `Blog - ${postData.title}`,
+            title: `${postData.title} — Allan Fernandes`,
             description: postData.summary,
             images: [`https://www.allanfernandes.dev${postData.image}`],
         },
@@ -42,48 +41,85 @@ export async function generateMetadata({ params }) {
 export default async function PostPage({ params }) {
     const { slug } = await params;
     const postData = await getPostData(slug);
+
     return (
         <>
             <ScrollIndicator />
-            <div className="whitespace-pre-line blog-article">
-                <Link href="/blog" className="absolute top-0 left-0 mt-4 ml-4">
-                    {' '}
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="30"
-                        height="30"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                    >
-                        <path
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M6.3508 12.7499L11.2096 17.4615L10.1654 18.5383L3.42264 11.9999L10.1654 5.46148L11.2096 6.53833L6.3508 11.2499L21 11.2499L21 12.7499L6.3508 12.7499Z"
-                            fill="#646cff"
-                        />
-                    </svg>
-                </Link>
 
-                <article>
-                    <h2 className=" font-bold text-pantone sm:text-3xl text-3xl flex items-center justify-center">
+            {/* Post Hero */}
+            <header className="px-6 md:px-12 py-16 md:py-20 border-b border-ink-mid relative overflow-hidden">
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-yellow to-transparent"></div>
+                <div className="max-w-[760px] mx-auto">
+                    <Link
+                        href="/blog"
+                        className="inline-flex items-center gap-2 font-mono text-label-sm uppercase tracking-widest text-muted hover:text-yellow hover:gap-3 transition-all mb-9"
+                    >
+                        <span>←</span> Back to all posts
+                    </Link>
+
+                    {/* Tags */}
+                    {postData.tags && (
+                        <div className="flex gap-2 mb-5 animate-fade-up">
+                            {postData.tags.map((tag, i) => (
+                                <span
+                                    key={i}
+                                    className="font-mono text-label-sm font-bold uppercase tracking-wide px-2.5 py-1 rounded-badge border border-indigo/30 text-indigo bg-indigo/[0.12]"
+                                >
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    )}
+
+                    <h1 className="font-display text-[clamp(3rem,6vw,5rem)] leading-[0.95] tracking-[0.01em] mb-5 animate-fade-up animate-delay-100">
                         {postData.title}
-                    </h2>
-                    <div className="flex justify-between items-center border-y-2 border-gray-800 py-2 my-4">
-                        <p className="flex">{formatDate(postData.date)}</p>
-                        <div className="flex gap-4 items-center">
-                            <p className="text-gray-500">{postData.readingTime} min read</p>
-                            <SocialShareComponent
-                                shareURL={`https://www.allanfernandes.dev/blog/${postData.slug}`}
-                                title={postData.title}
-                                summary={postData.summary}
-                            />
+                    </h1>
+
+                    {postData.summary && (
+                        <p className="text-lg text-muted-light leading-relaxed mb-8 animate-fade-up animate-delay-200">
+                            {postData.summary}
+                        </p>
+                    )}
+
+                    {/* Meta row */}
+                    <div className="flex items-center gap-0 pt-5 border-t border-ink-mid flex-wrap animate-fade-up animate-delay-300">
+                        <div className="flex flex-col gap-1 pr-8 mr-8 border-r border-ink-mid">
+                            <span className="font-mono text-[0.55rem] uppercase tracking-widest text-muted">Published</span>
+                            <span className="font-mono text-label-md font-bold text-paper">{formatDate(postData.date)}</span>
+                        </div>
+                        {postData.readingTime && (
+                            <div className="flex flex-col gap-1 pr-8 mr-8 border-r border-ink-mid">
+                                <span className="font-mono text-[0.55rem] uppercase tracking-widest text-muted">Reading Time</span>
+                                <span className="font-mono text-label-md font-bold text-yellow">{postData.readingTime} min</span>
+                            </div>
+                        )}
+                        <div className="flex flex-col gap-1">
+                            <span className="font-mono text-[0.55rem] uppercase tracking-widest text-muted">Author</span>
+                            <span className="font-mono text-label-md font-bold text-paper">Allan Fernandes</span>
                         </div>
                     </div>
-                    <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-                    <Link href="/blog" className="underline flex justify-center">
+                </div>
+            </header>
+
+            {/* Post body */}
+            <div className="max-w-[760px] mx-auto px-6 md:px-12 py-14">
+                <article className="post-body" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+
+                {/* Share */}
+                <div className="border-t border-ink-mid pt-8 mt-12">
+                    <SocialShareComponent
+                        shareURL={`https://www.allanfernandes.dev/blog/${postData.slug}`}
+                        title={postData.title}
+                        summary={postData.summary}
+                    />
+                </div>
+
+                {/* Back link */}
+                <div className="mt-12 pt-8 border-t border-ink-mid text-center">
+                    <Link href="/blog" className="font-mono text-label-sm text-muted hover:text-yellow transition-colors uppercase tracking-widest">
                         ← Back to all posts
                     </Link>
-                </article>
+                </div>
             </div>
         </>
     );

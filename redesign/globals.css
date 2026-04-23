@@ -1,9 +1,21 @@
+/* ============================================================
+   ALLAN FERNANDES — Brand Stylesheet
+   globals.css
+   ============================================================
+   Import this in your Next.js _app.tsx or layout.tsx:
+     import "@/styles/globals.css"
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 /* ── CSS VARIABLES ─────────────────────────────────────────── */
 :root {
+  /* Core palette */
   --yellow:        #F5C800;
   --yellow-light:  #F9D740;
   --yellow-dark:   #D4AC00;
@@ -18,16 +30,19 @@
   --paper-grey:    #F0F0F0;
   --muted:         #888888;
 
+  /* Shadows */
   --shadow-hard:        4px 4px 0px var(--ink);
   --shadow-hard-hover:  6px 6px 0px var(--ink);
   --shadow-hard-yellow: 4px 4px 0px var(--yellow);
   --shadow-hard-pink:   4px 4px 0px var(--pink);
   --shadow-hard-indigo: 4px 4px 0px var(--indigo);
 
+  /* Transitions */
   --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-snappy:   cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 /* ── BASE RESETS ───────────────────────────────────────────── */
 @layer base {
@@ -63,16 +78,20 @@
     color: var(--ink);
   }
 
+  /* Scrollbar */
   ::-webkit-scrollbar       { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--ink-soft); }
   ::-webkit-scrollbar-thumb { background: var(--ink-mid); border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
 }
 
+
 /* ── COMPONENT CLASSES ─────────────────────────────────────── */
 @layer components {
 
   /* ── BUTTONS ───────────────────────────────────────────── */
+
+  /* Base button reset */
   .btn {
     @apply inline-flex items-center gap-2
            font-sans font-bold text-sm
@@ -82,6 +101,7 @@
     transition-timing-function: var(--ease-spring);
   }
 
+  /* Primary — yellow with hard shadow */
   .btn-primary {
     @apply btn px-6 py-3
            bg-yellow text-ink
@@ -96,6 +116,7 @@
     transform: translate(1px, 1px);
   }
 
+  /* Ghost — outlined, inverts on hover */
   .btn-ghost {
     @apply btn px-6 py-3
            bg-transparent text-paper
@@ -105,6 +126,7 @@
     @apply bg-paper text-ink border-paper;
   }
 
+  /* Ghost on light background */
   .btn-ghost-dark {
     @apply btn px-6 py-3
            bg-transparent text-ink
@@ -114,6 +136,7 @@
     @apply bg-ink text-paper;
   }
 
+  /* Accent pink */
   .btn-pink {
     @apply btn px-6 py-3
            bg-pink text-ink
@@ -124,6 +147,7 @@
     transform: translate(-2px, -2px);
   }
 
+  /* Accent indigo */
   .btn-indigo {
     @apply btn px-6 py-3
            bg-indigo text-paper
@@ -134,6 +158,7 @@
     transform: translate(-2px, -2px);
   }
 
+  /* Pill / rounded CTA */
   .btn-pill {
     @apply btn px-8 py-3
            bg-transparent text-paper
@@ -144,7 +169,9 @@
     @apply border-yellow text-yellow;
   }
 
+
   /* ── BADGES ────────────────────────────────────────────── */
+
   .badge {
     @apply inline-flex items-center gap-1.5
            font-mono text-label-sm font-bold
@@ -163,7 +190,9 @@
     @apply w-1.5 h-1.5 rounded-full bg-current animate-pulse-dot;
   }
 
+
   /* ── TAGS (tech stack) ─────────────────────────────────── */
+
   .tag {
     @apply inline-block
            font-mono text-label-xs
@@ -184,7 +213,10 @@
            rounded-badge px-2.5 py-1;
   }
 
+
   /* ── CARDS ─────────────────────────────────────────────── */
+
+  /* Dark project card */
   .card {
     @apply relative overflow-hidden
            bg-ink-soft
@@ -199,10 +231,12 @@
     transform: translateY(-3px);
   }
 
+  /* Featured / yellow card */
   .card-featured {
     @apply card bg-yellow text-ink border-yellow;
   }
 
+  /* Light card */
   .card-light {
     @apply relative overflow-hidden
            bg-paper
@@ -217,7 +251,9 @@
     transform: translateY(-2px);
   }
 
+
   /* ── SECTION LABEL ─────────────────────────────────────── */
+
   .section-label {
     @apply font-mono text-label-xs uppercase tracking-widest text-muted
            flex items-center gap-3 mb-6;
@@ -230,16 +266,20 @@
     @apply text-yellow;
   }
 
+
   /* ── NAVIGATION ────────────────────────────────────────── */
+
   .nav-link {
     @apply font-sans font-medium text-sm text-muted
            transition-colors duration-200
            cursor-pointer;
   }
   .nav-link:hover   { @apply text-paper; }
-  .nav-link.active  { @apply text-paper; }
+  .nav-link.active  { @apply text-yellow; }
+
 
   /* ── INPUTS ────────────────────────────────────────────── */
+
   .input {
     @apply w-full
            bg-ink-soft text-paper
@@ -255,25 +295,34 @@
     box-shadow: 0 0 0 3px rgba(245, 200, 0, 0.15);
   }
 
+
   /* ── DIVIDERS ──────────────────────────────────────────── */
+
   .divider       { @apply h-px bg-ink-mid w-full; }
   .divider-light { @apply h-px bg-paper-mid w-full; }
 
+
   /* ── DISPLAY TEXT HELPERS ──────────────────────────────── */
+
   .heading-xl  { @apply font-display text-display-xl; }
   .heading-lg  { @apply font-display text-display-lg; }
   .heading-md  { @apply font-display text-display-md; }
 
+  /* Highlight block — yellow bg on dark text */
   .text-highlight {
     @apply bg-ink text-yellow px-2 inline-block;
   }
+  /* Inverse — on yellow bg */
   .text-highlight-inv {
     @apply bg-yellow text-ink px-2 inline-block;
   }
 }
 
+
 /* ── UTILITIES ─────────────────────────────────────────────── */
 @layer utilities {
+
+  /* Hard shadow lift on hover (apply to any element) */
   .hover-lift {
     transition: transform 0.2s var(--ease-spring),
                 box-shadow 0.2s var(--ease-spring);
@@ -283,6 +332,16 @@
     box-shadow: var(--shadow-hard-hover);
   }
 
+  /* Stagger animation delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-800 { animation-delay: 800ms; }
+
+  /* Scrolling marquee row */
   .marquee-track {
     @apply flex overflow-hidden whitespace-nowrap;
   }
@@ -291,6 +350,7 @@
   }
   .marquee-content:hover { animation-play-state: paused; }
 
+  /* Gradient overlays */
   .gradient-fade-right {
     background: linear-gradient(to right, transparent, var(--ink));
   }
@@ -301,6 +361,7 @@
     background: linear-gradient(to bottom, transparent, var(--ink));
   }
 
+  /* Noise texture overlay (grain effect) */
   .noise::after {
     content: '';
     position: absolute;
@@ -310,170 +371,7 @@
     pointer-events: none;
     border-radius: inherit;
   }
-}
 
-/* ── BLOG / POST STYLES ───────────────────────────────────── */
-.post-body h3 {
-  font-size: 1.8rem;
-  letter-spacing: 0.02em;
-  color: var(--paper);
-  margin: 48px 0 16px;
-  padding-top: 48px;
-  border-top: 1px solid var(--ink-mid);
-  scroll-margin-top: 96px;
-}
-.post-body h3:first-child {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: none;
-}
-
-.post-body p {
-  font-size: 1rem;
-  line-height: 1.85;
-  color: #c8c8c8;
-  margin-bottom: 20px;
-}
-.post-body p strong { color: var(--paper); font-weight: 700; }
-.post-body p a {
-  color: var(--yellow);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(245,200,0,0.3);
-  transition: border-color 0.2s;
-}
-.post-body p a:hover { border-color: var(--yellow); }
-
-.post-body code {
-  font-family: var(--font-mono), 'Space Mono', monospace;
-  font-size: 0.8em;
-  background: var(--ink-soft);
-  color: var(--yellow);
-  padding: 2px 7px;
-  border-radius: 4px;
-  border: 1px solid var(--ink-mid);
-}
-
-.post-body ul { padding-left: 0; list-style: none; margin-bottom: 20px; }
-.post-body ul li {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: #c8c8c8;
-  margin-bottom: 8px;
-  padding-left: 20px;
-  position: relative;
-}
-.post-body ul li::before {
-  content: '\2192';
-  position: absolute;
-  left: 0;
-  color: var(--yellow);
-  font-weight: 700;
-}
-.post-body ul li strong { color: var(--paper); }
-
-.post-body ol {
-  list-style-type: decimal;
-  padding-left: 1.5rem;
-  margin-bottom: 20px;
-}
-.post-body ol li {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: #c8c8c8;
-  margin-bottom: 8px;
-}
-
-.post-body blockquote {
-  border-left: 3px solid var(--yellow);
-  background: rgba(245,200,0,0.06);
-  border-radius: 0 8px 8px 0;
-  padding: 18px 20px;
-  margin: 24px 0;
-  font-size: 0.9rem;
-  color: #c8c8c8;
-  line-height: 1.7;
-  font-style: italic;
-}
-
-.post-body pre {
-  background: #080808;
-  border: 1px solid var(--ink-mid);
-  border-radius: 10px;
-  padding: 24px 20px;
-  overflow-x: auto;
-  margin: 28px 0;
-  font-family: var(--font-mono), 'Space Mono', monospace;
-  font-size: 0.72rem;
-  line-height: 1.9;
-  color: #aaa;
-}
-.post-body pre code {
-  background: transparent;
-  border: none;
-  padding: 0;
-  color: inherit;
-  font-size: inherit;
-}
-
-.post-body img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  border: 1px solid var(--ink-mid);
-  margin: 24px 0;
-}
-
-.post-body a {
-  color: var(--yellow);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(245,200,0,0.3);
-  transition: border-color 0.2s;
-}
-.post-body a:hover { border-color: var(--yellow); }
-
-/* ── TipTap Editor Styles (admin) ─────────────────────────── */
-.ProseMirror {
-  outline: none;
-}
-.ProseMirror p.is-editor-empty:first-child::before {
-  content: attr(data-placeholder);
-  float: left;
-  color: #adb5bd;
-  pointer-events: none;
-  height: 0;
-}
-.ProseMirror h1 { font-size: 2em; font-weight: bold; margin: 0.5em 0; }
-.ProseMirror h2 { font-size: 1.5em; font-weight: bold; margin: 0.5em 0; }
-.ProseMirror h3 { font-size: 1.25em; font-weight: bold; margin: 0.5em 0; }
-.ProseMirror ul, .ProseMirror ol { padding-left: 1.5em; margin: 1em 0; }
-.ProseMirror ul { list-style-type: disc; }
-.ProseMirror ol { list-style-type: decimal; }
-.ProseMirror li { margin: 0.25em 0; }
-.ProseMirror code { background-color: #1e1e1e; color: #d4d4d4; padding: 0.2em 0.4em; border-radius: 4px; font-family: monospace; font-size: 0.9em; }
-.ProseMirror pre { background-color: #1e1e1e; color: #d4d4d4; padding: 1em; border-radius: 8px; overflow-x: auto; margin: 1em 0; }
-.ProseMirror pre code { background-color: transparent; padding: 0; }
-.ProseMirror blockquote { border-left: 4px solid var(--yellow); padding-left: 1em; margin: 0; font-style: italic; color: #adb5bd; }
-.ProseMirror a { color: var(--yellow); text-decoration: underline; cursor: pointer; }
-.ProseMirror a:hover { color: var(--yellow-light); }
-.ProseMirror img { max-width: 100%; height: auto; border-radius: 8px; margin: 1em 0; }
-
-/* ── SCROLL FADE-IN ──────────────────────────────────────── */
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.fade-in-section.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── PAGE TRANSITION ──────────────────────────────────────── */
-@keyframes pageIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-main {
-  animation: pageIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  /* Cursor: none for custom cursor pages */
+  .cursor-custom { cursor: none; }
 }

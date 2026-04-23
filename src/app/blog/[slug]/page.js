@@ -4,6 +4,8 @@ import Link from 'next/link';
 import ScrollIndicator from './ScrollIndicator';
 import SocialShareComponent from '../SocialShareComponent';
 
+export const dynamic = 'force-dynamic';
+
 // This function runs on the server and generates metadata for each page
 export async function generateMetadata({ params }) {
     const { slug } = await params;

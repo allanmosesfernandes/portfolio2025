@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const Introduction = () => {
     return (
-        <section className="hero relative flex min-h-[90vh] flex-col justify-center overflow-hidden py-12 lg:py-16">
+        <section className="hero relative mx-auto flex min-h-[90vh] w-full max-w-container flex-col justify-center overflow-hidden py-12 lg:py-16">
             {/* Background gradient accent */}
             <div className="bg-gradient-radial pointer-events-none absolute right-[-10%] top-[-50%] h-[600px] w-[600px] from-indigo-500/15 via-transparent to-transparent" />
 

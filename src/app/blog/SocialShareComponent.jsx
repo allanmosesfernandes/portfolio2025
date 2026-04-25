@@ -46,7 +46,12 @@ const SocialShareComponent = ({ shareURL, title, summary }) => {
     };
 
     return (
-        <div className="cursor-pointer relative" onClick={handleShareClick} ref={modalRef}>
+        <div
+            className="relative flex cursor-pointer flex-col items-center justify-center gap-4"
+            onClick={handleShareClick}
+            ref={modalRef}
+        >
+            Share
             <svg
                 width="25px"
                 height="25px"
@@ -64,30 +69,30 @@ const SocialShareComponent = ({ shareURL, title, summary }) => {
             {isOpen && (
                 <div
                     ref={modalRef}
-                    className="absolute top-10 left-0 bg-ink-soft border border-ink-mid text-paper p-3 rounded-card shadow-dark-float z-50"
+                    className="absolute top-10 z-50 rounded-card border border-ink-mid bg-ink-soft p-3 text-paper shadow-dark-float"
                 >
-                    <ul className="flex flex-col gap-2 w-48 share-links-list">
-                        <li>
-                            <LinkedinShareButton url={shareURL}>
-                                <FaLinkedinIn />
+                    <ul className="share-links-list flex w-48 flex-col gap-2">
+                        <li className="flex items-center">
+                            <LinkedinShareButton url={shareURL} className="align-items-center flex">
+                                <FaLinkedinIn className="icons" />
                                 Share on Linkedin
                             </LinkedinShareButton>
                         </li>
                         <li>
                             <FacebookShareButton url={shareURL}>
-                                <ImFacebook />
+                                <ImFacebook className="icons" />
                                 Share on Facebook
                             </FacebookShareButton>
                         </li>
                         <li>
                             <TwitterShareButton url={shareURL}>
-                                <FaXTwitter />
+                                <FaXTwitter className="icons" />
                                 Share on Twitter
                             </TwitterShareButton>
                         </li>
                         <li>
                             <WhatsappShareButton url={shareURL}>
-                                <FaWhatsapp />
+                                <FaWhatsapp className="icons" />
                                 Share on Whatsapp
                             </WhatsappShareButton>
                         </li>

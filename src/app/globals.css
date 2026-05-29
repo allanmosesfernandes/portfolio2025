@@ -18,6 +18,17 @@
   --paper-grey: #F0F0F0;
   --muted: #888888;
 
+  /* Minimal-theme tokens — shared by .afmin, .afminnav, .afmin-overlay */
+  --m-ink: #ECE7DD;
+  /* bone white */
+  --m-muted: #7c776c;
+  /* dim text */
+  --m-line: #26251f;
+  /* hairlines */
+  --gold: #F5C800;
+  /* brand accent, used sparingly */
+  --gold-dim: #b8a14a;
+
   --shadow-hard: 4px 4px 0px var(--ink);
   --shadow-hard-hover: 6px 6px 0px var(--ink);
   --shadow-hard-yellow: 4px 4px 0px var(--yellow);
@@ -1143,4 +1154,1024 @@ main {
 .icons {
   margin-top: 3px;
   margin-right: 5px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   MINIMAL BLACK HOME  (scope: .afmin)
+   Faithful port of portfolio-black-minimal.html, namespaced so
+   its generic class names don't collide with the rest of the app.
+   ───────────────────────────────────────────────────────────── */
+.golden {
+  color: #F5C800;
+}
+
+.afmin {
+  --bg: #0a0a0b;
+  --m-maxw: 1180px;
+
+  position: relative;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--m-ink);
+  font-family: var(--font-hanken), "Hanken Grotesk", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* grain + vignette atmosphere */
+.afmin::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 90% at 70% 0%, rgba(245, 200, 0, 0.05), transparent 55%),
+    radial-gradient(80% 80% at 50% 120%, rgba(0, 0, 0, 0.6), transparent 60%);
+}
+
+.afmin::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.afmin .wrap {
+  max-width: var(--m-maxw);
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- logo (shared by the footer brand and the top-nav) ---------- */
+.afmin .logo,
+.afminnav .logo {
+  font-family: var(--font-fraunces), serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: .02em;
+  color: var(--m-ink);
+  text-decoration: none;
+}
+
+.afmin .logo span,
+.afminnav .logo span {
+  color: var(--gold);
+}
+
+/* ── Site-wide minimal top-nav (self-contained, no .afmin needed) ──
+   Used on every page so the blog etc. match the homepage. Carries
+   its own CSS variables and an inner max-width wrap. */
+.afminnav {
+  position: relative;
+  z-index: 10;
+  font-family: var(--font-hanken), "Hanken Grotesk", sans-serif;
+}
+
+.afminnav-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 26px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.afminnav .navlinks {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.afminnav .navlinks a {
+  color: var(--m-muted);
+  text-decoration: none;
+  transition: color .25s;
+}
+
+.afminnav .navlinks a:hover {
+  color: var(--m-ink);
+}
+
+.afminnav .resume {
+  border: 1px solid var(--m-line);
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: var(--m-ink) !important;
+}
+
+.afminnav .resume:hover {
+  border-color: var(--gold);
+  color: var(--gold) !important;
+}
+
+.afminnav .navtoggle {
+  display: none;
+  position: relative;
+  z-index: 310;
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 4px;
+  transform: scaleX(1.35);
+  transform-origin: center;
+}
+
+@media (max-width:720px) {
+  .afminnav .navlinks .hidem {
+    display: none;
+  }
+
+  .afminnav .navtoggle {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ── Mobile menu overlay ──────────────────────────────────────
+   Portaled to <body>, so it lives OUTSIDE the .afmin / .wrap / nav
+   stacking contexts (the .rise entrance transforms make those
+   permanent stacking contexts, which trapped the menu behind the
+   hero image). It inherits the minimal-theme tokens from :root, so it
+   only needs the font here — no background or layout box of its own. */
+.afmin-overlay {
+  font-family: var(--font-hanken), "Hanken Grotesk", sans-serif;
+}
+
+.afmin-overlay .navscrim {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  animation: afmin-scrim-in .22s ease both;
+}
+
+.afmin-overlay .navscrim.closing {
+  animation: afmin-scrim-out .18s ease forwards;
+}
+
+.afmin-overlay .navmenu {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  background: #101012;
+  border: 1px solid var(--m-line);
+  border-radius: 14px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+  animation: afmin-menu-in .22s cubic-bezier(.2, .7, .2, 1) both;
+}
+
+.afmin-overlay .navmenu.closing {
+  animation: afmin-menu-out .18s ease forwards;
+}
+
+.afmin-overlay .navmenu a {
+  font-family: var(--font-mono), monospace;
+  font-size: 14px;
+  letter-spacing: .04em;
+  color: var(--m-muted);
+  text-decoration: none;
+  padding: 14px 16px;
+  border-radius: 8px;
+  transition: background .2s, color .2s;
+}
+
+.afmin-overlay .navmenu a:hover {
+  background: rgba(245, 200, 0, 0.06);
+  color: var(--m-ink);
+}
+
+.afmin-overlay .navmenu-close {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px 10px;
+}
+
+@keyframes afmin-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes afmin-menu-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes afmin-scrim-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes afmin-scrim-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* never show the dropdown on desktop, even if state lingers */
+@media (min-width:721px) {
+
+  .afmin-overlay .navmenu,
+  .afmin-overlay .navscrim {
+    display: none;
+  }
+}
+
+/* ---------- hero ---------- */
+.afmin .hero {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 48px;
+  align-items: center;
+  min-height: 78vh;
+  padding: 40px 0 60px;
+}
+
+.afmin .eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.afmin .eyebrow::before {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: var(--gold-dim);
+}
+
+.afmin h1 {
+  font-family: var(--font-fraunces), serif;
+  font-weight: 300;
+  font-size: clamp(44px, 6.5vw, 82px);
+  line-height: 1.02;
+  letter-spacing: -.02em;
+  margin-bottom: 26px;
+  color: var(--m-ink);
+}
+
+.afmin h1 em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.afmin .lede {
+  font-size: clamp(16px, 1.6vw, 18px);
+  color: #cfcabf;
+  max-width: none;
+  margin-bottom: 36px;
+}
+
+.afmin .lede a {
+  color: var(--m-ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+}
+
+.afmin .lede a:hover {
+  color: var(--gold);
+}
+
+.afmin .cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ShadCN-style buttons: solid gold primary + outline secondary */
+.afmin .cta a {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 20px;
+  border-radius: 8px;
+  background: var(--gold);
+  color: #1c1700;
+  border: 1px solid var(--gold);
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease,
+    border-color .2s ease, color .2s ease;
+}
+
+.afmin .cta a:hover {
+  background: #f9d23a;
+  border-color: #f9d23a;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(245, 200, 0, 0.18);
+}
+
+.afmin .cta a .arr {
+  color: currentColor;
+  transition: transform .2s ease;
+}
+
+.afmin .cta a:hover .arr {
+  transform: translateX(4px);
+}
+
+/* secondary / outline */
+.afmin .cta .ghost {
+  background: transparent;
+  color: var(--m-ink);
+  border: 1px solid var(--m-line);
+}
+
+.afmin .cta .ghost:hover {
+  background: rgba(245, 200, 0, 0.06);
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: none;
+}
+
+.afmin .cta .ghost .arr {
+  color: var(--gold);
+}
+
+/* ---------- vitruvian frame ---------- */
+.afmin .figframe {
+  position: relative;
+  aspect-ratio: 1/1.08;
+  border: 1px solid var(--m-line);
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(60% 55% at 50% 46%, rgba(245, 200, 0, 0.06), transparent 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, .015), transparent);
+  overflow: hidden;
+}
+
+/* gold corner brackets — all four corners */
+.afmin .figframe .figcorner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  z-index: 3;
+}
+
+.afmin .figframe .figcorner.tl {
+  top: 9px;
+  left: 9px;
+  border-top: 1px solid var(--gold);
+  border-left: 1px solid var(--gold);
+}
+
+.afmin .figframe .figcorner.tr {
+  top: 9px;
+  right: 9px;
+  border-top: 1px solid var(--gold);
+  border-right: 1px solid var(--gold);
+}
+
+.afmin .figframe .figcorner.bl {
+  bottom: 9px;
+  left: 9px;
+  border-bottom: 1px solid var(--gold);
+  border-left: 1px solid var(--gold);
+}
+
+.afmin .figframe .figcorner.br {
+  bottom: 9px;
+  right: 9px;
+  border-bottom: 1px solid var(--gold);
+  border-right: 1px solid var(--gold);
+}
+
+/* circular "orb" that holds the figure */
+.afmin .figorb {
+  position: relative;
+  width: 92%;
+  aspect-ratio: 1/1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+/* faint outer ring */
+.afmin .figorb::after {
+  content: "";
+  position: absolute;
+  inset: 2%;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 161, 74, 0.22);
+  box-shadow: 0 0 40px rgba(245, 200, 0, 0.05) inset;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* circular mask fades the square png corners into the dark */
+.afmin .figorb img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+  border-radius: 50%;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 70%, transparent 75%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 70%, transparent 75%);
+}
+
+.afmin .figcap {
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--font-mono), monospace;
+  font-size: 10.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--m-muted);
+  z-index: 3;
+}
+
+@media (max-width:840px) {
+  .afmin .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 32px;
+    padding: 8px 0 48px;
+  }
+
+  .afmin .figframe {
+    max-width: 360px;
+    margin: 0 auto;
+    order: -1;
+  }
+}
+
+/* ---------- stat strip ---------- */
+.afmin .stats {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--m-line);
+  border-bottom: 1px solid var(--m-line);
+}
+
+.afmin .stat {
+  flex: 1;
+  padding: 26px 8px;
+  text-align: center;
+  border-right: 1px solid var(--m-line);
+}
+
+.afmin .stat:last-child {
+  border-right: none;
+}
+
+.afmin .stat b {
+  display: block;
+  font-family: var(--font-fraunces), serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: var(--m-ink);
+}
+
+.afmin .stat span {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--m-muted);
+}
+
+/* a stat that links somewhere */
+.afmin a.stat-link {
+  text-decoration: none;
+  color: inherit;
+  transition: background .25s;
+}
+
+.afmin a.stat-link:hover {
+  background: linear-gradient(180deg, rgba(245, 200, 0, .05), transparent);
+}
+
+.afmin a.stat-link:hover b {
+  color: var(--gold);
+}
+
+.afmin a.stat-link:hover span {
+  color: var(--m-ink);
+}
+
+/* stack the stats vertically on phones so labels aren't squeezed */
+@media (max-width:600px) {
+  .afmin .stats {
+    flex-direction: column;
+  }
+
+  .afmin .stat {
+    border-right: none;
+    border-bottom: 1px solid var(--m-line);
+  }
+
+  .afmin .stat:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ---------- sections ---------- */
+.afmin section {
+  padding: 96px 0;
+}
+
+.afmin .shead {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin-bottom: 46px;
+}
+
+.afmin .snum {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  color: var(--gold-dim);
+  letter-spacing: .1em;
+}
+
+.afmin .shead h2 {
+  font-family: var(--font-fraunces), serif;
+  font-weight: 300;
+  font-size: clamp(28px, 3.6vw, 40px);
+  letter-spacing: -.01em;
+  color: var(--m-ink);
+}
+
+.afmin .shead h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.afmin .shead-link {
+  margin-left: auto;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--m-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color .25s;
+}
+
+.afmin .shead-link:hover {
+  color: var(--gold);
+}
+
+.afmin .shead-link .arr {
+  color: var(--gold);
+}
+
+/* drop the header link onto its own line on phones */
+@media (max-width:600px) {
+  .afmin .shead {
+    flex-wrap: wrap;
+  }
+
+  .afmin .shead-link {
+    margin-left: 0;
+    flex-basis: 100%;
+    margin-top: 6px;
+  }
+}
+
+/* "View all" for the writing list — top on desktop, bottom on mobile */
+.afmin .viewall-mobile {
+  display: none;
+}
+
+@media (max-width:600px) {
+
+  /* hide the header "View all" so it doesn't sit above the articles */
+  .afmin .writing .shead-link {
+    display: none;
+  }
+
+  .afmin .viewall-mobile {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 26px;
+    font-family: var(--font-mono), monospace;
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--m-muted);
+    text-decoration: none;
+  }
+
+  .afmin .viewall-mobile .arr {
+    color: var(--gold);
+  }
+}
+
+/* selected work — compact rows, not cards */
+.afmin .work a {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px;
+  align-items: center;
+  text-decoration: none;
+  color: var(--m-ink);
+  padding: 26px 0;
+  border-top: 1px solid var(--m-line);
+  transition: padding-left .3s, background .3s;
+}
+
+.afmin .work a:last-child {
+  border-bottom: 1px solid var(--m-line);
+}
+
+.afmin .work a:hover {
+  padding-left: 14px;
+  background: linear-gradient(90deg, rgba(245, 200, 0, .04), transparent);
+}
+
+.afmin .work .idx {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  color: var(--m-muted);
+}
+
+.afmin .work .title {
+  font-family: var(--font-fraunces), serif;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.afmin .work .meta {
+  font-size: 13px;
+  color: var(--m-muted);
+  margin-top: 4px;
+}
+
+.afmin .work .tags {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  color: var(--gold-dim);
+  letter-spacing: .05em;
+  white-space: nowrap;
+}
+
+.afmin .work a:hover .arr {
+  transform: translateX(5px);
+  opacity: 1;
+}
+
+.afmin .work .arr {
+  color: var(--gold);
+  opacity: .4;
+  transition: transform .25s, opacity .25s;
+}
+
+@media (max-width:680px) {
+  .afmin .work a {
+    grid-template-columns: auto 1fr;
+  }
+
+  .afmin .work .tags {
+    display: none;
+  }
+}
+
+/* experience — one line each */
+.afmin .exp .row {
+  display: grid;
+  grid-template-columns: 160px 1fr auto;
+  gap: 20px;
+  align-items: baseline;
+  padding: 20px 0;
+  border-top: 1px solid var(--m-line);
+}
+
+.afmin .exp .row:last-child {
+  border-bottom: 1px solid var(--m-line);
+}
+
+.afmin .exp .yr {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  color: var(--m-muted);
+  letter-spacing: .04em;
+}
+
+.afmin .exp .role b {
+  font-weight: 600;
+}
+
+.afmin .exp .role span {
+  color: var(--m-muted);
+}
+
+.afmin .exp .where {
+  color: var(--gold-dim);
+  font-size: 13px;
+  text-align: right;
+}
+
+.afmin .exp .where a {
+  color: var(--gold-dim);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+
+.afmin .exp .where a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+@media (max-width:680px) {
+  .afmin .exp .row {
+    grid-template-columns: 1fr;
+  }
+
+  .afmin .exp .where {
+    text-align: left;
+  }
+}
+
+/* stack — compact text rows, no icon wall */
+.afmin .stack .line {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 24px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-top: 1px solid var(--m-line);
+}
+
+.afmin .stack .line:last-child {
+  border-bottom: 1px solid var(--m-line);
+}
+
+.afmin .stack .k {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--m-muted);
+}
+
+.afmin .stack .v {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.afmin .stack .v span {
+  font-size: 15px;
+  color: #cfcabf;
+  transition: color .2s;
+  cursor: default;
+}
+
+.afmin .stack .v span:hover {
+  color: var(--gold);
+}
+
+@media (max-width:680px) {
+  .afmin .stack .line {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+/* recommendations — trimmed one-liners */
+.afmin .recs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.afmin .rec {
+  display: block;
+  border-top: 1px solid var(--m-line);
+  padding-top: 26px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .25s;
+}
+
+.afmin a.rec:hover {
+  border-color: var(--gold-dim);
+}
+
+.afmin a.rec:hover .who b {
+  color: var(--gold);
+}
+
+.afmin .rec .mark {
+  font-family: var(--font-fraunces), serif;
+  font-size: 38px;
+  line-height: .4;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 14px;
+}
+
+.afmin .rec p {
+  font-family: var(--font-fraunces), serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--m-ink);
+  margin-bottom: 18px;
+}
+
+.afmin .rec .who {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: var(--m-muted);
+}
+
+.afmin .rec .who b {
+  display: block;
+  color: var(--m-ink);
+  font-weight: 700;
+  letter-spacing: .02em;
+  margin-bottom: 2px;
+  text-transform: none;
+}
+
+@media (max-width:760px) {
+  .afmin .recs {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ---------- footer ---------- */
+.afmin footer {
+  border-top: 1px solid var(--m-line);
+  padding: 60px 0 70px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.afmin .fgrid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+}
+
+.afmin .fgrid h4 {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--m-muted);
+  margin-bottom: 18px;
+  font-weight: 400;
+}
+
+.afmin .fgrid a {
+  display: block;
+  color: #cfcabf;
+  text-decoration: none;
+  padding: 5px 0;
+  font-size: 14px;
+  transition: color .2s;
+}
+
+.afmin .fgrid a:hover {
+  color: var(--gold);
+}
+
+.afmin .fbrand .logo {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.afmin .fbrand p {
+  color: var(--m-muted);
+  font-size: 14px;
+  max-width: 30ch;
+}
+
+.afmin .fnote {
+  margin-top: 44px;
+  padding-top: 24px;
+  border-top: 1px solid var(--m-line);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--m-muted);
+  font-family: var(--font-mono), monospace;
+}
+
+.afmin .fnote a {
+  color: var(--m-muted);
+  transition: color .2s;
+}
+
+.afmin .fnote a:hover {
+  color: var(--gold);
+}
+
+@media (max-width:680px) {
+  .afmin .fgrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* page-load stagger */
+.afmin .rise {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: afmin-rise .8s cubic-bezier(.2, .7, .2, 1) forwards;
+}
+
+@keyframes afmin-rise {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.afmin .d1 {
+  animation-delay: .05s;
+}
+
+.afmin .d2 {
+  animation-delay: .15s;
+}
+
+.afmin .d3 {
+  animation-delay: .28s;
+}
+
+.afmin .d4 {
+  animation-delay: .42s;
+}
+
+.afmin .d5 {
+  animation-delay: .56s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .afmin .rise {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }

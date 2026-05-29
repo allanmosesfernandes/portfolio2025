@@ -1,6 +1,6 @@
 import './globals.css';
-import { Bebas_Neue, DM_Sans, Space_Mono, Cormorant_Garamond, EB_Garamond } from 'next/font/google';
-import Nav from '@/components/Nav';
+import { Bebas_Neue, DM_Sans, Space_Mono, Cormorant_Garamond, EB_Garamond, Fraunces, Hanken_Grotesk } from 'next/font/google';
+import MinimalNav from '@/components/MinimalNav';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Script from 'next/script';
@@ -37,6 +37,19 @@ const ebGaramond = EB_Garamond({
     variable: '--font-eb-garamond',
 });
 
+const fraunces = Fraunces({
+    subsets: ['latin'],
+    weight: ['300', '400', '500'],
+    style: ['normal', 'italic'],
+    variable: '--font-fraunces',
+});
+
+const hankenGrotesk = Hanken_Grotesk({
+    subsets: ['latin'],
+    weight: ['400', '500', '600'],
+    variable: '--font-hanken',
+});
+
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
@@ -49,9 +62,9 @@ export default function RootLayout({ children }) {
                 <meta name="theme-color" content="#F5C800" />
             </head>
             <body
-                className={`${bebasNeue.variable} ${dmSans.variable} ${spaceMono.variable} ${cormorantGaramond.variable} ${ebGaramond.variable} bg-ink text-paper antialiased font-sans`}
+                className={`${bebasNeue.variable} ${dmSans.variable} ${spaceMono.variable} ${cormorantGaramond.variable} ${ebGaramond.variable} ${fraunces.variable} ${hankenGrotesk.variable} bg-ink text-paper antialiased font-sans`}
             >
-                <Nav />
+                <MinimalNav />
                 {children}
                 <Analytics />
                 <SpeedInsights />

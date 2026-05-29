@@ -1,6 +1,8 @@
 {
     "workbench.colorCustomizations": {
-        "tree.indentGuidesStroke": "#05ef3c"
+        "tree.indentGuidesStroke": "#05ef3c",
+        "statusBar.noFolderBackground": "#580D3B",
+        "statusBar.noFolderForeground": "#FFFCFD"
     },
     "cSpell.words": ["Fernandes"]
 }

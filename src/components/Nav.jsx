@@ -10,6 +10,9 @@ const Nav = () => {
     // Don't show the nav on admin pages
     if (pathname.startsWith('/admin')) return null;
 
+    // The homepage carries its own minimal inline nav
+    if (pathname === '/') return null;
+
     const isHomepage = pathname === '/';
 
     const links = [
@@ -53,7 +56,7 @@ const Nav = () => {
                         <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse-dot"></span>
                     </span>
                     <a
-                        href="/Allan_Fernandes.pdf"
+                        href="/Allan_Fernandes_CV.pdf"
                         target="_blank"
                         className="btn-primary !py-2 !px-4 !text-xs"
                         data-cursor="btn"
@@ -91,7 +94,7 @@ const Nav = () => {
                         ))}
                         <li>
                             <a
-                                href="/Allan_Fernandes.pdf"
+                                href="/Allan_Fernandes_CV.pdf"
                                 target="_blank"
                                 className="btn-primary"
                                 onClick={() => setMobileOpen(false)}

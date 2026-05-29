@@ -6,11 +6,11 @@ export const dynamic = 'force-dynamic';
 export const metadata = {
     title: 'Allan Fernandes — Software Engineer',
     description:
-        'Allan Fernandes is a software engineer based in Nottingham, UK. Building cool things on the internet while caring deeply about accessibility and user experience.',
+        'Allan Fernandes is a software engineer based in London, UK. Building cool things on the internet while caring deeply about accessibility and user experience.',
     openGraph: {
         title: 'Allan Fernandes — Software Engineer',
         description:
-            'Allan Fernandes is a software engineer based in Nottingham, UK. Building cool things on the internet while caring deeply about accessibility and user experience.',
+            'Allan Fernandes is a software engineer based in London, UK. Building cool things on the internet while caring deeply about accessibility and user experience.',
         images: [
             {
                 url: '/og-image.png',
